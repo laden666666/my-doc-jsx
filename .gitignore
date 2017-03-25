@@ -32,3 +32,4 @@ unpackage/
 node_modules/
 .tmp
 *.log
+*.bat

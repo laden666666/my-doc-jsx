@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="../node_modules/react/dist/react.min.js"></script>
+    <script src="my-blog-theme.js"></script>
+    <script>
+        var text = `<h1 test="1">
+            sfsfsf{"<span>"}sfsdf{"</span>"}sdfsf
+        </h1>`;
+        var script = myBlogTheme.out(text);
+        console.log(script);
+    </script>
+</body>
+</html>
