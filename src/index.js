@@ -1,6 +1,7 @@
 import transform from './core/transform';
-import BaseTag from './core/InlineTag';
+import InlineTag from './core/InlineTag';
 import BaseRender from './core/BaseRender';
+import HTMLRender from './render/HTMLRender';
 var React = require('React');
 
 var tags = {
@@ -15,16 +16,19 @@ function out(file, option) {
         for(var tagName in sandbox.tags){
             sandbox[tagName] = sandbox.tags[tagName];
         }
+
         script += "'use strict'; return " + transform(file, option);
         script = "(function(){" + script + "})()";
         
         var ctx = vm.createContext(sandbox);
-        return vm.runInContext(script, ctx);
+        var vd = vm.runInContext(script, ctx);
+
+        return new HTMLRender().render(vd);
     }).bind(this)({tags, React}, vm)
 }
 
 module.exports = {
-    BaseTag,
+    InlineTag,
     BaseRender,
     out,
 }

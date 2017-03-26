@@ -2,8 +2,8 @@
  * Created by njz on 2017/3/26.
  */
 class Tree{
-    constructor(){
-        this.root = new Node(null, Infinity);
+    constructor(root=null){
+        this.root = new Node(root, Infinity);
         this.currentNode = this.root;
     }
 

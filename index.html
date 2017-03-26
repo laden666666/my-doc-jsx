@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="blog"></div>
+<script src="./static/react.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var text = `<nav/>
+        <h1 test="1">
+            sfsfsf<span>xxxx</span>sdfsf
+        </h1>
+        <h2>sdfsfs</h2>
+        <p>惺惺惜惺惺想</p>`;
+        var script = myBlog.out(text);
+        console.log(script)
+        document.querySelector('#blog').innerHTML = script;
+    })
+</script>
+</body>
+</html>

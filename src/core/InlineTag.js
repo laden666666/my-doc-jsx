@@ -1,11 +1,24 @@
+import Output from './Output';
+import BaseTag from './BaseTag';
+
 /**
  * 基础标签,所有标签都是继承继承标签的
  */
-class BaseTag{
+class InlineTag extends BaseTag{
 
-    render(selfDom, output){
-        console.warn("不支持渲染此行内标签：" + selfDom.type);
+    _setDom(selfDom, render){
+        this.selfDom = selfDom;
+        this._render = render;
+        this._output = new Output();
+    }
+
+    render(){
+        console.warn("不支持渲染此行内标签：" + this.selfDom.type);
+    }
+
+    append(str){
+        this._output.append(str);
     }
 }
 
-export default BaseTag;
+export default InlineTag;

@@ -1,16 +1,14 @@
+import BaseTag from './BaseTag';
+
 /**
  * 基础标签,所有标签都是继承继承标签的
  */
-class BlockTag{
+class BlockTag extends BaseTag{
     constructor(){
-        //块标签的优先级。0内容、1四级标题、2三级标题、3二级标题、4一级标题
-        this.priority = 0;
-    }
+        super();
 
-    _setDom(selfDom, output, allDom){
-        this.selfDom = selfDom;
-        this.output = output;
-        this.allDom = allDom;
+        //块标签的优先级。0内容、11四级标题、12三级标题、13二级标题、14一级标题 20导航
+        this.priority = 0;
     }
 
     render(childrenRender){

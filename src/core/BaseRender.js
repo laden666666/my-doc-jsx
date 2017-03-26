@@ -1,4 +1,5 @@
 import BlockTag from './BlockTag'
+import InlineTag from './InlineTag'
 import Output from './Output'
 import Tree from './Tree'
 
@@ -29,36 +30,84 @@ class BaseRender{
             throw new TypeError("blog is invalid Virtual Dom");
         }
 
+        var getTagInstance = (item)=>{
+            var type;
+            if(typeof item == 'string'){
+                type = 'string';
+            } else{
+                type = item.type;
+            }
+
+            var TypeClass = this.$blockTagMap[type] || BlockTag;
+            var itemTag = new TypeClass();
+            itemTag._setDom(item, this, blog);
+
+            return itemTag;
+        }
+
         if(blog.props.children){
             if(!(blog.props.children instanceof Array)){
                 blog.props.children = [blog.props.children];
             }
 
-            var domTree = new Tree();
+            var domTree = new Tree(getTagInstance(blog));
             blog.props.children.forEach((item)=>{
-                var type;
-                if(typeof item == 'string'){
-                    type = 'string';
-                } else{
-                    type = item.type;
-                }
-
-                var TypeClass = this.$blockTagMap[type] || BlockTag;
-                var itemTag = new TypeClass();
-                itemTag._setDom(item, this.output, blog);
-                domTree.append(itemTag, itemTag.priority);
+                var tagInstance = getTagInstance(item);
+                domTree.append(tagInstance, tagInstance.priority);
             })
 
             this._renderTree(domTree.root, blog);
         }
+
+        return this.output.getContent();
     }
 
-    _renderTree(domTree, allDom){
-        domTree.render(()=>{
-            this.children.forEach((childTree)=>{
+    _renderTree(node, allDom){
+        var renderChildTree = ()=>{
+            node.childNodes.forEach((childTree)=>{
                 this._renderTree(childTree)
             })
-        })
+        };
+
+        if(node.content){
+            node.content.render(renderChildTree)
+        } else {
+            renderChildTree()
+        }
+    }
+
+    _renderLine(list){
+        this.output.append(this._getLine(list))
+
+    }
+
+    _getLine(list){
+        var str = ""
+
+        if(!list){
+            return;
+        }
+        if(!(list instanceof Array)){
+            list = [list];
+        }
+        list.map(item=>{
+            var type;
+            if(typeof item == 'string'){
+                type = 'string';
+            } else{
+                type = item.type;
+            }
+
+            var TypeClass = this.$inlineTagMap[type] || InlineTag;
+            var itemTag = new TypeClass();
+            itemTag._setDom(item, this);
+
+            itemTag.render();
+
+            str += itemTag._output.getContent();
+        });
+
+        return str;
     }
 
     registerBlockTag(tagName, fn){
