@@ -1,46 +1,27 @@
 /**
- * Created by njz on 2017/3/26.
+ * 整个blog生成的树
  */
 class Tree{
-    constructor(root=null){
-        this.root = new Node(root, Infinity);
+    constructor(root){
+        this.root = root;
+        root.setTree(this);
         this.currentNode = this.root;
     }
 
-    append(content, value){
-        var node = new Node(content, value);
-        if(this.currentNode.value > value){
-            this.currentNode.append(node);
-            this.currentNode = node;
-        } else if(this.currentNode.value == value){
-            this.currentNode.getParentNode().append(node);
-            this.currentNode = node;
-        } else if(this.currentNode.value > value){
-            this.currentNode = this.currentNode.getParentNode();
-            this.append(content, value)
-        }
-    }
-}
-
-class Node{
-    constructor(content, value, parentNode=null){
-        this.parentNode = parentNode;
-        this.childNodes = [];
-        this.content = content;
-        this.value = value;
-    }
-
+    //增加节点，这里增加的是快级元素生成的节点，不允许增加行内元素节点
     append(node){
-        this.childNodes.push(node);
-        node.parentNode = this;
-    }
-
-    getLastChildNode(){
-        return this.childNodes.length ? this.childNodes[this.childNodes.length - 1] : null;
-    }
-
-    getParentNode(){
-        return this.getParentNode;
+        if(this.currentNode.priority > node.priority){
+            this.currentNode.appendChild(node);
+            this.currentNode = node;
+            node.tree = this;
+        } else if(this.currentNode.priority == node.priority){
+            this.currentNode.parentNode.appendChild(node);
+            this.currentNode = node;
+            node.tree = this;
+        } else if(this.currentNode.priority > node.priority){
+            this.currentNode = this.currentNode.parentNode;
+            this.append(node)
+        }
     }
 }
 

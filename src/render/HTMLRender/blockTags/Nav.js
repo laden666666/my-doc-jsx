@@ -4,7 +4,7 @@
 import BlockTag from '../../../core/BlockTag'
 import stlye from './Nav.css'
 
-class Blog extends BlockTag{
+class Nav extends BlockTag{
     constructor(){
         super();
         this.priority = 10;
@@ -25,4 +25,4 @@ class Blog extends BlockTag{
     }
 }
 
-export default Blog;
+export default Nav;

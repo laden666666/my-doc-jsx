@@ -23,43 +23,70 @@ class BaseRender{
         this.output = new Output();
     }
 
+    _getTagInstance(item, tagMap=this.$blockTagMap){
+        var type;
+        if(typeof item == 'string'){
+            type = 'string';
+        } else{
+            type = item.type;
+        }
+
+        return tagMap[type] || BlockTag;
+    }
+
+    _createTree(blog){
+
+        if(blog.props.children){
+            if(!Array.isArray(blog.props.children)){
+                blog.props.children = [blog.props.children];
+            }
+
+            var BlogClass = new this._getTagInstance(blog);
+            var domTree = new Tree(new BlogClass(this, blog));
+            blog.props.children.forEach((item)=>{
+                var ItemClass = new this._getTagInstance(item);
+                var tagInstance = new ItemClass(this, item);
+                domTree.append(tagInstance, tagInstance.priority);
+            })
+
+            console.log(domTree)
+
+            //this.output.append(this._renderTree(domTree.root, blog));
+        }
+    }
+
+    _createTextTree(blockTagInstance){
+        var content = blockTagInstance.content;
+        if(content.props.children){
+            if(!Array.isArray(content.props.children)){
+                content.props.children = [content.props.children];
+            }
+
+            var BlogClass = this._getTagInstance(content, this.$blockTagMap);
+            var domTree = new Tree(new BlogClass(this, blog));
+            blog.props.children.forEach((item)=>{
+                var ItemClass = this._getTagInstance(item, this.$blockTagMap);
+                var tagInstance = new ItemClass(this, item);
+                domTree.append(tagInstance, tagInstance.priority);
+            })
+
+            console.log(domTree)
+
+            //this.output.append(this._renderTree(domTree.root, blog));
+        }
+    }
+
     //渲染的具体逻辑
     render(blog){
+
         //检验是否是虚拟dom
         if(!blog || !blog.props || blog.type != "blog"){
             throw new TypeError("blog is invalid Virtual Dom");
         }
 
-        var getTagInstance = (item)=>{
-            var type;
-            if(typeof item == 'string'){
-                type = 'string';
-            } else{
-                type = item.type;
-            }
 
-            var TypeClass = this.$blockTagMap[type] || BlockTag;
-            var itemTag = new TypeClass();
-            itemTag._setDom(item, this, blog);
 
-            return itemTag;
-        }
-
-        if(blog.props.children){
-            if(!(blog.props.children instanceof Array)){
-                blog.props.children = [blog.props.children];
-            }
-
-            var domTree = new Tree(getTagInstance(blog));
-            blog.props.children.forEach((item)=>{
-                var tagInstance = getTagInstance(item);
-                domTree.append(tagInstance, tagInstance.priority);
-            })
-
-            this._renderTree(domTree.root, blog);
-        }
-
-        return this.output.getContent();
+        //return this.output.getContent();
     }
 
     _renderTree(node, allDom){
