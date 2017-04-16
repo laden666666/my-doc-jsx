@@ -4,14 +4,19 @@ import Node from './Node';
  * 基础标签,所有标签都是继承继承标签的
  */
 class InlineTag extends Node{
-    constructor(render, content, parentNode=null){
-        super(render, content, parentNode)
-        this.priority = 0;
+    constructor(renderTools, content, tree, parentNode=null){
+        super(content, tree, parentNode);
+        //输出工具
+        this.renderTools = renderTools;
     }
 
-    render(){
+    render(childrenRender){
         console.warn("不支持渲染此行内标签：" + this.selfDom.type);
         return "";
+    }
+
+    renderChildren(children){
+        return this.renderTools.renderChildren(children);
     }
 }
 

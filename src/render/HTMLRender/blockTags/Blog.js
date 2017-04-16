@@ -5,15 +5,15 @@ import BlockTag from '../../../core/BlockTag';
 import style from './Blog.css';
 
 class Blog extends BlockTag{
-    constructor(render, content, parentNode=null){
-        super(render, content, parentNode)
+    constructor(renderTools, content, tree, parentNode){
+        super(renderTools, content, tree, parentNode)
         this.priority = Infinity;
     }
 
-    render(subRender){
-        this.append("<article class='myblog'>");
-        subRender()
-        this.append("</article>");
+    render(){
+        return `<article class='myblog'>
+                    ${this.renderChildren(this.childNodes)}
+                </article>`
     }
 }
 

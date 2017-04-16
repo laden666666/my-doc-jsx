@@ -1,7 +1,7 @@
 /**
  * Created by njz on 2017/3/25.
  */
-import BaseRender from '../../core/BaseRender';
+import BaseRenderTools from '../../core/BaseRenderTools';
 import Blog from './blockTags/Blog';
 import H1 from './blockTags/H1';
 import H2 from './blockTags/H2';
@@ -12,7 +12,7 @@ import Nav from './blockTags/Nav';
 import String from './inlineTags/String';
 import Span from './inlineTags/Span';
 
-class HTMLRender extends BaseRender{
+class HTMLRender extends BaseRenderTools{
     constructor(){
         super()
         this.$blockTagMap = {

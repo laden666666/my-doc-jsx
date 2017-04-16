@@ -4,8 +4,11 @@
 import InlineTag from '../../../core/InlineTag'
 
 class String extends InlineTag{
+    constructor(renderTools, content, tree, parentNode){
+        super(renderTools, content, tree, parentNode)
+    }
     render(){
-        this.append(this.selfDom);
+        return this.content;
     }
 }
 

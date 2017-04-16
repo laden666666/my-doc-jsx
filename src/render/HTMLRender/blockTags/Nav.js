@@ -5,23 +5,19 @@ import BlockTag from '../../../core/BlockTag'
 import stlye from './Nav.css'
 
 class Nav extends BlockTag{
-    constructor(){
-        super();
+    constructor(renderTools, content, tree, parentNode){
+        super(renderTools, content, tree, parentNode)
         this.priority = 10;
     }
-    render(subRender){
-
-
-        this.append(
-            `<div class='myblog_nav'
+    render(){
+        var str = `<div class='myblog_nav'>
                 <aside class='myblog_nav_nav'>
-                     
                 </aside>
-                <div class='myblog_nav_content'>`)
-                    subRender()
-        this.append(
-                `</div>
-            </div>`);
+                <div class='myblog_nav_content'>
+                    ${this.renderChildren(this.childNodes)}
+                </div>
+            </div>`;
+        return str;
     }
 }
 

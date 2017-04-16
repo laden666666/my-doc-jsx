@@ -2,6 +2,7 @@ import BlockTag from './BlockTag'
 import InlineTag from './InlineTag'
 import Output from './Output'
 import Tree from './Tree'
+import Node from './Node'
 
 /**
  * Created by njz on 17/2/28.
@@ -16,14 +17,14 @@ import Tree from './Tree'
  * 虚标签是供block标签内部渲染的标签，并不会被放到tree中。inlineTag是特殊的虚标签，他会被renderLine处理。inlineTag和其他虚标签一样
  * ，必须放到block标签中，否则会被忽略掉
  */
-class BaseRender{
+class BaseRenderTools{
     constructor(){
         this.$blockTagMap = {};
         this.$inlineTagMap = {};
         this.output = new Output();
     }
 
-    _getTagInstance(item, tagMap=this.$blockTagMap){
+    _getTagInstance(item, tagMap){
         var type;
         if(typeof item == 'string'){
             type = 'string';
@@ -34,46 +35,69 @@ class BaseRender{
         return tagMap[type] || BlockTag;
     }
 
-    _createTree(blog){
+    _createBlogTree(blog){
 
         if(blog.props.children){
             if(!Array.isArray(blog.props.children)){
                 blog.props.children = [blog.props.children];
             }
 
-            var BlogClass = new this._getTagInstance(blog);
+            var BlogClass = new this._getTagInstance(blog, this.$blockTagMap);
             var domTree = new Tree(new BlogClass(this, blog));
             blog.props.children.forEach((item)=>{
-                var ItemClass = new this._getTagInstance(item);
+                var ItemClass = new this._getTagInstance(item, this.$blockTagMap);
                 var tagInstance = new ItemClass(this, item);
-                domTree.append(tagInstance, tagInstance.priority);
+                this._appendBlockChildren(domTree, tagInstance);
+
+                tagInstance.setTextTree(this._createTextTree(tagInstance));
             })
 
             console.log(domTree)
 
             //this.output.append(this._renderTree(domTree.root, blog));
+        }
+        return domTree;
+    }
+
+    //增加节点，这里增加的是快级元素生成的节点，不允许增加行内元素节点
+    _appendBlockChildren(tree, node){
+        if(tree.currentNode.priority > node.priority){
+            tree.currentNode.appendChild(node);
+            tree.currentNode = node;
+            node.tree = tree;
+        } else if(tree.currentNode.priority == node.priority){
+            tree.currentNode.parentNode.appendChild(node);
+            tree.currentNode = node;
+            node.tree = tree;
+        } else if(tree.currentNode.priority > node.priority){
+            tree.currentNode = this.currentNode.parentNode;
+            tree.append(node)
         }
     }
 
     _createTextTree(blockTagInstance){
-        var content = blockTagInstance.content;
-        if(content.props.children){
-            if(!Array.isArray(content.props.children)){
-                content.props.children = [content.props.children];
-            }
+        var root = new Node();
+        var textTree = new Tree(root);
 
-            var BlogClass = this._getTagInstance(content, this.$blockTagMap);
-            var domTree = new Tree(new BlogClass(this, blog));
-            blog.props.children.forEach((item)=>{
-                var ItemClass = this._getTagInstance(item, this.$blockTagMap);
-                var tagInstance = new ItemClass(this, item);
-                domTree.append(tagInstance, tagInstance.priority);
-            })
-
-            console.log(domTree)
-
-            //this.output.append(this._renderTree(domTree.root, blog));
+        this._appendTextChildren(textTree, blockTagInstance.content.props.children)
+        return textTree;
+    }
+    _appendTextChildren(tree, childrens=[]){
+        if(!Array.isArray(childrens)){
+            childrens = [childrens];
         }
+        childrens.forEach(child=>{
+            var InlineClass = this._getTagInstance(child, this.$inlineTagMap);
+            var tagInstance = new InlineClass(this, child);
+            tree.currentNode.appendChild(tagInstance);
+
+            if(typeof child != 'string' && child.props.children.length){
+                var _currentNode = tree.currentNode;
+                tree.currentNode = tagInstance;
+                this._appendTextChildren(tree, child.props.children)
+                tree.currentNode = _currentNode;
+            }
+        })
     }
 
     //渲染的具体逻辑
@@ -84,56 +108,16 @@ class BaseRender{
             throw new TypeError("blog is invalid Virtual Dom");
         }
 
-
-
-        //return this.output.getContent();
+        var tree = this._createBlogTree(blog);
+        this.output.append(tree.root.render());
+        return this.output.getContent();
     }
 
-    _renderTree(node, allDom){
-        var renderChildTree = ()=>{
-            node.childNodes.forEach((childTree)=>{
-                this._renderTree(childTree)
-            })
-        };
-
-        if(node.content){
-            node.content.render(renderChildTree)
-        } else {
-            renderChildTree()
-        }
-    }
-
-    _renderLine(list){
-        this.output.append(this._getLine(list))
-
-    }
-
-    _getLine(list){
-        var str = ""
-
-        if(!list){
-            return;
-        }
-        if(!(list instanceof Array)){
-            list = [list];
-        }
-        list.map(item=>{
-            var type;
-            if(typeof item == 'string'){
-                type = 'string';
-            } else{
-                type = item.type;
-            }
-
-            var TypeClass = this.$inlineTagMap[type] || InlineTag;
-            var itemTag = new TypeClass();
-            itemTag._setDom(item, this);
-
-            itemTag.render();
-
-            str += itemTag._output.getContent();
+    renderChildren(childNodes){
+        var str = '';
+        childNodes.forEach((childTree)=>{
+            str += childTree.render()
         });
-
         return str;
     }
 
@@ -154,4 +138,4 @@ class BaseRender{
     }
 }
 
-export default BaseRender;
+export default BaseRenderTools;

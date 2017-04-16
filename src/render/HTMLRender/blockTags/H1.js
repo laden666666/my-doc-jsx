@@ -5,24 +5,23 @@ import BlockTag from '../../../core/BlockTag'
 import style from './H1.css'
 
 class H1 extends BlockTag{
-    constructor(){
-        super();
+    constructor(renderTools, content, tree, parentNode){
+        super(renderTools, content, tree, parentNode)
         this.priority = 4;
     }
 
-    render(subRender){
-        this.append(
+    render() {
+        var str =
             `<div class="myblog_h1">
-                <a class="myblog_h1_a" href="#${this.getLine(this.children)}">
-                    <h1 id="${this.getLine(this.children)}" class="myblog_h1_h1">${this.getLine(this.children)}</h1>
+                <a class="myblog_h1_a">
+                    <h1 class="myblog_h1_h1">${this.renderChildren(this.getTextChildren())}</h1>
                 </a>
-                <div class="myblog_h1_content">`)
-                    subRender()
-        this.append(
-                `</div>
-            </div>`);
-
-}
+                <div class="myblog_h1_content">
+                    ${this.renderChildren(this.childNodes)}
+                </div>
+            </div>`;
+        return str;
+    }
 }
 
 export default H1;

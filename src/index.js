@@ -1,6 +1,6 @@
 import transform from './core/transform';
 import InlineTag from './core/InlineTag';
-import BaseRender from './core/BaseRender';
+import BaseRenderTools from './core/BaseRenderTools';
 import HTMLRender from './render/HTMLRender';
 var React = require('React');
 
@@ -29,6 +29,6 @@ function out(file, option) {
 
 module.exports = {
     InlineTag,
-    BaseRender,
+    BaseRenderTools,
     out,
 }

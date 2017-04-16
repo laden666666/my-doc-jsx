@@ -14,8 +14,6 @@ class Node{
         this.content = content;
         //节点的子节点
         this.childNodes = [];
-        //节点的值，以优先级表示
-        this.priority = 0;
         //树节点
         this.tree = tree;
     }

@@ -5,10 +5,14 @@ import BlockTag from '../../../core/BlockTag'
 import stlye from './P.css'
 
 class P extends BlockTag{
-    render(subRender){
-        this.append(
-            `<p class="myblog_p">${this.getLine(this.children)}</p>`);
+    constructor(renderTools, content, tree, parentNode){
+        super(renderTools, content, tree, parentNode)
+        this.priority = 0;
+    }
 
+    render(){
+        var str = `<p class="myblog_p"> ${this.renderChildren(this.getTextChildren())}</p>`;
+        return str;
     }
 }
 
