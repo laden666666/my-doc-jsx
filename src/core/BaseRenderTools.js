@@ -69,9 +69,9 @@ class BaseRenderTools{
             tree.currentNode.parentNode.appendChild(node);
             tree.currentNode = node;
             node.tree = tree;
-        } else if(tree.currentNode.priority > node.priority){
-            tree.currentNode = this.currentNode.parentNode;
-            tree.append(node)
+        } else if(tree.currentNode.priority < node.priority){
+            tree.currentNode = tree.currentNode.parentNode;
+            this._appendBlockChildren(tree, node);
         }
     }
 
