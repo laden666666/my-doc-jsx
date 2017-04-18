@@ -8,6 +8,7 @@ import H2 from './blockTags/H2';
 import P from './blockTags/P';
 import Nav from './blockTags/Nav';
 import Blockquote from './blockTags/Blockquote';
+import Code from './blockTags/Code';
 
 import Strong from './inlineTags/Strong';
 import A from './inlineTags/A';
@@ -24,6 +25,7 @@ class HTMLRender extends BaseRenderTools{
             blog: Blog,
             nav: Nav,
             blockquote: Blockquote,
+            code: Code,
         }
         this.$inlineTagMap = {
             strong: Strong,

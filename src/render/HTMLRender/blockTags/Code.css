@@ -1,0 +1,14 @@
+.myblog_code{
+    overflow-x: auto;
+    position: relative;
+    background-color: #f8f8f8;
+    padding: 0.8em 0.8em 0.4em;
+    line-height: 1.1em;
+    border-radius: 2px;
+    margin: 1.2em 0;
+}
+.myblog_code_pre{
+    padding: 1.2em 1.4em;
+    line-height: 1.5em;
+    margin: 0;
+}

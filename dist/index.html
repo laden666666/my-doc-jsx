@@ -5,17 +5,36 @@
     <title>Title</title>
 <link href="my-blog.css" rel="stylesheet"></head>
 <body>
-
+    <div id="blog"></div>
 <script src="./static/react.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        var text = `<h1 test="1">
-            sfsfsf<span>xxxx</span>sdfsf
-        </h1>
-        <h2>sdfsfs</h2>
-        <p>惺惺惜惺惺想</p>`;
+        var text =
+`<nav/>
+<h1>介绍</h1>
+<h2>Vue.js 是什么</h2>
+<p>Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的<strong>渐进式框架</strong>。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与<a>单文件组件</a>和<a> Vue 生态系统支持的库</a>结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。</p>
+<p>如果你是有经验的前端开发者，想知道 Vue.js 与其它库/框架的区别，查看<a>对比其它框架</a>。</p>
+
+<h2>起步</h2>
+<blockquote>官方指南假设你已有 HTML、CSS 和 JavaScript 中级前端知识。如果你刚开始学习前端开发，将框架作为你的第一步可能不是最好的主意——掌握好基础知识再来！之前有其他框架的使用经验对于学习 Vue.js 是有帮助的，但这不是必需的。</blockquote>
+<p>如果你是有经验的前端开发者，想知道 Vue.js 与其它库/框架的区别，查看<a>对比其它框架</a>。</p>
+<code>
+{\`var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!'
+  }
+})\`}
+</code>
+
+<h2>Vue.js 是什么</h2>
+<p>Vue.js（读音 /vjuː/，类似于 view） 是一套构建用户界面的<strong>渐进式框架</strong>。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，它不仅易于上手，还便于与第三方库或既有项目整合。另一方面，当与<a>单文件组件</a>和<a> Vue 生态系统支持的库</a>结合使用时，Vue 也完全能够为复杂的单页应用程序提供驱动。</p>
+
+`;
         var script = myBlog.out(text);
-        console.log(script);
+        console.log(script)
+        document.querySelector('#blog').innerHTML = script;
     })
 </script>
 <script type="text/javascript" src="my-blog.js"></script></body>

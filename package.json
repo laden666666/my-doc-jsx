@@ -24,6 +24,8 @@
   "homepage": "https://github.com/laden666666/my-blog-theme#readme",
   "dependencies": {
     "babel-standalone": "^6.23.1",
+    "codemirror": "^5.25.0",
+    "jsdom": "^9.12.0",
     "react": "^15.4.2"
   },
   "devDependencies": {
