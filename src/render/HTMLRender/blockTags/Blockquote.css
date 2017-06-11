@@ -1,6 +1,7 @@
 .myblog_blockquote{
     padding: 12px 5px 12px 30px;
     margin: 2em 0 0 8px;
+    border-width: 0;
     border-left: 4px solid #f66;
     background-color: #f8f8f8;
     position: relative;
@@ -17,10 +18,10 @@
     content: "!";
     width: 20px;
     height: 20px;
-    border-radius: 100%;
     text-align: center;
     line-height: 20px;
     font-weight: bold;
     font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
     font-size: 14px;
+    border-radius: 10px;
 }

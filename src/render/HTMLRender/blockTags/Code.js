@@ -70,11 +70,11 @@ class Code extends BlockTag{
 
         var lang = this.content.props.lang || 'javascript';
 
-        return `<figure class='myblog_code'>
+        return `<div class='myblog_code'>
                     <pre class="myblog_code_pre cm-s-default">
 ${mirror(this.content.props.children, lang)}
                     </pre>
-                </figure>`
+                </div>`
     }
 }
 
