@@ -11,7 +11,7 @@ class Li extends BlockTag{
     }
 
     render(){
-        var str = `<p class="myblog_li"> ${this.renderChildren(this.getTextChildren())}</p>`;
+        var str = `<ul class="myblog_li"><li> ${this.renderChildren(this.getTextChildren())}</li></ul>`;
         return str;
     }
 }
