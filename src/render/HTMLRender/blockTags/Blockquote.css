@@ -18,10 +18,10 @@
     content: "!";
     width: 20px;
     height: 20px;
-    border-radius: 100%;
     text-align: center;
     line-height: 20px;
     font-weight: bold;
     font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
     font-size: 14px;
+    border-radius: 10px;
 }
