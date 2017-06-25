@@ -6,7 +6,7 @@ import stlye from './A.css'
 
 class A extends InlineTag{
     render(){
-        return `<a class="myblog_a">${this.renderChildren(this.childNodes)}</a>`;
+        return `<a class="myblog_a" ${ this.content.props.href ? 'href="' + this.content.props.href + '"' : '' }>${this.renderChildren(this.childNodes)}</a>`;
     }
 }
 

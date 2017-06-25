@@ -69,11 +69,9 @@ class Code extends BlockTag{
     render(){
 
         var lang = this.content.props.lang || 'javascript';
-
+        console.log(this.content.props.children.replace(/^\s*/,'').replace(/\s*$/,''))
         return `<figure class='myblog_code'>
-                    <pre class="myblog_code_pre cm-s-default">
-${mirror(this.content.props.children, lang)}
-                    </pre>
+                    <pre class="myblog_code_pre cm-s-default">${mirror(this.content.props.children.replace(/^\s*/,'').replace(/\s*$/,''), lang)}</pre>
                 </figure>`
     }
 }
