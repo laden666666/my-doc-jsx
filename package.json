@@ -1,7 +1,7 @@
 {
-  "name": "my-blog-theme",
+  "name": "my-doc-jsx",
   "version": "0.0.1",
-  "description": "一个博客主题生成库。基于react,可以写xml(jxl)开发风格的博客,通过虚拟dom渲染成不同的风格主题的博客。支持将xml博客渲染为html格式输出、html渲染输出、md格式输出。",
+  "description": "一个基于jsx的文档书写、文档转换工具。使我们能够基于jsx风格书写文档，并将文档渲染为html格式输出。后续会增加md格式输出，甚至是docx格式输出。",
   "main": "dist/index.js",
   "scripts": {
     "dev": "node build/dev-server.js",
