@@ -10,6 +10,7 @@ import Nav from './blockTags/Nav';
 import Blockquote from './blockTags/Blockquote';
 import Code from './blockTags/Code';
 import Li from './blockTags/Li';
+import Img from './blockTags/Img';
 
 import Strong from './inlineTags/Strong';
 import A from './inlineTags/A';
@@ -28,6 +29,7 @@ class HTMLRender extends BaseRenderTools{
             blockquote: Blockquote,
             code: Code,
             li: Li,
+            img: Img,
         }
         this.$inlineTagMap = {
             strong: Strong,
