@@ -5,12 +5,14 @@ import {
     BasePlugin,
     usePlugin
 } from "../../index"
-import API from './HTMLRender/blockTags/API'
+import htmlAPI from './HTMLRender/blockTags/API'
+import markdownAPI from './MarkdownRender/blockTags/API'
 
 class APIPlugin extends BasePlugin{
     constructor(){
         super()
-        this.registerBlockTag('HTML', 'api' ,API)
+        this.registerBlockTag('HTML', 'api' ,htmlAPI)
+        this.registerBlockTag('MARKDOWN', 'api' ,markdownAPI)
     }
 }
 

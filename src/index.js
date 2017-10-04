@@ -4,6 +4,7 @@ import BlockTag from './core/BlockTag';
 import BasePlugin from './core/BasePlugin';
 import BaseRenderTools from './core/BaseRenderTools';
 import HTMLRender from './render/HTMLRender';
+import MarkdownRender from './render/MarkdownRender';
 var React = require('React');
 
 var tags = {
@@ -38,7 +39,15 @@ function out(file, option={engine: 'HTML'}) {
                 }
             })
             return render.render(vd);
-        } else {
+        } else if(option.engine == 'MARKDOWN'){
+            var render = new MarkdownRender();
+            pluginList.forEach(plugin=>{
+                if(plugin.engine && plugin.engine['MARKDOWN']){
+                    render.usePlugin(plugin.engine['MARKDOWN'])
+                }
+            })
+            return render.render(vd);
+        } else  {
             throw new Error(`The engine ${option.engine} does not exist`)
         }
 

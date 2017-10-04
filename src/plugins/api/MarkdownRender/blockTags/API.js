@@ -4,7 +4,6 @@
 import {
     BlockTag
 } from "../../../../index"
-import stlye from './API.css'
 
 //查找参数的正则
 const paramRegex = /@param\s+({.*})?(\s+\S+)?(\s+.*)?$/
@@ -44,40 +43,28 @@ class API extends BlockTag{
             }
         })[0]
 
-        var html =
-            `<div class="myblog_api">
-                <div class="myblog_api_describe">${describeText}</div>
-                <div class="myblog_api_content">
-                    
-                    ${paramsText.length ? `
-                    <p>参数</p>
-                    <table class="myblog_api_table">
-                        <tr>
-                            <th>参数名</th><th>参数类型</th><th>参数说明</th>
-                        </tr>
-                        ${paramsText.map(param=>{
-                        return `<tr>
-                            <td>${param.name || ''}</td><td>${param.type || ''}</td><td>${param.describe || ''}</td>
-                        </tr>`
-                        }).join('')}
-                    </table>
-                    ` : ''}
-                    
-                    ${describeText ? `
-                    <p>返回值</p>
-                    <table class="myblog_api_table">
-                        <tr>
-                            <th>参数类型</th><th>参数说明</th>
-                        </tr>
-                        <tr>
-                            <td>${describeText.type || ''}</td><td>${describeText.describe || ''}</td>
-                        </tr>
-                    </table>
-                    ` : ''}
-                </div>
-            </div>`;
+        var mdText = `
+>${describeText}
 
-        return html
+${paramsText.length ? `
+##### 参数
+|参数名|参数类型|参数说明|
+|-|-|-|
+${paramsText.map(param=>{
+    return `|${param.name || ''}|${param.type || ''}|${param.describe || ''}|`
+}).join('')}
+` : ''}
+
+${paramsText.length ? `
+##### 返回值
+|参数类型|参数说明|
+|-|-|-|
+${paramsText.map(param=>{
+    return `|${param.type || ''}|${param.describe || ''}|`
+}).join('')}
+` : ''}
+`
+        return mdText
     }
 }
 
