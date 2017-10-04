@@ -13,14 +13,15 @@ var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 
 module.exports = {
     entry: {
-        entry: './src/index.js',
+        'myDocJsx': ['./src/index.js'],
+        'apiPlugin':  ['./src/plugins/api/index.js'],
     },
     output: {
         path: path.join(__dirname, "../dist"),
         libraryTarget: 'umd',
         umdNamedDefine: true,
-        filename: 'my-blog.js',
-        library: 'myBlog'
+        filename: '[name].js',
+        library: '[name]'
     },
     resolve: {
         extensions: ['', '.js', '.less', '.css', '.scss'],
@@ -34,6 +35,9 @@ module.exports = {
     resolveLoader: {
         fallback: [path.join(__dirname, '../node_modules')]
     },
+    postcss: [ require('autoprefixer')({
+        browsers: ['last 2 versions']
+    })],
     module: {
         loaders: [{
             test: /\.js$/,
@@ -59,7 +63,4 @@ module.exports = {
             }
         }]
     },
-    externals: {
-        'React': true
-    }
 }

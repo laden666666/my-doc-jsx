@@ -38,6 +38,15 @@ class HTMLRender extends BaseRenderTools{
             a: A,
         }
     }
+
+    usePlugin(plugins){
+        for(let key in plugins.blockTagMap){
+            this.$blockTagMap[key] = plugins.blockTagMap[key]
+        }
+        for(let key in plugins.inlineTagMap){
+            this.$inlineTagMap[key] = plugins.inlineTagMap[key]
+        }
+    }
 }
 
 export default HTMLRender;

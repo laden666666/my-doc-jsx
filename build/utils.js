@@ -7,7 +7,8 @@ exports.assetsPath = function(_path) {
     return path.posix.join(assetsSubDirectory, _path)
 }
 
-exports.cssLoaders = function(options) {
+exports.cssLoaders = function(options,  extractTextPlugin) {
+    extractTextPlugin = extractTextPlugin || ExtractTextPlugin
     options = options || {}
         // generate loader string to be used with extract text plugin
     function generateLoaders(loaders) {
@@ -24,7 +25,7 @@ exports.cssLoaders = function(options) {
         }).join('!')
 
         if (options.extract) {
-            return ExtractTextPlugin.extract(sourceLoader)
+            return extractTextPlugin.extract(sourceLoader)
         } else {
             return sourceLoader
         }
@@ -39,13 +40,14 @@ exports.cssLoaders = function(options) {
 }
 
 // Generate loaders for standalone style files (outside of .vue)
-exports.styleLoaders = function(options) {
+exports.styleLoaders = function(options, rootPath, extractTextPlugin) {
+    rootPath = rootPath || ''
     var output = []
-    var loaders = exports.cssLoaders(options)
+    var loaders = exports.cssLoaders(options, extractTextPlugin)
     for (var extension in loaders) {
         var loader = loaders[extension]
         output.push({
-            test: new RegExp('\\.' + extension + '$'),
+            test: new RegExp(rootPath + '\\.' + extension + '$'),
             loader: loader
         })
     }

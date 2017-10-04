@@ -136,6 +136,9 @@ class BaseRenderTools{
     getAllInlineTags(){
         return this.$inlineTagMap;
     }
+
+    usePlugin(plugins){
+    }
 }
 
 export default BaseRenderTools;

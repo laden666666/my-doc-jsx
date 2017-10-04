@@ -2,6 +2,7 @@ var config = require('./config')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
 var utils = require('./utils')
+var path = require('path')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
@@ -24,17 +25,20 @@ module.exports = merge(baseWebpackConfig, {
         new webpack.DefinePlugin({
             'process.env': config.dev.env
         }),
-        new ExtractTextPlugin(utils.assetsPath('../my-blog.css')),
+        new ExtractTextPlugin(utils.assetsPath('../[name].css')),
         // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin(),
         // https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
+            chunks: ['apiPlugin','myDocJsx'],
             filename: 'index.html',
             template: 'index.html',
-            favicon: 'favicon.ico',
             inject: true
-        })
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            names: [ 'apiPlugin','myDocJsx',],
+            minChunks: Infinity,
+        }),
     ]
 })

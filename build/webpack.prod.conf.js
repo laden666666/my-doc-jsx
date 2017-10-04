@@ -15,6 +15,19 @@ var webpackConfig = merge(baseWebpackConfig, {
             extract: true
         })
     },
+    externals: {
+
+        'React': {
+            commonjs: 'React',
+            commonjs2: 'React',
+            var: 'React'
+        },
+        'babel-standalone': {
+            commonjs: 'babel-standalone',
+            commonjs2: 'babel-standalone',
+            var: 'Babel'
+        },
+    },
     plugins: [
         // http://vuejs.github.io/vue-loader/en/workflow/production.html
         new webpack.DefinePlugin({
@@ -25,25 +38,11 @@ var webpackConfig = merge(baseWebpackConfig, {
                 warnings: false
             }
         }),
-        new webpack.optimize.OccurrenceOrderPlugin(),
         // extract css into its own file
-        new ExtractTextPlugin(utils.assetsPath('../my-blog.css')),
-        // generate dist index.html with correct asset hash for caching.
-        // you can customize output by editing /index.html
-        // see https://github.com/ampedandwired/html-webpack-plugin
-        new HtmlWebpackPlugin({
-            filename: config.build.index,
-            template: 'index.html',
-            inject: true,
-            // minify: {
-            //     removeComments: true,
-            //     collapseWhitespace: true,
-            //     removeAttributeQuotes: true
-            //         // more options:
-            //         // https://github.com/kangax/html-minifier#options-quick-reference
-            // },
-            // necessary to consistently work with multiple chunks via CommonsChunkPlugin
-            chunksSortMode: 'dependency'
+        new ExtractTextPlugin(utils.assetsPath('../[name].css')),
+        new webpack.optimize.CommonsChunkPlugin({
+            names: [ 'apiPlugin','myDocJsx',],
+            minChunks: Infinity,
         }),
     ]
 })

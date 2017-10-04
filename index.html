@@ -56,13 +56,22 @@
 <li>小巧</li>
 <li>灵活</li>
 <p>还有很多好处</p>
+<api>
+{`
+    * 提示框
+    * 提示框
+    * @param {ILayerConfig} [customConfig={}]
+    * @param {number}       time               显示的时间，单位是秒，默认是2秒
+`}
+</api>
         </textarea>
     </div>
-<script src="./static/react.js"></script>
+    <script src="./static/react.js"></script>
+    <script src="./static/babel.js"></script>
 <script>
     function renderBlog() {
         var text = document.querySelector("#blogEdit").value;
-        var script = myBlog.out(text);
+        var script = myDocJsx.out(text);
         document.querySelector('#blog').innerHTML = script;
     }
 
