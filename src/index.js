@@ -7,10 +7,6 @@ import HTMLRender from './render/HTMLRender';
 import MarkdownRender from './render/MarkdownRender';
 var React = require('React');
 
-var tags = {
-    h1:{}
-}
-
 var vm = require("vm");
 
 var pluginList = []
@@ -18,14 +14,14 @@ function usePlugin(plugin) {
     pluginList.push(plugin)
 }
 
-function out(file, option={engine: 'HTML'}) {
+function out(jsxStr, option={engine: 'HTML'}) {
     return (function(sandbox, vm){
         var script = "";
         for(var tagName in sandbox.tags){
             sandbox[tagName] = sandbox.tags[tagName];
         }
 
-        script += "'use strict'; return " + transform(file, option);
+        script += "'use strict'; return " + transform(jsxStr, option);
         script = "(function(){" + script + "})()";
         
         var ctx = vm.createContext(sandbox);
@@ -52,7 +48,7 @@ function out(file, option={engine: 'HTML'}) {
         }
 
 
-    }).bind(this)({tags, React}, vm)
+    }).bind(this)({tags:{}, React}, vm)
 }
 
 module.exports = {
