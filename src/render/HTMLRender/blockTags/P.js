@@ -2,7 +2,6 @@
  * Created by njz on 2017/3/26.
  */
 import BlockTag from '../../../core/BlockTag'
-import stlye from './P.css'
 
 class P extends BlockTag{
     constructor(renderTools, content, tree, parentNode){

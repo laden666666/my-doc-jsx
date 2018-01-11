@@ -2,7 +2,6 @@
  * Created by njz on 2017/4/17.
  */
 import InlineTag from '../../../core/InlineTag'
-import stlye from './A.css'
 
 class A extends InlineTag{
     render(){

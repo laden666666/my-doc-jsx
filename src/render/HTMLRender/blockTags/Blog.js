@@ -2,7 +2,6 @@
  * Created by njz on 2017/3/26.
  */
 import BlockTag from '../../../core/BlockTag';
-import style from './Blog.css';
 
 class Blog extends BlockTag{
     constructor(renderTools, content, tree, parentNode){

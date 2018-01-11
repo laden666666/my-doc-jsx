@@ -25,7 +25,6 @@ module.exports = merge(baseWebpackConfig, {
         new webpack.DefinePlugin({
             'process.env': config.dev.env
         }),
-        new ExtractTextPlugin(utils.assetsPath('../[name].css')),
         // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),

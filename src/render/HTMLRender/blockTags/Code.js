@@ -3,9 +3,6 @@
  */
 import BlockTag from '../../../core/BlockTag';
 var CodeMirror = require("codemirror/addon/runmode/runmode.node.js");
-import codemirrorStyle from"codemirror/lib/codemirror.css";
-import style from './Code.css';
-
 
 function mirror(code, lang, mode) {
     var out = "";

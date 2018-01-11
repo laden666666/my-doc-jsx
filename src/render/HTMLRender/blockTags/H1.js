@@ -2,7 +2,6 @@
  * Created by njz on 2017/3/26.
  */
 import BlockTag from '../../../core/BlockTag'
-import style from './H1.css'
 
 class H1 extends BlockTag{
     constructor(renderTools, content, tree, parentNode){

@@ -12,11 +12,10 @@ program.command('convert <type> <file> <output>')
     .description('convert jsx file into specified type file')
     .action(function (type, file, output, option) {
         fileConverter(file, output, type, (option.plugin || '').split(','))
-        console.log(type, file, output, option.plugin);
     })
 
 //可转换的格式列表。目前支持html、markdown。未来会支持doc
-program.command('convert <list>')
+program.command('list')
     .alias('l')
     .description('list the types of conversion support')
     .action(function () {

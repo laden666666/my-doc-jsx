@@ -2,7 +2,6 @@
  * Created by njz on 2017/4/17.
  */
 import BlockTag from '../../../core/BlockTag'
-import stlye from './Img.css'
 
 class Img extends BlockTag{
     constructor(renderTools, content, tree, parentNode){

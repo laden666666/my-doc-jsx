@@ -52,8 +52,6 @@ class BaseRenderTools{
                 tagInstance.setTextTree(this._createTextTree(tagInstance));
             })
 
-            console.log(domTree)
-
             //this.output.append(this._renderTree(domTree.root, blog));
         }
         return domTree;
