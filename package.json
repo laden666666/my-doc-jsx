@@ -7,6 +7,7 @@
     "dev": "node build/dev-server.js",
     "gulp": "gulp",
     "build": "node build/build.js",
+    "doc": "docjsx c md ./doc-jsx/README.jsx ./",
     "test": "node test/test"
   },
   "bin": {
@@ -28,22 +29,22 @@
   "homepage": "https://github.com/laden666666/my-blog-theme#readme",
   "dependencies": {
     "babel-standalone": "^6.23.1",
+    "babel-register": "^6.0.0",
+    "babel-core": "^6.24.0",
     "codemirror": "^5.25.0",
+    "commander": "^2.12.2",
     "fs-extra": "^5.0.0",
     "jsdom": "^9.12.0",
     "react": "^15.4.2"
   },
   "devDependencies": {
     "@types/fs-extra": "^5.0.0",
-    "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-plugin-transform-runtime": "^6.0.0",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-stage-2": "^6.22.0",
-    "babel-register": "^6.0.0",
     "babel-runtime": "^6.23.0",
     "chalk": "^1.1.3",
-    "commander": "^2.12.2",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^1.0.1",

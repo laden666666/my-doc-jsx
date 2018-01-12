@@ -19,7 +19,8 @@ program.command('list')
     .alias('l')
     .description('list the types of conversion support')
     .action(function () {
-        console.log('html, markdown');
+        console.log('html', '\t--html');
+        console.log('md', '\t--markdown');
     })
 
 
