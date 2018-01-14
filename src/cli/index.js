@@ -5,9 +5,6 @@
 var path = require('path');
 var fsExtra = require('fs-extra');
 var fs = require('fs');
-
-//因为docjsx是采用es6开发，为了兼容node6环境，故使用babel-register引用源码
-require('babel-register')({});
 var myDocJsx = require('../../dist/myDocJsx');
 
 //对应不同转换形式的配置
@@ -47,9 +44,14 @@ module.exports = function (file, output, format, option) {
     file = path.join(process.cwd(), file)
 
     //注册插件
-    option.plugins.forEach(pluginName=>{
+    option.plugins.forEach(function (pluginName){
         try{
+            if(!pluginName){
+                return
+            }
+
             var Plugin = require(pluginName)
+            console(111,Plugin)
             if(Plugin)
                 myDocJsx.usePlugin(new Plugin)
         } catch (e){
