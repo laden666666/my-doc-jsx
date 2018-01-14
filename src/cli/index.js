@@ -40,11 +40,23 @@ var options = {
  * @param file          用户输入的转换文件路径
  * @param output        用户输入的输出文件路径
  * @param format        输出格式
- * @param option        输出配置： watch——是否使用文件监听修改模式。  plugin——转换时候使用的插件
+ * @param option        输出配置： watch——是否使用文件监听修改模式。  plugins——转换时候使用的插件
  */
 module.exports = function (file, output, format, option) {
     //获取要转换的文件路径
     file = path.join(process.cwd(), file)
+
+    //注册插件
+    option.plugins.forEach(pluginName=>{
+        try{
+            var Plugin = require(pluginName)
+            if(Plugin)
+                myDocJsx.usePlugin(new Plugin)
+        } catch (e){
+            console.warn('not find plugin ' + pluginName)
+        }
+
+    })
 
     //转换函数
     function converter() {
