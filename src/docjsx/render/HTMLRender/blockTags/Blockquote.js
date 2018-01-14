@@ -10,7 +10,7 @@ class Blockquote extends BlockTag{
     }
 
     render(){
-        var str = `<blockquote class="myblog_blockquote"> ${this.$renderChildren(this.$getChildrenText())}</blockquote>`;
+        var str = `<blockquote class="mydoc_blockquote"> ${this.$renderChildren(this.$getChildrenText())}</blockquote>`;
         return str;
     }
 }

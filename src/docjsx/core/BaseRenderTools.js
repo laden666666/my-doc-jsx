@@ -35,24 +35,23 @@ class BaseRenderTools{
         return tagMap[type] || BlockTag;
     }
 
-    _createBlogTree(blog){
-
-        if(blog.props.children){
-            if(!Array.isArray(blog.props.children)){
-                blog.props.children = [blog.props.children];
+    _createDocTree(doc){
+        //因为props是只读字段，故采用...使其变为可写字段
+        doc = {...doc, props: {...doc.props}}
+        if(doc.props.children){
+            if(!Array.isArray(doc.props.children)){
+                doc.props.children = [doc.props.children];
             }
 
-            var BlogClass = new this._getTagInstance(blog, this.$blockTagMap);
-            var domTree = new Tree(new BlogClass(this, blog));
-            blog.props.children.forEach((item)=>{
+            var DocClass = new this._getTagInstance(doc, this.$blockTagMap);
+            var domTree = new Tree(new DocClass(this, doc));
+            doc.props.children.forEach((item)=>{
                 var ItemClass = new this._getTagInstance(item, this.$blockTagMap);
                 var tagInstance = new ItemClass(this, item);
                 this._appendBlockChildren(domTree, tagInstance);
 
                 tagInstance._setBlockTagTree(this._createTextTree(tagInstance));
             })
-
-            //this.output.append(this._renderTree(domTree.root, blog));
         }
         return domTree;
     }
@@ -99,14 +98,13 @@ class BaseRenderTools{
     }
 
     //渲染的具体逻辑
-    $render(blog){
-
+    $render(doc){
         //检验是否是虚拟dom
-        if(!blog || !blog.props || blog.type != "blog"){
-            throw new TypeError("blog is invalid Virtual Dom");
+        if(!doc || !doc.props || doc.type != "doc"){
+            throw new TypeError("doc is invalid Virtual Dom");
         }
 
-        var tree = this._createBlogTree(blog);
+        var tree = this._createDocTree(doc);
         this.output.append(tree.root.render());
         return this.output.getContent();
     }
@@ -128,13 +126,18 @@ class BaseRenderTools{
     }
 
     $getAllBlockTags(){
-        return this.$blockTagMap;
+        return Object.entries(this.$blockTagMap).map(arrs=>({
+            name: arrs[0],
+            plugin: arrs[1]
+        }));
     }
 
     $getAllInlineTags(){
-        return this.$inlineTagMap;
+        return Object.entries(this.$inlineTagMap).map(arrs=>({
+            name: arrs[0],
+            plugin: arrs[1]
+        }));
     }
-
 
     _usePlugin(plugins){
         for(let key in plugins.blockTagMap){

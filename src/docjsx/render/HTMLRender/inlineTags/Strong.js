@@ -5,7 +5,7 @@ import InlineTag from '../../../core/InlineTag'
 
 class Strong extends InlineTag{
     render(){
-        return `<strong class="myblog_strong">${this.$renderChildren(this.childNodes)}</strong>`;
+        return `<strong class="mydoc_strong">${this.$renderChildren(this.childNodes)}</strong>`;
     }
 }
 

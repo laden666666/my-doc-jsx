@@ -23,8 +23,8 @@ export declare abstract class BasePlugin{
 export declare abstract class BaseRenderTools{
     $registerBlockTag(tagName: string, blockTag: BlockTag);
     $registerInlineTag(tagName: string, inlineTag: InlineTag);
-    $getAllBlockTags(): BlockTag[]
-    $getAllInlineTags(): InlineTag[]
+    $getAllBlockTags(): Array<{name: string, plugin: BlockTag}>
+    $getAllInlineTags(): Array<{name: string, plugin: InlineTag}>
 }
 
 export declare abstract class BlockTag extends Node{
@@ -32,7 +32,7 @@ export declare abstract class BlockTag extends Node{
     renderTools:BaseRenderTools;
     blockTagTree: Tree;
 
-    abstract render()
+    abstract render(): string;
     $renderChildren(children: Node[]);
     $getChildrenText(): Node[];
 }
@@ -40,6 +40,6 @@ export declare abstract class BlockTag extends Node{
 export declare abstract class InlineTag extends Node{
     renderTools:BaseRenderTools;
 
-    abstract render()
+    abstract render(): string;
     $getChildrenText();
 }

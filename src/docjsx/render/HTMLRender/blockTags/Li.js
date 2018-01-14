@@ -10,7 +10,7 @@ class Li extends BlockTag{
     }
 
     render(){
-        var str = `<ul class="myblog_li"><li> ${this.$renderChildren(this.$getChildrenText())}</li></ul>`;
+        var str = `<ul class="mydoc_li"><li> ${this.$renderChildren(this.$getChildrenText())}</li></ul>`;
         return str;
     }
 }

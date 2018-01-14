@@ -1,4 +1,4 @@
-<blog>
+<doc>
     <h1>my-doc-jsx——一个基于jsx的文档书写、文档转换工具</h1>
     <h2>富文本、office写文档的时代过去了</h2>
     <p>
@@ -32,4 +32,4 @@
 使用jsx，像markdown那样包装html，能够使我们使用可扩展的标记语言书写文档，这就是`}<strong>my-doc-jsx</strong>{`。
 `}
     </p>
-</blog>
+</doc>

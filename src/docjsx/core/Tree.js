@@ -1,5 +1,5 @@
 /**
- * 整个blog生成的树
+ * 整个doc生成的树
  */
 class Tree{
     constructor(root){

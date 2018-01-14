@@ -3,15 +3,17 @@
  */
 import BlockTag from '../../../core/BlockTag';
 
-class Blog extends BlockTag{
+class Doc extends BlockTag{
     constructor(renderTools, content, tree, parentNode){
         super(renderTools, content, tree, parentNode)
         this.priority = Infinity;
     }
 
     render(){
-        return `${this.$renderChildren(this.childNodes)}`
+        return `<article class='mydoc'>
+                    ${this.$renderChildren(this.childNodes)}
+                </article>`
     }
 }
 
-export default Blog;
+export default Doc;

@@ -1,24 +1,24 @@
-.myblog_h2{
+.mydoc_h2{
     margin: 35px 0 0.8em;
 }
-.myblog_h2_a{
+.mydoc_h2_a{
     font-size: 1.5em;
     text-decoration: none;
     color: #2c3e50;
 }
-.myblog_h2_a::before{
+.mydoc_h2_a::before{
     content: '';
     display: block;
     margin-top: -40px;
     height: 40px;
     visibility: hidden;
 }
-.myblog_h2_h2{
+.mydoc_h2_h2{
     margin: 5px 0 8px;
     border-bottom: 1px solid #ddd;
     font-size: 20px;
     padding-bottom: 1em;
 }
-.myblog_h2_content{
+.mydoc_h2_content{
 
 }

@@ -8,36 +8,35 @@
     "dev": "node build/dev-server.js &",
     "build": "node build/build.js",
     "doc": "docjsx c md ./doc-jsx/README.jsx ./ && docjsx c html ./doc-jsx/README.jsx ./",
-    "test": "node test/test"
+    "test": "mocha --compilers js:babel-core/register test/test.js"
   },
   "bin": {
     "docjsx": "./bin/docjsx.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/laden666666/my-blog-theme.git"
+    "url": "git+https://github.com/laden666666/my-doc-jsx.git"
   },
   "keywords": [
     "blog",
+    "doc",
+    "jsx",
     "theme"
   ],
   "author": "laden666666",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/laden666666/my-blog-theme/issues"
+    "url": "https://github.com/laden666666/my-doc-jsx/issues"
   },
-  "homepage": "https://github.com/laden666666/my-blog-theme#readme",
+  "homepage": "https://github.com/laden666666/my-doc-jsx#readme",
   "dependencies": {
     "babel-core": "^6.24.0",
-    "babel-register": "^6.0.0",
     "babel-standalone": "^6.23.1",
-    "chai": "^4.1.2",
     "codemirror": "^5.25.0",
     "commander": "^2.12.2",
     "escape-html": "^1.0.3",
     "fs-extra": "^5.0.0",
     "jsdom": "^9.12.0",
-    "mocha": "^4.1.0",
     "react": "^15.4.2"
   },
   "devDependencies": {
@@ -45,9 +44,12 @@
     "autoprefixer": "^7.2.5",
     "babel-loader": "^6.4.1",
     "babel-plugin-transform-runtime": "^6.0.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-stage-2": "^6.22.0",
+    "babel-register": "^6.0.0",
     "babel-runtime": "^6.23.0",
+    "chai": "^4.1.2",
     "chalk": "^1.1.3",
     "css-loader": "^0.28.8",
     "eventsource-polyfill": "^0.9.6",
@@ -57,6 +59,7 @@
     "function-bind": "^1.0.2",
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.17.2",
+    "mocha": "^4.1.0",
     "opn": "^4.0.2",
     "ora": "^0.3.0",
     "shelljs": "^0.7.7",

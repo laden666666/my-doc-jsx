@@ -10,7 +10,7 @@ class P extends BlockTag{
     }
 
     render(){
-        var str = `<p class="myblog_p"> ${this.$renderChildren(this.$getChildrenText())}</p>`;
+        var str = `<p class="mydoc_p"> ${this.$renderChildren(this.$getChildrenText())}</p>`;
         return str;
     }
 }

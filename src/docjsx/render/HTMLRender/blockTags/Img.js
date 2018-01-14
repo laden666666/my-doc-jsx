@@ -10,7 +10,7 @@ class Img extends BlockTag{
     }
 
     render(){
-        var str = `<img class="myblog_img" src="${this.content.props.src}"/>`;
+        var str = `<img class="mydoc_img" src="${this.content.props.src}"/>`;
         return str;
     }
 }

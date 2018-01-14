@@ -11,9 +11,9 @@ var babel = require("babel-standalone");
  * @returns {*|string}
  */
 export default function (jsxStr, option) {
-	//文档如果省略了最初的<blog>标签，会自动补充该标签
+	//文档如果省略了最初的<doc>标签，会自动补充该标签
     jsxStr = jsxStr.trim()
-    jsxStr = !jsxStr.startsWith("<blog>") ? "<blog>" + jsxStr + "</blog>" : jsxStr
+    jsxStr = !jsxStr.startsWith("<doc>") ? "<doc>" + jsxStr + "</doc>" : jsxStr
 
     var code = babel.transform(jsxStr, {
 		"presets": [

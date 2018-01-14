@@ -9,10 +9,10 @@ class Nav extends BlockTag{
         this.priority = 10;
     }
     render(){
-        var str = `<div class='myblog_nav'>
-                <aside class='myblog_nav_nav'>
+        var str = `<div class='mydoc_nav'>
+                <aside class='mydoc_nav_nav'>
                 </aside>
-                <div class='myblog_nav_content'>
+                <div class='mydoc_nav_content'>
                     ${this.$renderChildren(this.childNodes)}
                 </div>
             </div>`;

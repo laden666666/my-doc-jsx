@@ -2,7 +2,7 @@
  * Created by njz on 2017/3/25.
  */
 import BaseRenderTools from '../../core/BaseRenderTools';
-import Blog from './blockTags/Blog';
+import Doc from './blockTags/Doc';
 import H1 from './blockTags/H1';
 import H2 from './blockTags/H2';
 import P from './blockTags/P';
@@ -24,7 +24,7 @@ class HTMLRender extends BaseRenderTools{
             p: P,
             h1: H1,
             h2: H2,
-            blog: Blog,
+            doc: Doc,
             nav: Nav,
             blockquote: Blockquote,
             code: Code,

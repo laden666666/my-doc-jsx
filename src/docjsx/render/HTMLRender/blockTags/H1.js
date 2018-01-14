@@ -11,11 +11,11 @@ class H1 extends BlockTag{
 
     render() {
         var str =
-            `<div class="myblog_h1">
-                <a class="myblog_h1_a">
-                    <h1 class="myblog_h1_h1">${this.$renderChildren(this.$getChildrenText())}</h1>
+            `<div class="mydoc_h1">
+                <a class="mydoc_h1_a">
+                    <h1 class="mydoc_h1_h1">${this.$renderChildren(this.$getChildrenText())}</h1>
                 </a>
-                <div class="myblog_h1_content">
+                <div class="mydoc_h1_content">
                     ${this.$renderChildren(this.childNodes)}
                 </div>
             </div>`;

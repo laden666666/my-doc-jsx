@@ -15,7 +15,7 @@
             display: flex;
             height: 100%;
         }
-        #blog, #blogEdit{
+        #doc, #docEdit{
             flex: 1;
             height: 100%;
             overflow: auto;
@@ -26,9 +26,9 @@
 </head>
 <body>
     <div id="frame">
-        <div id="blog"></div>
-        <textarea id="blogEdit">
-<blog>
+        <div id="doc"></div>
+        <textarea id="docEdit">
+<doc>
     <h1>my-doc-jsx——一个基于jsx的文档书写、文档转换工具</h1>
     <h2>富文本、office写文档的时代过去了</h2>
     <p>
@@ -62,22 +62,22 @@
 使用jsx，像markdown那样包装html，能够使我们使用可扩展的标记语言书写文档，这就是`}<strong>my-doc-jsx</strong>{`。
 `}
     </p>
-</blog>
+</doc>
         </textarea>
     </div>
     <script src="./static/react.js"></script>
     <script src="./static/babel.js"></script>
 <script>
-    function renderBlog() {
-        var text = document.querySelector("#blogEdit").value;
+    function renderDoc() {
+        var text = document.querySelector("#docEdit").value;
         var script = myDocJsx.convert(text);
-        document.querySelector('#blog').innerHTML = script;
+        document.querySelector('#doc').innerHTML = script;
     }
 
     document.addEventListener("DOMContentLoaded", function () {
-        renderBlog()
-        document.querySelector("#blogEdit").addEventListener("input", function () {
-            renderBlog()
+        renderDoc()
+        document.querySelector("#docEdit").addEventListener("input", function () {
+            renderDoc()
         })
     })
 </script>

@@ -1,4 +1,4 @@
-@import "./blockTags/Blog.css";
+@import "./blockTags/Doc.css";
 @import "./blockTags/Blockquote.css";
 @import "./blockTags/Code.css";
 @import "./blockTags/H1.css";
@@ -10,3 +10,4 @@
 @import "./inlineTags/A.css";
 @import "./inlineTags/Span.css";
 @import "./inlineTags/Strong.css";
+@import "../../../../node_modules/codemirror/theme/eclipse.css";

@@ -1,4 +1,4 @@
-.myblog_blockquote{
+.mydoc_blockquote{
     padding: 12px 5px 12px 30px;
     margin: 2em 0 0 8px;
     border-width: 0;
@@ -9,7 +9,7 @@
     border-top-right-radius: 2px;
     line-height: 1.6em;
 }
-.myblog_blockquote::before{
+.mydoc_blockquote::before{
     position: absolute;
     top: 14px;
     left: -12px;
