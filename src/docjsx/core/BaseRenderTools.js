@@ -49,7 +49,7 @@ class BaseRenderTools{
                 var tagInstance = new ItemClass(this, item);
                 this._appendBlockChildren(domTree, tagInstance);
 
-                tagInstance.setTextTree(this._createTextTree(tagInstance));
+                tagInstance._setBlockTagTree(this._createTextTree(tagInstance));
             })
 
             //this.output.append(this._renderTree(domTree.root, blog));
@@ -75,10 +75,10 @@ class BaseRenderTools{
 
     _createTextTree(blockTagInstance){
         var root = new Node();
-        var textTree = new Tree(root);
+        var blockTagTree = new Tree(root);
 
-        this._appendTextChildren(textTree, blockTagInstance.content.props.children)
-        return textTree;
+        this._appendTextChildren(blockTagTree, blockTagInstance.content.props.children)
+        return blockTagTree;
     }
     _appendTextChildren(tree, childrens=[]){
         if(!Array.isArray(childrens)){
@@ -99,7 +99,7 @@ class BaseRenderTools{
     }
 
     //渲染的具体逻辑
-    render(blog){
+    $render(blog){
 
         //检验是否是虚拟dom
         if(!blog || !blog.props || blog.type != "blog"){
@@ -111,7 +111,7 @@ class BaseRenderTools{
         return this.output.getContent();
     }
 
-    renderChildren(childNodes){
+    $renderChildren(childNodes){
         var str = '';
         childNodes.forEach((childTree)=>{
             str += childTree.render()
@@ -119,23 +119,30 @@ class BaseRenderTools{
         return str;
     }
 
-    registerBlockTag(tagName, fn){
+    $registerBlockTag(tagName, fn){
         this.$blockTagMap[tagName] = fn;
     }
 
-    registerInlineTag(tagName, fn){
+    $registerInlineTag(tagName, fn){
         this.$inlineTagMap[tagName] = fn;
     }
 
-    getAllBlockTags(){
+    $getAllBlockTags(){
         return this.$blockTagMap;
     }
 
-    getAllInlineTags(){
+    $getAllInlineTags(){
         return this.$inlineTagMap;
     }
 
-    usePlugin(plugins){
+
+    _usePlugin(plugins){
+        for(let key in plugins.blockTagMap){
+            this.$registerBlockTag(key, plugins.blockTagMap[key])
+        }
+        for(let key in plugins.inlineTagMap){
+            this.$registerInlineTag(key, plugins.inlineTagMap[key])
+        }
     }
 }
 

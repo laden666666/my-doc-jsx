@@ -1,0 +1,12 @@
+@import "./blockTags/Blog.css";
+@import "./blockTags/Blockquote.css";
+@import "./blockTags/Code.css";
+@import "./blockTags/H1.css";
+@import "./blockTags/H2.css";
+@import "./blockTags/Img.css";
+@import "./blockTags/Li.css";
+@import "./blockTags/Nav.css";
+@import "./blockTags/P.css";
+@import "./inlineTags/A.css";
+@import "./inlineTags/Span.css";
+@import "./inlineTags/Strong.css";

@@ -44,18 +44,18 @@ function convert(jsxStr, option={format: 'HTML'}) {
             var render = new HTMLRender();
             pluginList.forEach(plugin=>{
                 if(plugin.format && plugin.format['HTML']){
-                    render.usePlugin(plugin.format['HTML'])
+                    render._usePlugin(plugin.format['HTML'])
                 }
             })
-            return render.render(vd);
+            return render.$render(vd);
         } else if(option.format == 'MARKDOWN'){
             var render = new MarkdownRender();
             pluginList.forEach(plugin=>{
                 if(plugin.format && plugin.format['MARKDOWN']){
-                    render.usePlugin(plugin.format['MARKDOWN'])
+                    render._usePlugin(plugin.format['MARKDOWN'])
                 }
             })
-            return render.render(vd);
+            return render.$render(vd);
         } else  {
             throw new Error(`The format ${option.format} does not exist`)
         }

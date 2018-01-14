@@ -5,7 +5,7 @@ import InlineTag from '../../../core/InlineTag'
 
 class Span extends InlineTag{
     render(){
-        return `${this.renderChildren(this.childNodes)}`;
+        return `${this.$renderChildren(this.childNodes)}`;
     }
 }
 

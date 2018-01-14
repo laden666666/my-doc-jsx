@@ -11,7 +11,7 @@ class Blog extends BlockTag{
 
     render(){
         return `<article class='myblog'>
-                    ${this.renderChildren(this.childNodes)}
+                    ${this.$renderChildren(this.childNodes)}
                 </article>`
     }
 }

@@ -1,19 +1,22 @@
 var path = require('path')
-var config = require('./config')
-var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
-
-var env = process.env.NODE_ENV
-    // check env & config/index.js to decide weither to enable CSS Sourcemaps for the
-    // various preprocessor loaders added to vue-loader at the end of this file
-var cssSourceMapDev = (env === 'development' && config.dev.cssSourceMap)
-var cssSourceMapProd = (env === 'production' && config.build.productionSourceMap)
-var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
-
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
     entry: {
-        'myDocJsx': ['./src/index.js'],
+        'myDocJsx': ['./src/run-browser.js'],
+    },
+    externals: {
+        'React': {
+            commonjs: 'React',
+            commonjs2: 'React',
+            root: 'React'
+        },
+        'babel-standalone': {
+            commonjs: 'babel-standalone',
+            commonjs2: 'babel-standalone',
+            root: 'Babel'
+        },
     },
     output: {
         path: path.join(__dirname, "../dist"),
@@ -29,6 +32,9 @@ module.exports = {
     resolveLoader: {
         fallback: [path.join(__dirname, '../node_modules')]
     },
+    postcss: [ require('autoprefixer')({
+        browsers: ['last 2 versions']
+    })],
     module: {
         loaders: [{
             test: /\.js$/,
@@ -38,6 +44,12 @@ module.exports = {
         }, {
             test: /\.json$/,
             loader: 'json'
+        }, {
+            test: /\.css$/,
+            loader: ExtractTextPlugin.extract("css-loader")
         }]
     },
+    plugins:[
+        new ExtractTextPlugin('[name].css'),
+    ]
 }

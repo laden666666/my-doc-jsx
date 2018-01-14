@@ -11,8 +11,8 @@ class H1 extends BlockTag{
 
     render() {
         var str =
-            `# ${this.renderChildren(this.getTextChildren())}
-${this.renderChildren(this.childNodes)}
+            `# ${this.$renderChildren(this.$getChildrenText())}
+${this.$renderChildren(this.childNodes)}
 `;
         return str;
     }

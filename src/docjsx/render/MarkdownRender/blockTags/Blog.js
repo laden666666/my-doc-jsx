@@ -10,7 +10,7 @@ class Blog extends BlockTag{
     }
 
     render(){
-        return `${this.renderChildren(this.childNodes)}`
+        return `${this.$renderChildren(this.childNodes)}`
     }
 }
 

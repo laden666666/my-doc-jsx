@@ -11,8 +11,8 @@ class H2 extends BlockTag{
 
     render(subRender){
         var str =
-            `## ${this.renderChildren(this.getTextChildren())}
-${this.renderChildren(this.childNodes)}
+            `## ${this.$renderChildren(this.$getChildrenText())}
+${this.$renderChildren(this.childNodes)}
 `;
         return str;
 

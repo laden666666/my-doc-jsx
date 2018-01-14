@@ -1,0 +1,32 @@
+<!doctype html><head><meta charset="utf-8"><style>.myblog{font-size:14px;overflow:hidden}.myblog_blockquote{padding:12px 5px 12px 30px;margin:2em 0 0 8px;border-width:0;border-left:4px solid #f66;background-color:#f8f8f8;position:relative;border-bottom-right-radius:2px;border-top-right-radius:2px;line-height:1.6em}.myblog_blockquote:before{position:absolute;top:14px;left:-12px;background-color:#f66;color:#fff;content:"!";width:20px;height:20px;text-align:center;line-height:20px;font-weight:700;font-family:Source Sans Pro,Helvetica Neue,Arial,sans-serif;font-size:14px;border-radius:10px}.myblog_code{overflow-x:auto;position:relative;background-color:#f8f8f8;padding:0;line-height:1.1em;border-radius:2px;margin:1.2em 0;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8AgMAAABHkjHhAAAACVBMVEWAgIBaWlo+Pj7rTFvWAAAAA3RSTlMHCAw+VhR4AAAA+klEQVQoz4WSMW7EQAhFPxKWNh2FCx+HkaZI6RRb5DYbyVfIJXLKDCFoMbaTKSw/8ZnPAPjaH2xgZcUNUDADD7D9LtDBCLZ45fbkvo/30K8yeI64pPwl6znd/3n/Oe93P3ho9qeh72btTFzqkz0rsJle8Zr81OLEwZ1dv/713uWqvu2pl+k0fy7MWtj9r/tN5q/02z89qa/L4Dc2LvM93kezPfXlME/O86EbY/V9GB9ePX8G1/6W+/9h1dq/HGfTfzT3j/xNo7522Bfnqe5jO/fvhVthlfk434v3iO9zG/UOphyPeinPl1J8Gtaa7xPTa/Dk+RIs4deMvwGvcGsmsCvJ0AAAAABJRU5ErkJggg==")}.myblog_code_pre{padding:1.2em 1.4em;line-height:1.5em;margin:0}.myblog_h1{margin:0 0 1em}.myblog_h1_a{color:#2c3e50;text-decoration:none;font-size:2em}.myblog_h1_h1{margin:45px 0 8px;padding-bottom:7px;font-size:28px}.myblog_h2{margin:35px 0 .8em}.myblog_h2_a{font-size:1.5em;text-decoration:none;color:#2c3e50}.myblog_h2_a:before{content:"";display:block;margin-top:-40px;height:40px;visibility:hidden}.myblog_h2_h2{margin:5px 0 8px;border-bottom:1px solid #ddd;font-size:20px;padding-bottom:1em}.myblog_img{display:block;max-width:100%}.myblog_li:first-child,:not(.myblog_li)+.myblog_li{margin-top:10px}.myblog_li+.myblog_li{margin-top:-10px}.myblog_li{margin:0;color:#34495e;margin-bottom:10px;position:relative}.myblog_p{line-height:1.6em;margin:1.2em 0 -1.2em;padding-bottom:1.2em;position:relative;z-index:1;color:#333}.myblog_a{color:#42b983;font-weight:400;text-decoration:none;cursor:pointer}.myblog_strong{font-weight:600;color:#2c3e50}</style></head><article class='myblog'>
+                    <div class="myblog_h1">
+                <a class="myblog_h1_a">
+                    <h1 class="myblog_h1_h1">my-doc-jsx——一个基于jsx的文档书写、文档转换工具</h1>
+                </a>
+                <div class="myblog_h1_content">
+                    <div class="myblog_h2">
+                    <a class="myblog_h2_a">
+                        <h2 class="myblog_h2_h2">富文本、office写文档的时代过去了</h2>
+                    </a>
+                    <div class="myblog_h1_content">
+                        <p class="myblog_p"> 早期大家写博客都是用富文本编辑器，后来大家用了markdown；早期大家写文档都是用word，后来大家用了gitbook。这是因为我们的博客也好，文档也好，大家都希望用一门标记语言来书写</p><p class="myblog_p"> 用标记语言书写文档的好处很多。比如使我们的文档（博客）的内容能够和样式分离，能够配上不同的css后可以以展示不同形式展示。再比如可以让计算机读懂我们文档的结构，这样我们可以让计算机帮把文档转换成任意的格式。再比如我们可以扩展标记语言，使用我们自定义的方言去书写一些格式非常复杂的内容。再比如。。。。。。</p><p class="myblog_p"> 因此，在这个时代已经没有人在希望用富文本或者office去写文档，我们要标记语言。</p>
+                    </div>
+                </div><div class="myblog_h2">
+                    <a class="myblog_h2_a">
+                        <h2 class="myblog_h2_h2">markdown、xml？还是其他标记语言</h2>
+                    </a>
+                    <div class="myblog_h1_content">
+                        <p class="myblog_p"> 那么用什么形式来作为这个标记语言呢？</p><p class="myblog_p"> <strong class="myblog_strong">xml</strong>无疑是最优秀的标记语言，xml具有较高的可扩展性，定义规范。但是xml不适合书写文档，因为他过于<strong class="myblog_strong">规范</strong>，不够灵活，严格的语法要求使人生畏；而且他对于转义的处理过也不够方便，一个空格都需要六个字符表示（xml转义），而且也没几个人能够记住这些转义；同时离开编辑器我们也很难直接使用xml去书写复杂的格式文档。</p><p class="myblog_p"> <strong class="myblog_strong">markdown</strong>无疑是最流行的用于文档书写的标记语言，它非常的简单，而且就是为了书写文档而生的。
+但是它不同于xml，扩展性不够，我们可以通过“```”扩展markdown的语法，但是书写起来非常不方便。
+同时markdown方言太多，导致多种markdown编辑器编辑出的文档彼此居然不兼容。
+再有markdown的语法过于简单，因此用起来反而非常麻烦，相信很多让人都遇到过一个表格调整了半天显示还有问题的情况。
+这些问题都是因为markdown不具备xml的规范性导致的。</p><p class="myblog_p"> <strong class="myblog_strong">html</strong>本身就没有扩展性，同时有没有markdown方便，更不适合书写文档。
+我们希望能够像写markdown一样写文档代码，又希望像写html一样写文档代码。有没有这样的标记语言？
+这种感觉就像又想写JavaScript代码，又想写html代码一样。所有我选择了jsx，严格来说jsx不是一个标记语言，他更多的是一个编程语言。但是如果你不使用JavaScript语法部分，它就是一个天然的标记语言了，同时jsx继承了xml的扩展性，配合es6的<strong class="myblog_strong">模板字符串</strong>完美地解决了转义问题，而且他易于扩张。
+使用jsx，像markdown那样包装html，能够使我们使用可扩展的标记语言书写文档，这就是<strong class="myblog_strong">my-doc-jsx</strong>。
+</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+                </article>

@@ -13,7 +13,7 @@ class Nav extends BlockTag{
                 <aside class='myblog_nav_nav'>
                 </aside>
                 <div class='myblog_nav_content'>
-                    ${this.renderChildren(this.childNodes)}
+                    ${this.$renderChildren(this.childNodes)}
                 </div>
             </div>`;
         return str;

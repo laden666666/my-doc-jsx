@@ -5,7 +5,7 @@ import InlineTag from '../../../core/InlineTag'
 
 class A extends InlineTag{
     render(){
-        return `[${this.renderChildren(this.childNodes)}](${this.content.props.href || '' } "") `
+        return `[${this.$renderChildren(this.childNodes)}](${this.content.props.href || '' } "") `
     }
 }
 

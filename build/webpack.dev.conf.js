@@ -1,13 +1,8 @@
-var config = require('./config')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
-var utils = require('./utils')
 var path = require('path')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-
-baseWebpackConfig.entry['css'] = './dist/myDocJsx.css'
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function(name) {
@@ -15,18 +10,9 @@ Object.keys(baseWebpackConfig.entry).forEach(function(name) {
 })
 
 module.exports = merge(baseWebpackConfig, {
-    module: {
-        loaders: utils.styleLoaders({
-            sourceMap: config.dev.cssSourceMap,
-            extract: true
-        })
-    },
     // eval-source-map is faster for development
     devtool: '#eval-source-map',
     plugins: [
-        new webpack.DefinePlugin({
-            'process.env': config.dev.env
-        }),
         // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),

@@ -10,13 +10,22 @@ class InlineTag extends Node{
         this.renderTools = renderTools;
     }
 
-    render(childrenRender){
-        console.warn("不支持渲染此行内标签：" + this.selfDom.type);
+    /**
+     * 渲染函数，这个是需要继承的虚函数
+     * @returns {string}                渲染后的字符串
+     */
+    render(){
+        console.warn("不支持渲染此行内标签：" + this.content.type);
         return "";
     }
 
-    renderChildren(children){
-        return this.renderTools.renderChildren(children);
+    /**
+     * 系统方法，获取当前节点的text文本
+     * @param children
+     * @returns {*}
+     */
+    $renderChildren(children){
+        return this.renderTools.$renderChildren(children);
     }
 }
 

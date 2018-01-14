@@ -10,7 +10,7 @@ class Nav extends BlockTag{
     }
     render(){
         var str = `[TOC]
-${this.renderChildren(this.childNodes)}`;
+${this.$renderChildren(this.childNodes)}`;
         return str;
     }
 }

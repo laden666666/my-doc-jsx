@@ -9,14 +9,14 @@ class H2 extends BlockTag{
         this.priority = 3;
     }
 
-    render(subRender){
+    render(){
         var str =
             `<div class="myblog_h2">
                     <a class="myblog_h2_a">
-                        <h2 class="myblog_h2_h2">${this.renderChildren(this.getTextChildren())}</h2>
+                        <h2 class="myblog_h2_h2">${this.$renderChildren(this.$getChildrenText())}</h2>
                     </a>
                     <div class="myblog_h1_content">
-                        ${this.renderChildren(this.childNodes)}
+                        ${this.$renderChildren(this.childNodes)}
                     </div>
                 </div>`;
         return str;

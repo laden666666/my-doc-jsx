@@ -13,10 +13,10 @@ class H1 extends BlockTag{
         var str =
             `<div class="myblog_h1">
                 <a class="myblog_h1_a">
-                    <h1 class="myblog_h1_h1">${this.renderChildren(this.getTextChildren())}</h1>
+                    <h1 class="myblog_h1_h1">${this.$renderChildren(this.$getChildrenText())}</h1>
                 </a>
                 <div class="myblog_h1_content">
-                    ${this.renderChildren(this.childNodes)}
+                    ${this.$renderChildren(this.childNodes)}
                 </div>
             </div>`;
         return str;
