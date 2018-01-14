@@ -7,6 +7,8 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
+baseWebpackConfig.entry['css'] = './dist/myDocJsx.css'
+
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function(name) {
     baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
@@ -30,13 +32,13 @@ module.exports = merge(baseWebpackConfig, {
         new webpack.HotModuleReplacementPlugin(),
         // https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
-            chunks: ['apiPlugin','myDocJsx'],
+            chunks: ['myDocJsx'],
             filename: 'index.html',
             template: 'index.html',
             inject: true
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            names: [ 'apiPlugin','myDocJsx',],
+            names: [ 'myDocJsx',],
             minChunks: Infinity,
         }),
     ]

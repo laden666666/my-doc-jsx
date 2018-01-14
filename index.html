@@ -71,7 +71,7 @@
 <script>
     function renderBlog() {
         var text = document.querySelector("#blogEdit").value;
-        var script = myDocJsx.out(text);
+        var script = myDocJsx.convert(text);
         document.querySelector('#blog').innerHTML = script;
     }
 

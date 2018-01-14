@@ -14,7 +14,6 @@ var useCssSourceMap = cssSourceMapDev || cssSourceMapProd
 module.exports = {
     entry: {
         'myDocJsx': ['./src/index.js'],
-        'apiPlugin':  ['./src/plugins/api/index.js'],
     },
     output: {
         path: path.join(__dirname, "../dist"),

@@ -4,10 +4,11 @@
   "description": "一个基于jsx的文档书写、文档转换工具。使我们能够基于jsx风格书写文档，并将文档渲染为html格式输出。后续会增加md格式输出，甚至是docx格式输出。",
   "main": "dist/my-doc-jsx.js",
   "scripts": {
-    "dev": "node build/dev-server.js",
-    "gulp": "gulp",
-    "build": "node build/build.js",
-    "doc": "docjsx c md ./doc-jsx/README.jsx ./",
+    "devjs": "node build/dev-server.js &",
+    "devcss": "gulp && gulp dev &",
+    "dev": "npm run devcss && npm run devjs",
+    "build": "gulp && node build/build.js",
+    "doc": "docjsx c md ./doc-jsx/README.jsx ./ && docjsx c html ./doc-jsx/README.jsx ./",
     "test": "node test/test"
   },
   "bin": {
@@ -54,6 +55,7 @@
     "gulp-autoprefixer": "^4.1.0",
     "gulp-concat": "^2.6.1",
     "gulp-minify-css": "^1.2.4",
+    "gulp-watch": "^5.0.0",
     "html-webpack-plugin": "^2.8.1",
     "http-proxy-middleware": "^0.17.2",
     "opn": "^4.0.2",

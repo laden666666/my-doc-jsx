@@ -38,9 +38,8 @@ var webpackConfig = merge(baseWebpackConfig, {
             }
         }),
         // extract css into its own file
-        new ExtractTextPlugin(utils.assetsPath('../[name].css')),
         new webpack.optimize.CommonsChunkPlugin({
-            names: [ 'apiPlugin','myDocJsx',],
+            names: ['myDocJsx',],
             minChunks: Infinity,
         }),
     ]
