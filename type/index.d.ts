@@ -10,7 +10,7 @@ export interface Tree{
 
 export interface VNode{
     props: {
-        children: Array<VNode | string> | VNode | string
+        children: Array<VNode | string>
     },
     type: string
 }
@@ -41,5 +41,13 @@ export declare abstract class InlineTag extends Node{
     renderTools:BaseRenderTools;
 
     abstract render(): string;
-    $getChildrenText();
+    $getChildrenText(): VNode;
+}
+
+export declare function usePlugin(plugin: BasePlugin): void;
+
+export declare function convert(jsxStr:string, option:{format: 'HTML' | 'MARKDOWN'}): string;
+
+export declare const util: {
+    escapeHTML(htmlString: string): string
 }

@@ -8,7 +8,7 @@ var fs = require('fs');
 
 //因为docjsx是采用es6开发，为了兼容node6环境，故使用babel-register引用源码
 require('babel-register')({});
-var myDocJsx = require('../index.js');
+var myDocJsx = require('../../dist/myDocJsx');
 
 //对应不同转换形式的配置
 var options = {

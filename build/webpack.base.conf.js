@@ -17,6 +17,10 @@ module.exports = {
             commonjs2: 'babel-standalone',
             root: 'Babel'
         },
+        vm: {
+            commonjs: 'vm',
+            commonjs2: 'vm',
+        }
     },
     output: {
         path: path.join(__dirname, "../dist"),

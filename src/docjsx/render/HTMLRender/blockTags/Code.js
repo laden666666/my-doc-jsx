@@ -2,59 +2,33 @@
  * Created by njz on 2017/3/26.
  */
 import BlockTag from '../../../core/BlockTag';
-var CodeMirror = require("codemirror/addon/runmode/runmode.node.js");
+var Prism = require('prismjs');
 
-function mirror(code, lang, mode) {
-    var out = "";
+var languages = {
+    javascript: Prism.languages.javascript,
+    java: Prism.languages.java,
+    markdown: Prism.languages.markdown,
+    c: Prism.languages.c,
+    cpp: Prism.languages.cpp,
+    php: Prism.languages.php,
+    basic: Prism.languages.basic,
+    go: Prism.languages.go,
+    php: Prism.languages.groovy,
+    html: Prism.languages.html,
+    css: Prism.languages.css,
+    json: Prism.languages.json,
+    less: Prism.languages.less,
+    scss: Prism.languages.scss,
+    'c#': Prism.languages.csharp,
+    python: Prism.languages.python,
+    ruby: Prism.languages.ruby,
+    rust: Prism.languages.rust,
+    scala: Prism.languages.scala,
+    typescript: Prism.languages.typescript,
+}
 
-    var lang = lang.toLowerCase(), modeName = lang;
-
-    if (!mode) mode = lang;
-
-    require("codemirror/mode/meta.js");
-
-    CodeMirror.modeInfo.forEach(function(info) {
-        if (info.mime == lang) {
-            modeName = info.mode;
-        } else if (info.name.toLowerCase() == lang) {
-            modeName = info.mode;
-            lang = info.mime;
-        }
-    });
-
-    if (!CodeMirror.modes[modeName])
-        require("codemirror/mode/" + modeName + "/" + modeName + ".js");
-
-    function esc(str) {
-        const map = {
-            '<': '&lt;',
-            '/': '&#47;',
-            '&': '&amp;',
-            '>': '&gt;',
-        };
-        return str.replace(/[<&\/>]/g, ch => map[ch]);
-    }
-
-    var curStyle = null, accum = "";
-    function flush() {
-        accum = esc(accum);
-        if (curStyle) {
-            out += "<span class=\"" + curStyle.replace(/(^|\s+)/g, "$1cm-") + "\">" + accum + "</span>";
-        }
-        else out += accum;
-    }
-
-    CodeMirror.runMode(code, mode, function(text, style) {
-        if (style != curStyle) {
-            flush();
-            curStyle = style; accum = text;
-        } else {
-            accum += text;
-        }
-    });
-    flush();
-
-    return out;
+function mirror(code, lang) {
+    return Prism.highlight(code, languages[lang])
 };
 
 class Code extends BlockTag{

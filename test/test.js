@@ -7,6 +7,8 @@ describe('myDocJsx基本功能测试', function() {
         var jsxStr =
             `<doc>
                 <h1>测试</h1>
+                <h2>测试</h2>
+                <code>测试</code>
             </doc>`
         var htmlStr = myDocJsx.convert(jsxStr)
         assert.equal(htmlStr.indexOf('测试') > -1, true)

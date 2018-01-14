@@ -5,8 +5,8 @@ import BasePlugin from './docjsx/core/BasePlugin';
 import BaseRenderTools from './docjsx/core/BaseRenderTools';
 import HTMLRender from './docjsx/render/HTMLRender';
 import MarkdownRender from './docjsx/render/MarkdownRender';
+import util from './docjsx/util';
 var React = require('React');
-
 var vm = require("vm");
 
 //当前注册的插件列表
@@ -36,9 +36,24 @@ function convert(jsxStr, option={format: 'HTML'}) {
 
         script += "'use strict'; return " + transform(jsxStr, option);
         script = "(function(){" + script + "})()";
-        
-        var ctx = vm.createContext(sandbox);
-        var vd = vm.runInContext(script, ctx);
+
+        if(vm){
+            //如果存在vm，表示在node环境。使用vm执行
+            var ctx = vm.createContext(sandbox);
+            var vd = vm.runInContext(script, ctx);
+        } else {
+            //如果不存在vm，表示在浏览器环境，直接在window上执行
+            var keys = Object.keys(sandbox)
+            var backup = {}
+            keys.forEach(key=>{
+                backup[key] = window[key]
+                window[key] = sandbox[key]
+            })
+            var vd = eval(script)
+            keys.forEach(key=>{
+                window[key] = backup[key]
+            })
+        }
 
         if(option.format == 'HTML'){
             var render = new HTMLRender();
@@ -69,4 +84,5 @@ module.exports = {
     BasePlugin,
     convert,
     usePlugin,
+    util,
 }
