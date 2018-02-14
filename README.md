@@ -35,7 +35,7 @@ docjsx有着接近html的标签系统，每个段落都需要用标签标记起�
 ## 根标签
 每一个docjsx必须使用doc标签定义。因为根标签的写法是固定的，所以docjsx可以省略根标签，不过省略了根标签就不符合jsx的书写规范，所以请酌情考虑。
 
-```javascript
+```html
 <doc>
     <h1>一级标题</h1>
     <h2>二级标签</h2>
@@ -43,7 +43,7 @@ docjsx有着接近html的标签系统，每个段落都需要用标签标记起�
 ```
 可以简写为：
 
-```javascript
+```html
 <h1>一级标题</h1>
 <h2>二级标签</h2>
 ```
@@ -54,7 +54,7 @@ docjsx有着接近html的标签系统，每个段落都需要用标签标记起�
 ### h1到h3
 定义标题
 
-```javascript
+```html
 <h1>这是一个一级标题</h1>
 <h2>这是一个二级标题</h2>
 <h3>这是一个三级标题</h3>
@@ -64,28 +64,28 @@ docjsx有着接近html的标签系统，每个段落都需要用标签标记起�
 ### nav
 定义菜单
 
-```javascript
+```html
 <nav/>
 ```
 
 ### p
 定义段落
 
-```javascript
+```html
 <p>这是一段话</p>
 ```
 
 ### img
 定义图片，使用src属性定义
 
-```javascript
+```html
 <img src="url" />
 ```
 
 ### blockquote
 定义引用，用于特殊说明解释
 
-```javascript
+```html
 <blockquote/>Here is a long quotation here is a long quotation here is a long quotation
 here is a long quotation here is a long quotation here is a long quotation
 here is a long quotation here is a long quotation here is a long quotation.</blockquote>
@@ -94,7 +94,7 @@ here is a long quotation here is a long quotation here is a long quotation.</blo
 ### code
 定义代码展示，使用lang字段指出展示源码的语言。展示源码时候，最好用es6的模板字符串。
 
-```javascript
+```html
 <code lang="javascript">{
 `function test(){
     console.log("hello world！")
@@ -114,7 +114,7 @@ test();
 ### li
 定义列表。
 
-```javascript
+```html
 <li>0.test1</li>
 <li>1.test2</li>
 <li>2.test3</li>
@@ -128,21 +128,21 @@ test();
 ### a
 定义超链接，通过href定义超链接的地址
 
-```javascript
+```html
 <p>点击可跳转<a href="http://www.baidu.com">百度</a></p>
 ```
 
 ### span
 用于定义词语的标记，被标记的词语会高亮显示。
 
-```javascript
+```html
 <p>高亮显示<span>docjsx</span></p>
 ```
 
 ### strong
 用于定义粗体
 
-```javascript
+```html
 <p><strong>加粗</strong>显示</p>
 ```
 
