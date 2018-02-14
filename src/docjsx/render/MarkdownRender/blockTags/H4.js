@@ -3,15 +3,15 @@
  */
 import BlockTag from '../../../core/BlockTag'
 
-class H2 extends BlockTag{
+class H4 extends BlockTag{
     constructor(renderTools, content, tree, parentNode){
         super(renderTools, content, tree, parentNode)
-        this.priority = 3.99;
+        this.priority = 3.97;
     }
 
     render(subRender){
         var str =
-            `## ${this.$renderChildren(this.$getChildrenText())}
+            `#### ${this.$renderChildren(this.$getChildrenText())}
 ${this.$renderChildren(this.childNodes)}
 `;
         return str;
@@ -19,4 +19,4 @@ ${this.$renderChildren(this.childNodes)}
     }
 }
 
-export default H2;
+export default H4;

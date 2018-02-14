@@ -1,24 +1,24 @@
-.mydoc_h2{
+.mydoc_h4{
     margin: 35px 0 0.8em;
 }
-.mydoc_h2_a{
-    font-size: 1.5em;
+.mydoc_h4_a{
+    font-size: 1.2em;
     text-decoration: none;
     color: #2c3e50;
 }
-.mydoc_h2_a::before{
+.mydoc_h4_a::before{
     content: '';
     display: block;
-    margin-top: -40px;
-    height: 40px;
+    margin-top: -20px;
+    height: 20px;
     visibility: hidden;
 }
-.mydoc_h2_h2{
+.mydoc_h4_h4{
     margin: 5px 0 8px;
     border-bottom: 1px solid #ddd;
-    font-size: 22px;
-    padding-bottom: 1em;
+    font-size: 16px;
+    padding-bottom: 0.3em;
 }
-.mydoc_h2_content{
+.mydoc_h4_content{
 
 }

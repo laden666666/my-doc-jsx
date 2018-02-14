@@ -3,6 +3,8 @@
 @import "./blockTags/Code.css";
 @import "./blockTags/H1.css";
 @import "./blockTags/H2.css";
+@import "./blockTags/H3.css";
+@import "./blockTags/H4.css";
 @import "./blockTags/Img.css";
 @import "./blockTags/Li.css";
 @import "./blockTags/Nav.css";

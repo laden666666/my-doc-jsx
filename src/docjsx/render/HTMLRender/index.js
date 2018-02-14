@@ -5,6 +5,8 @@ import BaseRenderTools from '../../core/BaseRenderTools';
 import Doc from './blockTags/Doc';
 import H1 from './blockTags/H1';
 import H2 from './blockTags/H2';
+import H3 from './blockTags/H3';
+import H4 from './blockTags/H4';
 import P from './blockTags/P';
 import Nav from './blockTags/Nav';
 import Blockquote from './blockTags/Blockquote';
@@ -24,6 +26,8 @@ class HTMLRender extends BaseRenderTools{
             p: P,
             h1: H1,
             h2: H2,
+            h3: H3,
+            h4: H4,
             doc: Doc,
             nav: Nav,
             blockquote: Blockquote,

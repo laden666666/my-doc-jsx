@@ -6,7 +6,7 @@ import BlockTag from '../../../core/BlockTag'
 class H2 extends BlockTag{
     constructor(renderTools, content, tree, parentNode){
         super(renderTools, content, tree, parentNode)
-        this.priority = 3;
+        this.priority = 3.99;
     }
 
     render(){
