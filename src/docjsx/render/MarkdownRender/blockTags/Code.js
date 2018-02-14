@@ -12,7 +12,7 @@ class Code extends BlockTag{
     render(){
         var lang = this.content.props.lang || 'javascript';
         return `\`\`\`${this.content.props.lang || 'javascript'}
-${this.$renderChildren(this.$getChildrenText())}
+${this.$getChildrenText()[0].content}
 \`\`\`
 `
     }
