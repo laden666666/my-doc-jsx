@@ -9,7 +9,7 @@ program.version('v' + require('../package.json').version)
 program.command('convert <format> <file> <output>')
     .alias('c')
     .option('-p, --plugin <pluginName>', 'Add plugin. multiple plugins are separated by commas, such as: -p api,path')
-    .option('-w, --watch', 'Add plugin. multiple plugins are separated by commas, such as: -p api,path')
+    .option('-w, --watch', 'Add a listener to monitor file changes, each time the file changes, will perform a conversion')
     .description('convert jsx file into specified format file')
     .action(function (format, file, output, option) {
         fileConverter(file, output, format, {

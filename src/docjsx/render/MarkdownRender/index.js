@@ -8,6 +8,7 @@ import H2 from './blockTags/H2';
 import H3 from './blockTags/H3';
 import H4 from './blockTags/H4';
 import P from './blockTags/P';
+import Table from './blockTags/Table';
 import Nav from './blockTags/Nav';
 import Blockquote from './blockTags/Blockquote';
 import Code from './blockTags/Code';
@@ -28,6 +29,7 @@ class MarkdownRender extends BaseRenderTools{
             h2: H2,
             h3: H3,
             h4: H4,
+            table: Table,
             doc: Doc,
             nav: Nav,
             blockquote: Blockquote,

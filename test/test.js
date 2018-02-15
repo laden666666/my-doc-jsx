@@ -20,7 +20,6 @@ describe('myDocJsx基本功能测试', function() {
                 <h1>{'<>'}</h1>
             </doc>`
         var htmlStr = myDocJsx.convert(jsxStr)
-
         assert.equal(htmlStr.indexOf('&lt;&gt;') > -1, true)
     });
 

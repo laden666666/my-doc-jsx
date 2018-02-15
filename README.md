@@ -10,13 +10,13 @@
 ## markdown、xml？还是其他标记语言
 那么应该选用哪种标记语言呢？
 
- **xml** 无疑是最优秀的标记语言，xml具有较高的可扩展性，定义规范。但是xml不适合书写文档，因为他过于 **规范** ，不够灵活，严格的语法要求使人生畏；而且他对于转义的处理过也不够方便，一个空格都需要六个字符表示（ ），也没几个人能够记住这些转义。离开编辑器我们也很难直接使用xml去书写复杂的格式文档。
+ **xml：** 无疑是最优秀的标记语言，xml具有较高的可扩展性，定义规范。但是xml不适合书写文档，因为他过于 **规范** ，不够灵活，严格的语法要求使人生畏；而且他对于转义的处理过也不够方便，一个空格都需要六个字符表示（ ），也没几个人能够记住这些转义。离开编辑器我们也很难直接使用xml去书写复杂的格式文档。
 
- **markdown** 无疑是最流行的用于文档书写的标记语言，它非常的简单，而且就是为了书写文档而生的。但是它不同于xml，扩展性不够，我们可以通过“```”扩展markdown的语法，但是书写起来非常不方便，而且格式也很混乱。 同时markdown方言太多，导致多种markdown编辑器编辑出的文档彼此居然不兼容。也许因为markdown的语法过于简单，因此用起来反而非常麻烦，相信很多让人都遇到过一个表格调整了半天显示还有问题的情况。这些问题都是因为markdown不具备xml的规范性导致的。
+ **markdown：** 无疑是最流行的用于文档书写的标记语言，它非常的简单，而且就是为了书写文档而生的。但是它不同于xml，扩展性不够，我们可以通过“```”扩展markdown的语法，但是书写起来非常不方便，而且格式也很混乱。 同时markdown方言太多，导致多种markdown编辑器编辑出的文档彼此居然不兼容。也许因为markdown的语法过于简单，因此用起来反而非常麻烦，相信很多让人都遇到过一个表格调整了半天显示还有问题的情况。这些问题都是因为markdown不具备xml的规范性导致的。
 
- **html** 本身就没有扩展性，同时也没有markdown方便，更不适合书写文档。包含了xml和markdown的全部缺点。
+ **html：** 本身就没有扩展性，同时也没有markdown方便，更不适合书写文档。包含了xml和markdown的全部缺点。
 
- **jsx** 对，你没看错，就是react提供的附属品——jsx。我们希望能够像写markdown一样方便，又希望像写xml一样规范并且有扩展性，而jsx不就是这样的一个标记语言吗？同时配合es6的 **模板字符串** ，可以完美地解决了转义问题。 使用jsx，并且实现像markdown和xml那样包装html，能够使我们使用可扩展的标记语言书写文档，这就是 **my-doc-jsx** 。
+ **jsx：** 对，你没看错，就是react提供的附属品——jsx。我们希望能够像写markdown一样方便，又希望像写xml一样规范并且有扩展性，而jsx不就是这样的一个标记语言吗？同时配合es6的 **模板字符串** ，可以完美地解决了转义问题。 使用jsx，并且实现像markdown和xml那样包装html，能够使我们使用可扩展的标记语言书写文档，这就是 **my-doc-jsx** 。
 
 
 
@@ -121,6 +121,29 @@ test();
 <li>3.test4</li>
 ```
 
+### table
+定义表格，语法类似html的table，暂不支持合并单元格。
+
+```html
+<table>
+    <tr>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+</table>
+```
+
 
 ## 行内标签
 定义段落中的词语的标签我们称之为行内标签，参考html中的行内标签，块级标签可以嵌套内标标签，但是行内标签不能嵌套块级标签，系统提供的块级标签有：
@@ -146,5 +169,105 @@ test();
 <p><strong>加粗</strong>显示</p>
 ```
 
+
+
+# 格式转换
+docjsx支持将jsx格式书写的文档转为html或者markdown格式，而且可以运行浏览器、nodejs、命令行等多种平台上面。
+
+## 浏览器环境和nodejs环境转换
+在浏览标或者nodejs环境下，都可以使用docjsx将jsx文件转为html页面或者md文件中。
+
+首先引入docjsx文件，如果是nodejs环境，执行：
+
+```javascript
+npm install my-doc-jsx
+```
+在浏览器中，使用script标签和link引入dist目录中的myDocJsx.css和myDocJsx.js文件。
+
+```javascript
+var htmlDoc = myDocJsx.convert(jsxDoc)
+```
+这样就将jsx文档转为html文档。
+
+### 使用插件
+如果需要使用插件，则需要将插件的js文件和css文件导入，使用usePlugin函数将插件注册到docjsx中：
+
+```javascript
+const myDocJsx = require("my-jsx-doc")
+const myDocJsxPluginAPI = require("my-jsx-doc-plugin-api")
+
+//使用usePlugin函数将插件注册到docjsx
+myDocJsx.usePlugin(myDocJsxPluginAPI)
+
+//然后在执行转换
+var htmlDoc = myDocJsx.convert(jsxDoc)
+```
+
+### myDocJsx.convert函数
+转换函数，将jsx字符串转换为指定的文档格式输出。
+
+#### 参数列表
+|参数名|参数类型|说明|
+|----|----|----|
+|jsxStr|string|jsx字符串|
+|option|Object|转换的配置。主要配置有：format，转换的格式配置，支持“HTML”和“MARKDOWN”两种|
+#### 返回值
+|参数类型|说明|
+|----|----|
+|string|转换好的指定格式的文档|
+
+### myDocJsx.usePlugin函数
+使用usePlugin函数注册插件。
+
+#### 参数列表
+|参数名|参数类型|说明|
+|----|----|----|
+|plugin|Plugin|注册的插件|
+
+
+## cli命令行
+docjsx提供了一套用于文档转换的命令行，与nodejs、浏览器环境不同，cli是直接对文件的格式做转换，而不是字符串转换。首先全局安装my-doc-jsx：
+
+```javascript
+npm install my-doc-jsx -g
+```
+docjsx具体语法是:
+
+```javascript
+docjsx [options] [command]
+```
+### convert命令
+将jsx格式的文档转化为指定的格式。
+
+```javascript
+convert|c [options] <format> <file> <output>
+```
+例如：
+
+```javascript
+docjsx c html ./doc-jsx/README.jsx ./
+```
+#### 参数列表
+|参数名|说明|
+|----|----|
+|format|转化的格式，支持html和md两种格式|
+|file|需要转换的文件|
+|output|转换成功后文件保存的目录|
+#### options
+|option名|说明|
+|----|----|
+|-w, --watch|增加一个监听文件变化的监听器，每当文件保存一次，都会执行一次转换|
+|-p, --plugin &lt;pluginName&gt;|增加插件，pluginName是插件的npm包名，多个插件用“,”分隔。要求插件在试用前必须用先按照其npm包|
+
+
+
+# 开发
+## 插件开放
+插件的api暂未稳定，暂时不对外开放。
+
+
+## 系统插件
+*   [my-doc-jsx-plugin-template](https://github.com/laden666666/my-doc-jsx-plugin-template "") ：严格来说my-doc-jsx-plugin-template不是一个插件，他是一个插件开放模板。
+*   [my-doc-jsx-plugin-api](https://github.com/laden666666/my-doc-jsx-plugin-api "") ：一个my-doc-jsx插件，用于书写api文档使用。my-doc-jsx-plugin-api可以基于注释及部分代码，生成对应语言的api文档。目前仅支持javascript和typescript两种语言。
 
 

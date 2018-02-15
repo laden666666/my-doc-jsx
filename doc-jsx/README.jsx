@@ -113,6 +113,28 @@ test();`
 <li>3.test4</li>`
     }</code>
 
+    <h3>table</h3>
+    <p>定义表格，语法类似html的table，暂不支持合并单元格。</p>
+    <code lang="html">{
+`<table>
+    <tr>
+        <th>1</th>
+        <th>2</th>
+        <th>3</th>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>5</td>
+        <td>6</td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>8</td>
+        <td>9</td>
+    </tr>
+</table>`
+    }</code>
+
     <h2>行内标签</h2>
     <p>定义段落中的词语的标签我们称之为行内标签，参考html中的行内标签，块级标签可以嵌套内标标签，但是行内标签不能嵌套块级标签，系统提供的块级标签有：</p>
 
@@ -128,6 +150,141 @@ test();`
     <p>用于定义粗体</p>
     <code lang="html">{`<p><strong>加粗</strong>显示</p>`}</code>
 
-    {/*<h1>格式转换</h1>*/}
-    {/*<p>docjsx支持将jsx格式书写的文档转为html或者markdown格式，而且可以运行浏览器、nodejs、命令行等多种平台上面。</p>*/}
+    <h1>格式转换</h1>
+    <p>docjsx支持将jsx格式书写的文档转为html或者markdown格式，而且可以运行浏览器、nodejs、命令行等多种平台上面。</p>
+
+    <h2>浏览器环境和nodejs环境转换</h2>
+    <p>在浏览标或者nodejs环境下，都可以使用docjsx将jsx文件转为html页面或者md文件中。</p>
+    <p>首先引入docjsx文件，如果是nodejs环境，执行：</p>
+    <code>{
+        `npm install my-doc-jsx`
+    }</code>
+    <p>在浏览器中，使用script标签和link引入dist目录中的myDocJsx.css和myDocJsx.js文件。</p>
+    <code lang="javascript">{
+        `var htmlDoc = myDocJsx.convert(jsxDoc)`
+    }</code>
+    <p>这样就将jsx文档转为html文档。</p>
+
+    <h3>使用插件</h3>
+    <p>如果需要使用插件，则需要将插件的js文件和css文件导入，使用<span>usePlugin</span>函数将插件注册到docjsx中：</p>
+    <code lang="javascript">{
+`const myDocJsx = require("my-jsx-doc")
+const myDocJsxPluginAPI = require("my-jsx-doc-plugin-api")
+
+//使用usePlugin函数将插件注册到docjsx
+myDocJsx.usePlugin(myDocJsxPluginAPI)
+
+//然后在执行转换
+var htmlDoc = myDocJsx.convert(jsxDoc)`
+    }</code>
+
+    <h3>myDocJsx.convert函数</h3>
+    <p>转换函数，将jsx字符串转换为指定的文档格式输出。</p>
+
+    <h4>参数列表</h4>
+    <table>
+        <tr>
+            <th>参数名</th>
+            <th>参数类型</th>
+            <th>说明</th>
+        </tr>
+        <tr>
+            <td>jsxStr</td>
+            <td>string</td>
+            <td>jsx字符串</td>
+        </tr>
+        <tr>
+            <td>option</td>
+            <td>Object</td>
+            <td>转换的配置。主要配置有：format，转换的格式配置，支持“HTML”和“MARKDOWN”两种</td>
+        </tr>
+    </table>
+
+    <h4>返回值</h4>
+    <table>
+        <tr>
+            <th>参数类型</th>
+            <th>说明</th>
+        </tr>
+        <tr>
+            <td>string</td>
+            <td>转换好的指定格式的文档</td>
+        </tr>
+    </table>
+
+
+    <h3>myDocJsx.usePlugin函数</h3>
+    <p>使用usePlugin函数注册插件。</p>
+
+    <h4>参数列表</h4>
+    <table>
+        <tr>
+            <th>参数名</th>
+            <th>参数类型</th>
+            <th>说明</th>
+        </tr>
+        <tr>
+            <td>plugin</td>
+            <td>Plugin</td>
+            <td>注册的插件</td>
+        </tr>
+    </table>
+
+    <h2>cli命令行</h2>
+    <p>docjsx提供了一套用于文档转换的命令行，与nodejs、浏览器环境不同，cli是直接对文件的格式做转换，而不是字符串转换。首先全局安装my-doc-jsx：</p>
+    <code>{`npm install my-doc-jsx -g`}</code>
+    <p>docjsx具体语法是:</p>
+    <code>{`docjsx [options] [command]`}</code>
+
+    <h3>convert命令</h3>
+    <p>将jsx格式的文档转化为指定的格式。</p>
+    <code>{`convert|c [options] <format> <file> <output>`}</code>
+    <p>例如：</p>
+    <code>{`docjsx c html ./doc-jsx/README.jsx ./`}</code>
+
+    <h4>参数列表</h4>
+    <table>
+        <tr>
+            <th>参数名</th>
+            <th>说明</th>
+        </tr>
+        <tr>
+            <td>format</td>
+            <td>转化的格式，支持html和md两种格式</td>
+        </tr>
+        <tr>
+            <td>file</td>
+            <td>需要转换的文件</td>
+        </tr>
+        <tr>
+            <td>output</td>
+            <td>转换成功后文件保存的目录</td>
+        </tr>
+    </table>
+
+    <h4>options</h4>
+    <table>
+        <tr>
+            <th>option名</th>
+            <th>说明</th>
+        </tr>
+        <tr>
+            <td>-w, --watch</td>
+            <td>增加一个监听文件变化的监听器，每当文件保存一次，都会执行一次转换</td>
+        </tr>
+        <tr>
+            <td>{`-p, --plugin <pluginName>`}</td>
+            <td>增加插件，pluginName是插件的npm包名，多个插件用“,”分隔。要求插件在试用前必须用先按照其npm包</td>
+        </tr>
+    </table>
+
+    <h1>开发</h1>
+
+    <h2>插件开放</h2>
+    <p>插件的api暂未稳定，暂时不对外开放。</p>
+
+    <h2>系统插件</h2>
+    <li><a href="https://github.com/laden666666/my-doc-jsx-plugin-template">my-doc-jsx-plugin-template</a>：严格来说my-doc-jsx-plugin-template不是一个插件，他是一个插件开放模板。</li>
+    <li><a href="https://github.com/laden666666/my-doc-jsx-plugin-api">my-doc-jsx-plugin-api</a>：一个my-doc-jsx插件，用于书写api文档使用。my-doc-jsx-plugin-api可以基于注释及部分代码，生成对应语言的api文档。目前仅支持javascript和typescript两种语言。</li>
+
 </doc>

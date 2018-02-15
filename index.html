@@ -31,6 +31,23 @@
 <doc>
     <h1>my-doc-jsx——一个基于jsx的文档书写、文档转换工具</h1>
     <h2>富文本、office写文档的时代过去了</h2>
+    <table>
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
     <p>
         {`早期大家写博客都是用富文本编辑器，后来大家用了markdown；早期大家写文档都是用word，后来大家用了gitbook。这是因为我们的博客也好，文档也好，大家都希望用一门标记语言来书写`}
     </p>
@@ -70,7 +87,9 @@
 <script>
     function renderDoc() {
         var text = document.querySelector("#docEdit").value;
-        var script = myDocJsx.convert(text);
+        var script = myDocJsx.convert(text, {
+            format: 'HTML'
+        });
         document.querySelector('#doc').innerHTML = script;
     }
 

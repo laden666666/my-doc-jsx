@@ -1,0 +1,50 @@
+.mydoc_table{
+    margin : 15px 0px 0px ;
+    padding : 0px ;
+    border : 1px solid rgb(170, 170, 170) ;
+    border-collapse : collapse ;
+    width : 100% ;
+    color : rgb(0, 0, 0) ;
+    font-size : 14px ;
+    background-color : rgb(253, 252, 248) ;
+}
+
+.mydoc_table .mydoc_tr{
+    margin : 0px ;
+    padding : 0px ;
+    border : 0px ;
+    background-color : rgb(255, 255, 255) ;
+}
+.mydoc_table .mydoc_tr:nth-child(odd){
+    background-color : rgb(245, 245, 245) ;
+}
+.mydoc_table .mydoc_tr:nth-child(1){
+    background-color : rgb(63, 63, 63);
+}
+
+.mydoc_table .mydoc_th{
+    margin : 0px ;
+    padding : 5px 15px 5px 6px ;
+    border : 1px solid rgb(63, 63, 63) ;
+    vertical-align : baseline ;
+    background-color : rgb(63, 63, 63) ;
+    text-align : left ;
+    color : rgb(255, 255, 255) ;
+    width : 123px ;
+    word-break: break-all;
+    font-weight: normal;
+}
+
+.mydoc_table .mydoc_td{
+    margin : 0px ;
+    padding : 6px 15px 6px 6px ;
+    border : 1px solid rgb(170, 170, 170) ;
+    vertical-align : text-top ;
+    word-break: break-all;
+}
+.mydoc_table .mydoc_td{
+    margin : 0px ;
+    padding : 6px 15px 6px 6px ;
+    border : 1px solid rgb(170, 170, 170) ;
+    vertical-align : text-top ;
+}

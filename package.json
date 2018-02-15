@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
-    "doc": "docjsx c md ./doc-jsx/README.jsx ./ && docjsx c html ./doc-jsx/README.jsx ./",
+    "doc": "docjsx c html ./doc-jsx/README.jsx ./ && docjsx c md ./doc-jsx/README.jsx ./",
     "test": "mocha --compilers js:babel-core/register test/test.js"
   },
   "bin": {
@@ -21,6 +21,7 @@
     "blog",
     "doc",
     "jsx",
+    "markdown",
     "theme"
   ],
   "author": "laden666666",
