@@ -1,18 +1,14 @@
 export interface Node{
     parentNode: Node
     childNodes: Node[]
+    tree: Tree;
+    props: {
+        [string]: any
+    }
 }
 
 export interface Tree{
     root: Node;
-}
-
-
-export interface VNode{
-    props: {
-        children: Array<VNode | string>
-    },
-    type: string
 }
 
 export declare abstract class BasePlugin{
@@ -33,15 +29,13 @@ export declare abstract class BlockTag extends Node{
     blockTagTree: Tree;
 
     abstract render(): string;
-    $renderChildren(children: Node[]);
-    $getChildrenText(): Node[];
+    $renderChildren(children: Array<BlockTag | InlineTag>);
+    $getChildrenText(node?: Node): Node[];
 }
 
 export declare abstract class InlineTag extends Node{
     renderTools:BaseRenderTools;
-
     abstract render(): string;
-    $getChildrenText(): VNode;
 }
 
 export declare function usePlugin(plugin: BasePlugin): void;

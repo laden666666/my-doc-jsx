@@ -41,7 +41,9 @@ var options = {
  */
 module.exports = function (file, output, format, option) {
     //获取要转换的文件路径
-    file = path.join(process.cwd(), file)
+    if(!path.isAbsolute(file)){
+        file = path.join(process.cwd(), file)
+    }
 
     //注册插件
     option.plugins.forEach(function (pluginName){
@@ -67,7 +69,13 @@ module.exports = function (file, output, format, option) {
             return formatOption.handleStr(outputStr)
         }).then(function(outputStr){
             var outFileName = path.basename(file, path.extname(file)) + '.' + formatOption.extname;
-            var _output = path.join(process.cwd(), output, outFileName)
+            //获取要输出的路径
+            var _output
+            if(!path.isAbsolute(file)){
+                _output = path.join(process.cwd(), output, outFileName)
+            } else {
+                _output = path.join(output, outFileName)
+            }
             return fsExtra.outputFile(_output, outputStr)
         })
     }

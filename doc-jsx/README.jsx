@@ -151,7 +151,7 @@ test();`
     <code lang="html">{`<p><strong>加粗</strong>显示</p>`}</code>
 
     <h1>格式转换</h1>
-    <p>docjsx支持将jsx格式书写的文档转为html或者markdown格式，而且可以运行浏览器、nodejs、命令行等多种平台上面。</p>
+    <p>编写好的jsx格式的博客无法直接展示，需要将它们转为其他格式后才能展示出来。docjsx支持将jsx格式书写的文档转为html或者markdown格式，而且可以运行浏览器、nodejs、命令行等多种平台上面。</p>
 
     <h2>浏览器环境和nodejs环境转换</h2>
     <p>在浏览标或者nodejs环境下，都可以使用docjsx将jsx文件转为html页面或者md文件中。</p>

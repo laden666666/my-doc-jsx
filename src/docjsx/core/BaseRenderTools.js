@@ -39,17 +39,22 @@ class BaseRenderTools{
         //因为props是只读字段，故采用...使其变为可写字段
         doc = {...doc, props: {...doc.props}}
         if(doc.props.children){
+            //将props.children不是数组的情况，都改为数组，这样方便后续处理
             if(!Array.isArray(doc.props.children)){
                 doc.props.children = [doc.props.children];
             }
 
+            //获取doc根元素，将其封装为Node对象
             var DocClass = new this._getTagInstance(doc, this.$blockTagMap);
             var domTree = new Tree(new DocClass(this, doc));
+
+            //将其鞥这为块级的Node对象
             doc.props.children.forEach((item)=>{
                 var ItemClass = new this._getTagInstance(item, this.$blockTagMap);
                 var tagInstance = new ItemClass(this, item);
                 this._appendBlockChildren(domTree, tagInstance);
 
+                //将其子元素封装
                 tagInstance._setBlockTagTree(this._createTextTree(tagInstance));
             })
         }

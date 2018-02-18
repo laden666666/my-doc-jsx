@@ -33,6 +33,11 @@ class Node{
     setParentNode(parentNode){
         this.parentNode = parentNode;
     }
+
+    //属性
+    get props(){
+        return (this.content && this.content.props) || {}
+    }
 }
 
 export default Node;
