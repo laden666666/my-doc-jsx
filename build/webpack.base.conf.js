@@ -2,6 +2,10 @@ var path = require('path')
 var projectRoot = path.resolve(__dirname, '../')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
+function resolve(dir) {
+    return path.join(__dirname, '..', dir)
+}
+
 module.exports = {
     entry: {
         'myDocJsx': ['./src/run-browser.js'],
@@ -30,7 +34,7 @@ module.exports = {
         library: '[name]'
     },
     resolve: {
-        extensions: ['', '.js'],
+        extensions: ['', '.js', 'ts'],
         fallback: [path.join(__dirname, '../node_modules')],
     },
     resolveLoader: {
@@ -42,7 +46,12 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.js$/,
-            loader: 'babel',
+            loader: 'babel',            
+            include: projectRoot,
+            exclude: /node_modules/
+        }, {
+            test: /\.ts$/,
+            loader: 'babel!ts',            
             include: projectRoot,
             exclude: /node_modules/
         }, {

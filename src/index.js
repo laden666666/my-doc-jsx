@@ -9,6 +9,10 @@ import util from './docjsx/util';
 var React = require('React');
 var vm = require("vm");
 
+import a from './test.ts'
+
+console.log(a)
+
 //当前注册的插件列表
 var pluginList = []
 
