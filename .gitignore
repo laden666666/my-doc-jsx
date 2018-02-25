@@ -34,3 +34,5 @@ node_modules/
 *.log
 *.bat
 .history/
+.log
+npm-debug.log.*
