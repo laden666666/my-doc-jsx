@@ -4,7 +4,7 @@ import {BlockNode} from './docjsx/core/BlockNode';
 import {BasePlugin} from './docjsx/core/BasePlugin';
 import {BaseRender} from './docjsx/core/BaseRenderTools';
 import HTMLRender from './docjsx/render/HTMLRender';
-// import MarkdownRender from './docjsx/render/MarkdownRender';
+import MarkdownRender from './docjsx/render/MarkdownRender';
 import {reactVDomTree2Tree} from './docjsx/core/ReactVDomTree2Tree';
 import * as util from './docjsx/util';
 
@@ -67,13 +67,13 @@ function convert(jsxStr: string, option={format: 'HTML'}) {
             })
             return render.$renderTree(reactVDomTree2Tree(vd, render));
         } else if(option.format == 'MARKDOWN'){
-            // var render = new MarkdownRender();
-            // pluginList.forEach(plugin=>{
-            //     if(plugin.format && plugin.format['MARKDOWN']){
-            //         render.$usePlugin(plugin.format['MARKDOWN'])
-            //     }
-            // })
-            // return render.$renderTree(reactVDomTree2Tree(vd, render));
+            var render: BaseRender = new MarkdownRender();
+            pluginList.forEach(plugin=>{
+                if(plugin.format && plugin.format['MARKDOWN']){
+                    render.$usePlugin(plugin.format['MARKDOWN'])
+                }
+            })
+            return render.$renderTree(reactVDomTree2Tree(vd, render));
         } else  {
             throw new Error(`The format ${option.format} does not exist`)
         }

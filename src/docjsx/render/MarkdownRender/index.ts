@@ -77,3 +77,5 @@ export class MarkdownRender extends BaseRender{
         }).join('')
     }
 }
+
+export default MarkdownRender

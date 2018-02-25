@@ -22,6 +22,15 @@ describe('myDocJsx基本功能测试', function() {
         assert.equal(htmlStr.indexOf('&lt;&gt;') > -1, true)
     });
 
+    it('markdown转换测试', function() {
+        var jsxStr =
+            `<doc>
+                <h1>123</h1>
+            </doc>`
+        var htmlStr = myDocJsx.convert(jsxStr, {format: 'MARKDOWN'})
+        assert.equal(htmlStr.indexOf('# 123') > -1, true)
+    });
+
     it('插件测试', function() {
 
         class TestAPI extends myDocJsx.BlockNode{
