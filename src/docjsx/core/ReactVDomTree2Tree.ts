@@ -33,16 +33,16 @@ function appendBlockChildren(tree: Tree, node: BlockNode<any>){
 function appendChildren(node: BlockNode<any>, parentNode: PseudoNode | Node){
     var children: any[] = []
     //将props.children不是数组的情况，都改为数组，这样方便后续处理
-    if(node.props.children && node.props.children.length != null && typeof node.props.children !== 'string'){
-        children = Array.from(node.props.children)
-    } else if(node.props.children) {
-        children = [node.props.children]
+    if(parentNode.props.children && parentNode.props.children.length != null && typeof parentNode.props.children !== 'string'){
+        children = Array.from(parentNode.props.children)
+    } else if(parentNode.props.children) {
+        children = [parentNode.props.children]
     }
 
     children.forEach(vdom=>{
         var subNode = new PseudoNode(vdom, node, parentNode instanceof PseudoNode ? parentNode : null)
         
-        node.childPseudoNodes.push(subNode)
+        parentNode.childPseudoNodes.push(subNode)
         appendChildren(node, subNode)
     })
 }

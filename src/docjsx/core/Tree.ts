@@ -19,7 +19,7 @@ export class Tree{
 
     constructor(root){
         this.root = root;
-        root.setTree(this);
+        root.Tree = this;
         this.currentNode = this.root;
     }
 }

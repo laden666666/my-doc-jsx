@@ -9,6 +9,7 @@ import {BaseRender} from './BaseRenderTools';
 export class InlineNode<T extends BaseRender> extends PseudoNode{
     constructor(node: PseudoNode = null){
         super(node['content'], node.node, node.parentPseudoNode);
+        this.childPseudoNodes = node.childPseudoNodes
     }
 
     /**

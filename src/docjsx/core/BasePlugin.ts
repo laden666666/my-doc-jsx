@@ -18,33 +18,33 @@ export class BasePlugin {
      * 向插件库注册块级标签
      * @param format        引擎
      * @param name          标签名
-     * @param blockTag      块级标签扩展
+     * @param blockNode      块级标签扩展
      */
-    registerBlockTag(format, name, blockTag){
+    registerBlockNode(format, name, blockNode){
         if(!this.format[format]){
             this.format[format] = {
-                blockTagMap : {},
-                inlineTagMap : {},
+                blockNodeMap : {},
+                inlineNodeMap : {},
             }
         }
 
-        this.format[format].blockTagMap[name] = blockTag
+        this.format[format].blockNodeMap[name] = blockNode
     }
 
     /**
      * 向插件库注册行内标签
      * @param format        引擎
      * @param name          标签名
-     * @param inlineTag     行内标签扩展
+     * @param inlineNode     行内标签扩展
      */
-    registerInlineTag(format, name, inlineTag){
+    registerInlineNode(format, name, inlineNode){
         if(!this.format[format]){
             this.format[format] = {
-                blockTagMap : {},
-                inlineTagMap : {},
+                blockNodeMap : {},
+                inlineNodeMap : {},
             }
         }
 
-        this.format[format].inlineTagMap[name] = inlineTag
+        this.format[format].inlineNodeMap[name] = inlineNode
     }
 }

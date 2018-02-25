@@ -8,46 +8,51 @@ import { InlineNode } from '../../core/InlineNode';
 import { Node } from '../../core/Node';
 import { PseudoNode } from '../../core/PseudoNode';
 import { Doc } from './BlockNodes/Doc';
-// import H1 from './BlockNodes/H1';
-// import H2 from './BlockNodes/H2';
-// import H3 from './BlockNodes/H3';
-// import H4 from './BlockNodes/H4';
-// import Table from './BlockNodes/Table';
-// import P from './BlockNodes/P';
-// import Nav from './BlockNodes/Nav';
+import {H1} from './BlockNodes/H1';
+import {H2} from './BlockNodes/H2';
+import {H3} from './BlockNodes/H3';
+import {H4} from './BlockNodes/H4';
+import {Table} from './BlockNodes/Table';
+import {P} from './BlockNodes/P';
+import {Nav} from './BlockNodes/Nav';
 import { Blockquote } from './BlockNodes/Blockquote';
-// import Code from './BlockNodes/Code';
-// import Li from './BlockNodes/Li';
-// import Img from './BlockNodes/Img';
+import Code from './BlockNodes/Code';
+import {Li} from './BlockNodes/Li';
+import {Img} from './BlockNodes/Img';
 
-// import Strong from './inlineNodes/Strong';
-// import A from './inlineNodes/A';
-// import Span from './inlineNodes/Span';
-// import String from './inlineNodes/String';
+import {Strong} from './inlineNodes/Strong';
+import {A} from './inlineNodes/A';
+import {Span} from './inlineNodes/Span';
+import {String} from './inlineNodes/String';
 
 export class HTMLRender extends BaseRender{
     constructor(){
         super()
-        this.$blockNodeMap = {
-            // p: P,
-            // h1: H1,
-            // h2: H2,
-            // h3: H3,
-            // h4: H4,
-            // table: Table,
+        
+        Object.entries({
+            p: P,
+            h1: H1,
+            h2: H2,
+            h3: H3,
+            h4: H4,
+            table: Table,
             doc: Doc,
-            // nav: Nav,
+            nav: Nav,
             blockquote: Blockquote,
-            // code: Code,
-            // li: Li,
-            // img: Img,
-        }
-        this.$inlineNodeMap = {
-            // strong: Strong,
-            // string: String,
-            // span: Span,
-            // a: A,
-        }
+            code: Code,
+            li: Li,
+            img: Img,
+        }).map(keyValue=>{
+            this.registerBlockNode(keyValue[0], keyValue[1])
+        })
+        Object.entries({
+            strong: Strong,
+            string: String,
+            span: Span,
+            a: A,
+        }).map(keyValue=>{
+            this.registerInlineNode(keyValue[0], keyValue[1])
+        })
     }
 
     $renderTree(tree: Tree): string{
@@ -56,8 +61,12 @@ export class HTMLRender extends BaseRender{
 
     renderChildBlockNodes(blockNodeList: Node[]): string{
         return blockNodeList.map(node=> {
-            const blockNode = new (this.getBlockNode(node.tagName) || BlockNode)(node)
-            return blockNode.render(this)
+            if(node instanceof BlockNode){
+                return node.render(this)
+            } else {
+                return '';
+            }
+            
         }).join('')
     }
 

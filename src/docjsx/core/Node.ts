@@ -17,14 +17,14 @@ export class Node{
      * @type {Node[]}
      * @memberof Node
      */
-    childNodes: Node[]
+    childNodes: Node[] = []
 
     /**
      * 子伪节点
      * @type {Node[]}
      * @memberof Node
      */
-    childPseudoNodes: PseudoNode[]
+    childPseudoNodes: PseudoNode[] = []
 
     /**
      * 正颗树
@@ -36,7 +36,7 @@ export class Node{
     /**
      * react的虚拟dom对象，私有。不对外开放
      */
-    private content: any
+    protected content: any
 
     /**
      * @param content           节点对应的虚拟dom
@@ -68,5 +68,10 @@ export class Node{
     //标签名称
     get tagName(){
         return (this.content && this.content && this.content.type) || ""
+    }
+
+    //获得文本
+    getText(){
+        return typeof this.content === 'string' ? this.content : ''
     }
 }

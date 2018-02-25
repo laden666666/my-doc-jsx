@@ -23,5 +23,3 @@ export class H1 extends BlockNode<HTMLRender>{
         return str;
     }
 }
-
-export default H1;
