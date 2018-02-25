@@ -13,8 +13,6 @@ module.exports = merge(baseWebpackConfig, {
     // eval-source-map is faster for development
     devtool: '#eval-source-map',
     plugins: [
-        // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
-        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         // https://github.com/ampedandwired/html-webpack-plugin
         new HtmlWebpackPlugin({
@@ -22,10 +20,6 @@ module.exports = merge(baseWebpackConfig, {
             filename: 'index.html',
             template: 'index.html',
             inject: true
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            names: [ 'myDocJsx',],
-            minChunks: Infinity,
         }),
     ]
 })

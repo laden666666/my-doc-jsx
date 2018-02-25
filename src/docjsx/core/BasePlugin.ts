@@ -1,16 +1,17 @@
 /**
  * 插件库的基础类
  */
-class BasePlugin {
+export class BasePlugin {
+
+    //输出工具
+    blockNodeMap = {};
+    //输出工具
+    inlineNodeMap = {};
+
+    format = {}
+
     constructor(){
-        this.format = {
-
-        }
-
-        //输出工具
-        this.blockTagMap = {};
-        //输出工具
-        this.inlineTagMap = {};
+        
     }
 
     /**
@@ -19,7 +20,7 @@ class BasePlugin {
      * @param name          标签名
      * @param blockTag      块级标签扩展
      */
-    $registerBlockTag(format, name, blockTag){
+    registerBlockTag(format, name, blockTag){
         if(!this.format[format]){
             this.format[format] = {
                 blockTagMap : {},
@@ -36,7 +37,7 @@ class BasePlugin {
      * @param name          标签名
      * @param inlineTag     行内标签扩展
      */
-    $registerInlineTag(format, name, inlineTag){
+    registerInlineTag(format, name, inlineTag){
         if(!this.format[format]){
             this.format[format] = {
                 blockTagMap : {},
@@ -47,5 +48,3 @@ class BasePlugin {
         this.format[format].inlineTagMap[name] = inlineTag
     }
 }
-
-export default BasePlugin;
