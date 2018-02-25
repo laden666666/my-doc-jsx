@@ -80,7 +80,7 @@ function convert(jsxStr: string, option={format: 'HTML'}) {
     }).bind(this)({tags:{}, React}, vm)
 }
 
-module.exports = {
+var exportModule = {
     InlineNode,
     BlockNode,
     BaseRender,
@@ -89,3 +89,5 @@ module.exports = {
     usePlugin,
     util,
 }
+module.exports = exportModule
+export default exportModule
