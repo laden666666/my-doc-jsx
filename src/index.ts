@@ -88,6 +88,8 @@ var exportModule = {
     convert,
     usePlugin,
     util,
+    HTMLRender,
+    MarkdownRender,
 }
 module.exports = exportModule
 export default exportModule

@@ -2,6 +2,8 @@ import { InlineNode } from './docjsx/core/InlineNode';
 import { BlockNode } from './docjsx/core/BlockNode';
 import { BasePlugin } from './docjsx/core/BasePlugin';
 import { BaseRender } from './docjsx/core/BaseRenderTools';
+import HTMLRender from './docjsx/render/HTMLRender';
+import MarkdownRender from './docjsx/render/MarkdownRender';
 import * as util from './docjsx/util';
 declare var exportModule: {
     InlineNode: typeof InlineNode;
@@ -13,5 +15,7 @@ declare var exportModule: {
     }) => any;
     usePlugin: (plugin: any) => void;
     util: typeof util;
+    HTMLRender: typeof HTMLRender;
+    MarkdownRender: typeof MarkdownRender;
 };
 export default exportModule;
