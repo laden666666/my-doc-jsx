@@ -12,7 +12,7 @@ export class Nav extends BlockNode<MarkdownRender>{
 
     render(render: MarkdownRender){
         var str = `[TOC]
-${render.renderChildBlockNodes(this.childNodes)}`;
+${render.renderBlockNodes(this.childNodes)}`;
         return str;
     }
 }

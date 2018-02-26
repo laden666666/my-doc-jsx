@@ -6,6 +6,6 @@ import {MarkdownRender} from '../'
 
 export class A extends InlineNode<MarkdownRender>{
     render(render: MarkdownRender){
-        return `[${render.renderChildInlineNodes(this.childPseudoNodes)}](${this.content.props.href || '' } "") `
+        return `[${render.renderInlineNodes(this.childPseudoNodes)}](${this.content.props.href || '' } "") `
     }
 }

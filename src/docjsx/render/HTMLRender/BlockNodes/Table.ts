@@ -4,6 +4,7 @@
 import {BlockNode} from '../../../core/BlockNode'
 import {PseudoNode} from '../../../core/PseudoNode'
 import {HTMLRender} from '../'
+const style = require('./Table.css')
 
 export class Table extends BlockNode<HTMLRender>{
     constructor(node){
@@ -14,9 +15,9 @@ export class Table extends BlockNode<HTMLRender>{
     tableTdRender(tds: PseudoNode[], render: HTMLRender){
         return tds.map(td=>{
             if(td.tagName == 'td'){
-                return `<td class="mydoc_td">${render.renderChildInlineNodes(td.childPseudoNodes)}</td>`
+                return `<td class="mydoc_td">${render.renderInlineNodes(td.childPseudoNodes)}</td>`
             } else if(td.tagName == 'th'){
-                return `<th class="mydoc_th">${render.renderChildInlineNodes(td.childPseudoNodes)}</th>`
+                return `<th class="mydoc_th">${render.renderInlineNodes(td.childPseudoNodes)}</th>`
             } else {
                 return ''
             }
@@ -34,6 +35,7 @@ export class Table extends BlockNode<HTMLRender>{
     }
 
     render(render: HTMLRender){
+        render.setStyle('table', style)
         var str = `<table class="mydoc_table">${
             this.tableTrRender(this.childPseudoNodes, render)
             }</table>`;

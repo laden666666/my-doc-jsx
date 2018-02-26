@@ -12,8 +12,8 @@ export class H2 extends BlockNode<MarkdownRender>{
 
     render(render: MarkdownRender){
         var str =
-            `## ${render.renderChildInlineNodes(this.childPseudoNodes)}
-${render.renderChildBlockNodes(this.childNodes)}
+            `## ${render.renderInlineNodes(this.childPseudoNodes)}
+${render.renderBlockNodes(this.childNodes)}
 `;
         return str;
 

@@ -12,16 +12,16 @@ export class Table extends BlockNode<MarkdownRender>{
     }
 
 
-    isTh(tr){
-        return tr.childNodes.reduce((bool, td)=>{
-            return bool && td.content.type == 'th'
+    isTh(tr: PseudoNode){
+        return tr.childPseudoNodes.reduce((bool, td)=>{
+            return bool && td.tagName == 'th'
         }, true)
     }
 
     tableTdRender(tds:PseudoNode[], render: MarkdownRender){
         return `|${tds.map(td=>{
             if(td.tagName == 'td'){
-                return `${render.renderChildInlineNodes(td.childPseudoNodes)}`
+                return `${render.renderInlineNodes(td.childPseudoNodes)}`
             }
         }).join("|")}|`
     }
@@ -29,7 +29,7 @@ export class Table extends BlockNode<MarkdownRender>{
     tableThRender(ths: PseudoNode[], render: MarkdownRender){
         return `|${ths.map(th => {
             if(th.tagName == 'th'){
-                return `${render.renderChildInlineNodes(th.childPseudoNodes)}`
+                return `${render.renderInlineNodes(th.childPseudoNodes)}`
             }
         }).join("|")}|
 |${ths.map(th => '----').join("|")}|`

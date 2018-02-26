@@ -8,6 +8,7 @@ import { PseudoNode } from '../../core/PseudoNode';
 export declare class MarkdownRender extends BaseRender {
     constructor();
     $renderTree(tree: Tree): string;
-    renderChildBlockNodes(blockNodeList: Node[]): string;
-    renderChildInlineNodes(inlineNodeList: PseudoNode[]): string;
+    renderBlockNodes(blockNodeList: Node[]): string;
+    renderInlineNodes(inlineNodeList: PseudoNode[]): string;
 }
+export default MarkdownRender;

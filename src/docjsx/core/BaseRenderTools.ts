@@ -31,10 +31,6 @@ export abstract class BaseRender{
     $inlineNodeMap: {[name: string]: InlineNodeClass<any>} = {}
 
     abstract $renderTree(tree: Tree): any
-
-    abstract renderChildBlockNodes(blockNodeList: Node[]): any
-
-    abstract renderChildInlineNodes(inlineNodeList: PseudoNode[]): any
     
     registerBlockNode(nodeName, fn: BlockNodeClass<this>){
         this.$blockNodeMap[nodeName] = fn;
@@ -53,20 +49,27 @@ export abstract class BaseRender{
     }
     
     getAllBlockNodes(): {name: string, plugin: BlockNodeClass<any>}[]{
-        return Object.entries(this.$blockNodeMap).map(arrs=>({
+        let arr = []
+        for(let key in this.$blockNodeMap){
+            arr.push([key, this.$blockNodeMap[key]])
+        }
+        return arr.map(arrs=>({
             name: arrs[0],
             plugin: arrs[1]
         }));
     }
 
     getAllInlineNodes(): {name: string, plugin: InlineNodeClass<any>}[]{
-        return Object.entries(this.$inlineNodeMap).map(arrs=>({
+        let arr = []
+        for(let key in this.$inlineNodeMap){
+            arr.push([key, this.$inlineNodeMap[key]])
+        }
+        return arr.map(arrs=>({
             name: arrs[0],
             plugin: arrs[1]
         }));
     }
 
-    
     $usePlugin(plugins: BasePlugin){
         for(let key in plugins.blockNodeMap){
             this.registerBlockNode(key, plugins.blockNodeMap[key])

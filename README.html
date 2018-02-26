@@ -1,42 +1,365 @@
-<!doctype html><head><meta charset="utf-8"><style>.mydoc{font-size:14px;overflow:hidden}.mydoc_blockquote{padding:12px 5px 12px 30px;margin:2em 0 0 8px;border-width:0;border-left:4px solid #f66;background-color:#f8f8f8;position:relative;border-bottom-right-radius:2px;border-top-right-radius:2px;line-height:1.6em}.mydoc_blockquote:before{position:absolute;top:14px;left:-12px;background-color:#f66;color:#fff;content:"!";width:20px;height:20px;text-align:center;line-height:20px;font-weight:700;font-family:Source Sans Pro,Helvetica Neue,Arial,sans-serif;font-size:14px;border-radius:10px}code[class*=language-],pre[class*=language-]{color:#000;background:none;text-shadow:0 1px #fff;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}code[class*=language-]::-moz-selection,code[class*=language-] ::-moz-selection,pre[class*=language-]::-moz-selection,pre[class*=language-] ::-moz-selection{text-shadow:none;background:#b3d4fc}code[class*=language-]::selection,code[class*=language-] ::selection,pre[class*=language-]::selection,pre[class*=language-] ::selection{text-shadow:none;background:#b3d4fc}@media print{code[class*=language-],pre[class*=language-]{text-shadow:none}}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-],pre[class*=language-]{background:#f5f2f0}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#708090}.token.punctuation{color:#999}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#905}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string{color:#690}.language-css .token.string,.style .token.string,.token.entity,.token.operator,.token.url{color:#a67f59;background:hsla(0,0%,100%,.5)}.token.atrule,.token.attr-value,.token.keyword{color:#07a}.token.function{color:#dd4a68}.token.important,.token.regex,.token.variable{color:#e90}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.mydoc_code{overflow-x:auto;position:relative;background-color:#f8f8f8;padding:0;line-height:1.1em;border-radius:2px;margin:1.2em 0;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8AgMAAABHkjHhAAAACVBMVEWAgIBaWlo+Pj7rTFvWAAAAA3RSTlMHCAw+VhR4AAAA+klEQVQoz4WSMW7EQAhFPxKWNh2FCx+HkaZI6RRb5DYbyVfIJXLKDCFoMbaTKSw/8ZnPAPjaH2xgZcUNUDADD7D9LtDBCLZ45fbkvo/30K8yeI64pPwl6znd/3n/Oe93P3ho9qeh72btTFzqkz0rsJle8Zr81OLEwZ1dv/713uWqvu2pl+k0fy7MWtj9r/tN5q/02z89qa/L4Dc2LvM93kezPfXlME/O86EbY/V9GB9ePX8G1/6W+/9h1dq/HGfTfzT3j/xNo7522Bfnqe5jO/fvhVthlfk434v3iO9zG/UOphyPeinPl1J8Gtaa7xPTa/Dk+RIs4deMvwGvcGsmsCvJ0AAAAABJRU5ErkJggg==")}.mydoc_code_pre{padding:1.2em 1.4em;line-height:1.5em;margin:0}.mydoc_h1{margin:0 0 1em}.mydoc_h1_a{color:#2c3e50;text-decoration:none;font-size:2em}.mydoc_h1_h1{margin:45px 0 8px;padding-bottom:7px;font-size:28px}.mydoc_h2{margin:35px 0 .8em}.mydoc_h2_a{font-size:1.5em;text-decoration:none;color:#2c3e50}.mydoc_h2_a:before{content:"";display:block;margin-top:-40px;height:40px;visibility:hidden}.mydoc_h2_h2{margin:5px 0 8px;border-bottom:1px solid #ddd;font-size:22px;padding-bottom:1em}.mydoc_h3{margin:35px 0 .8em}.mydoc_h3_a{font-size:1.3em;text-decoration:none;color:#2c3e50}.mydoc_h3_a:before{content:"";display:block;margin-top:-30px;height:30px;visibility:hidden}.mydoc_h3_h3{margin:5px 0 8px;border-bottom:1px solid #ddd;font-size:18px;padding-bottom:.6em}.mydoc_h4{margin:35px 0 .8em}.mydoc_h4_a{font-size:1.2em;text-decoration:none;color:#2c3e50}.mydoc_h4_a:before{content:"";display:block;margin-top:-20px;height:20px;visibility:hidden}.mydoc_h4_h4{margin:5px 0 8px;border-bottom:1px solid #ddd;font-size:16px;padding-bottom:.3em}.mydoc_table{margin:15px 0 0;padding:0;border:1px solid #aaa;border-collapse:collapse;width:100%;color:#000;font-size:14px;background-color:#fdfcf8}.mydoc_table .mydoc_tr{margin:0;padding:0;border:0;background-color:#fff}.mydoc_table .mydoc_tr:nth-child(odd){background-color:#f5f5f5}.mydoc_table .mydoc_th,.mydoc_table .mydoc_tr:first-child{background-color:#3f3f3f}.mydoc_table .mydoc_th{margin:0;padding:5px 15px 5px 6px;border:1px solid #3f3f3f;vertical-align:baseline;text-align:left;color:#fff;width:123px;word-break:break-all;font-weight:400}.mydoc_table .mydoc_td{word-break:break-all;margin:0;padding:6px 15px 6px 6px;border:1px solid #aaa;vertical-align:text-top}.mydoc_img{display:block;max-width:100%}.mydoc_li:first-child,:not(.mydoc_li)+.mydoc_li{margin-top:10px}.mydoc_li+.mydoc_li{margin-top:-10px}.mydoc_li{margin:0;color:#34495e;margin-bottom:10px;position:relative}.mydoc_p{line-height:1.6em;margin:1.2em 0 -1.2em;padding-bottom:1.2em;position:relative;z-index:1;color:#333}.mydoc_a{color:#42b983;font-weight:400;text-decoration:none;cursor:pointer}.mydoc_strong{font-weight:600;color:#2c3e50}</style></head><article class='mydoc'>
-                    <div class="mydoc_h1">
+<!doctype html><head><meta charset="utf-8"></head><style>.mydoc_h1{
+    margin: 0 0 1em;
+}
+.mydoc_h1_a{
+    color: #2c3e50;
+    text-decoration: none;
+    font-size: 2em;
+}
+.mydoc_h1_h1{
+    margin: 45px 0 8px;
+    padding-bottom: 7px;
+    font-size: 28px;
+}
+.mydoc_h1_content{
+
+}.mydoc_h2{
+    margin: 35px 0 0.8em;
+}
+.mydoc_h2_a{
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #2c3e50;
+}
+.mydoc_h2_a::before{
+    content: '';
+    display: block;
+    margin-top: -40px;
+    height: 40px;
+    visibility: hidden;
+}
+.mydoc_h2_h2{
+    margin: 5px 0 8px;
+    border-bottom: 1px solid #ddd;
+    font-size: 22px;
+    padding-bottom: 1em;
+}
+.mydoc_h2_content{
+
+}.mydoc_p{
+    line-height: 1.6em;
+    margin: 1.2em 0 -1.2em;
+    padding-bottom: 1.2em;
+    position: relative;
+    z-index: 1;
+    color: #333;
+}.mydoc_strong{
+    font-weight: 600;
+    color: #2c3e50;
+}.mydoc_span{
+    padding: 2px 4px;
+    font-size: 90%;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+}:not(.mydoc_li) + .mydoc_li, .mydoc_li:first-child{
+    margin-top: 10px;
+}
+.mydoc_li + .mydoc_li{
+    margin-top: -10px;
+}
+
+.mydoc_li{
+    margin: 0;
+    color: #34495e;
+    margin-bottom: 10px;
+    position: relative;
+}/**
+ * prism.js default theme for JavaScript, CSS and HTML
+ * Based on dabblet (http://dabblet.com)
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+	color: black;
+	background: none;
+	text-shadow: 0 1px white;
+	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #b3d4fc;
+}
+
+@media print {
+	code[class*="language-"],
+	pre[class*="language-"] {
+		text-shadow: none;
+	}
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: #f5f2f0;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: slategray;
+}
+
+.token.punctuation {
+	color: #999;
+}
+
+.namespace {
+	opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+	color: #905;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+	color: #690;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+	color: #a67f59;
+	background: hsla(0, 0%, 100%, .5);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+	color: #07a;
+}
+
+.token.function {
+	color: #DD4A68;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+	color: #e90;
+}
+
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+
+.token.entity {
+	cursor: help;
+}
+.mydoc_code{
+    overflow-x: auto;
+    position: relative;
+    background-color: #f8f8f8;
+    padding: 0;
+    line-height: 1.1em;
+    border-radius: 2px;
+    margin: 1.2em 0;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADwAAAA8AgMAAABHkjHhAAAACVBMVEWAgIBaWlo+Pj7rTFvWAAAAA3RSTlMHCAw+VhR4AAAA+klEQVQoz4WSMW7EQAhFPxKWNh2FCx+HkaZI6RRb5DYbyVfIJXLKDCFoMbaTKSw/8ZnPAPjaH2xgZcUNUDADD7D9LtDBCLZ45fbkvo/30K8yeI64pPwl6znd/3n/Oe93P3ho9qeh72btTFzqkz0rsJle8Zr81OLEwZ1dv/713uWqvu2pl+k0fy7MWtj9r/tN5q/02z89qa/L4Dc2LvM93kezPfXlME/O86EbY/V9GB9ePX8G1/6W+/9h1dq/HGfTfzT3j/xNo7522Bfnqe5jO/fvhVthlfk434v3iO9zG/UOphyPeinPl1J8Gtaa7xPTa/Dk+RIs4deMvwGvcGsmsCvJ0AAAAABJRU5ErkJggg==');
+}
+.mydoc_code_pre{
+    padding: 1.2em 1.4em;
+    line-height: 1.5em;
+    margin: 0;
+}.mydoc_h3{
+    margin: 35px 0 0.8em;
+}
+.mydoc_h3_a{
+    font-size: 1.3em;
+    text-decoration: none;
+    color: #2c3e50;
+}
+.mydoc_h3_a::before{
+    content: '';
+    display: block;
+    margin-top: -30px;
+    height: 30px;
+    visibility: hidden;
+}
+.mydoc_h3_h3{
+    margin: 5px 0 8px;
+    border-bottom: 1px solid #ddd;
+    font-size: 18px;
+    padding-bottom: .6em;
+}
+.mydoc_h3_content{
+
+}.mydoc_h4{
+    margin: 35px 0 0.8em;
+}
+.mydoc_h4_a{
+    font-size: 1.2em;
+    text-decoration: none;
+    color: #2c3e50;
+}
+.mydoc_h4_a::before{
+    content: '';
+    display: block;
+    margin-top: -20px;
+    height: 20px;
+    visibility: hidden;
+}
+.mydoc_h4_h4{
+    margin: 5px 0 8px;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+    padding-bottom: 0.3em;
+}
+.mydoc_h4_content{
+
+}.mydoc_table{
+    margin : 15px 0px 0px ;
+    padding : 0px ;
+    border : 1px solid rgb(170, 170, 170) ;
+    border-collapse : collapse ;
+    width : 100% ;
+    color : rgb(0, 0, 0) ;
+    font-size : 14px ;
+    background-color : rgb(253, 252, 248) ;
+}
+
+.mydoc_table .mydoc_tr{
+    margin : 0px ;
+    padding : 0px ;
+    border : 0px ;
+    background-color : rgb(255, 255, 255) ;
+}
+.mydoc_table .mydoc_tr:nth-child(odd){
+    background-color : rgb(245, 245, 245) ;
+}
+.mydoc_table .mydoc_tr:nth-child(1){
+    background-color : rgb(63, 63, 63);
+}
+
+.mydoc_table .mydoc_th{
+    margin : 0px ;
+    padding : 5px 15px 5px 6px ;
+    border : 1px solid rgb(63, 63, 63) ;
+    vertical-align : baseline ;
+    background-color : rgb(63, 63, 63) ;
+    text-align : left ;
+    color : rgb(255, 255, 255) ;
+    width : 123px ;
+    word-break: break-all;
+    font-weight: normal;
+}
+
+.mydoc_table .mydoc_td{
+    margin : 0px ;
+    padding : 6px 15px 6px 6px ;
+    border : 1px solid rgb(170, 170, 170) ;
+    vertical-align : text-top ;
+    word-break: break-all;
+}
+.mydoc_table .mydoc_td{
+    margin : 0px ;
+    padding : 6px 15px 6px 6px ;
+    border : 1px solid rgb(170, 170, 170) ;
+    vertical-align : text-top ;
+}.mydoc_a{
+    color: #42b983;
+    font-weight: 400;
+    text-decoration: none;
+    cursor: pointer;
+}.mydoc{
+    font-size: 14px;
+    overflow: hidden;
+}</style>
+<article class='mydoc'>
+    <div class="mydoc_h1">
                 <a class="mydoc_h1_a">
                     <h1 class="mydoc_h1_h1">my-doc-jsx——一个基于jsx的文档书写、文档转换工具</h1>
                 </a>
                 <div class="mydoc_h1_content">
-                    <div class="mydoc_h2">
+                    
+                </div>
+            </div><div class="mydoc_h2">
                     <a class="mydoc_h2_a">
                         <h2 class="mydoc_h2_h2">富文本、office写文档的时代过去了</h2>
                     </a>
-                    <div class="mydoc_h1_content">
+                    <div class="mydoc_h2_content">
                         <p class="mydoc_p"> 早期，大家都是使用富文本和office写博客，后来大家都改用了markdown，这是因为markdown是一个简单的标记语言。</p><p class="mydoc_p"> 使用标记语言，可以让我们的文档（博客）的内容和样式分离，甚至让计算机读懂我们文档的结构，使其将我们的文档任意转换格式。同时使用可扩展的标记语言，能够使用我们自定义的方言，去书写一些格式非常复杂但是具有结构性的内容。 </p><p class="mydoc_p"> 因此，在这个时代已经没有人在希望用富文本或者office去写文档，我们要标记语言。</p>
                     </div>
                 </div><div class="mydoc_h2">
                     <a class="mydoc_h2_a">
                         <h2 class="mydoc_h2_h2">markdown、xml？还是其他标记语言</h2>
                     </a>
-                    <div class="mydoc_h1_content">
-                        <p class="mydoc_p"> 那么应该选用哪种标记语言呢？</p><p class="mydoc_p"> <strong class="mydoc_strong">xml：</strong>无疑是最优秀的标记语言，xml具有较高的可扩展性，定义规范。但是xml不适合书写文档，因为他过于<strong class="mydoc_strong">规范</strong>，不够灵活，严格的语法要求使人生畏；而且他对于转义的处理过也不够方便，一个空格都需要六个字符表示（ ），也没几个人能够记住这些转义。离开编辑器我们也很难直接使用xml去书写复杂的格式文档。</p><p class="mydoc_p"> <strong class="mydoc_strong">markdown：</strong>无疑是最流行的用于文档书写的标记语言，它非常的简单，而且就是为了书写文档而生的。但是它不同于xml，扩展性不够，我们可以通过“```”扩展markdown的语法，但是书写起来非常不方便，而且格式也很混乱。 同时markdown方言太多，导致多种markdown编辑器编辑出的文档彼此居然不兼容。也许因为markdown的语法过于简单，因此用起来反而非常麻烦，相信很多让人都遇到过一个表格调整了半天显示还有问题的情况。这些问题都是因为markdown不具备xml的规范性导致的。</p><p class="mydoc_p"> <strong class="mydoc_strong">html：</strong>本身就没有扩展性，同时也没有markdown方便，更不适合书写文档。包含了xml和markdown的全部缺点。</p><p class="mydoc_p"> <strong class="mydoc_strong">jsx：</strong>对，你没看错，就是react提供的附属品——jsx。我们希望能够像写markdown一样方便，又希望像写xml一样规范并且有扩展性，而jsx不就是这样的一个标记语言吗？同时配合es6的<strong class="mydoc_strong">模板字符串</strong>，可以完美地解决了转义问题。 使用jsx，并且实现像markdown和xml那样包装html，能够使我们使用可扩展的标记语言书写文档，这就是<strong class="mydoc_strong">my-doc-jsx</strong>。</p>
-                    </div>
-                </div>
-                </div>
-            </div><div class="mydoc_h1">
+                    <div class="mydoc_h2_content">
+                        <p class="mydoc_p"> 那么应该选用哪种标记语言呢？</p><p class="mydoc_p"> <strong class="mydoc_strong">xml：</strong>无疑是最优秀的标记语言，xml具有较高的可扩展性，定义规范。但是xml不适合书写文档，因为他过于<strong class="mydoc_strong">规范</strong>，不够灵活，严格的语法要求使人生畏；而且他对于转义的处理过也不够方便，一个空格都需要六个字符表示（ ），也没几个人能够记住这些转义。离开编辑器我们也很难直接使用xml去书写复杂的格式文档。</p><p class="mydoc_p"> <strong class="mydoc_strong">markdown：</strong>无疑是最流行的用于文档书写的标记语言，它非常的简单，而且就是为了书写文档而生的。但是它不同于xml，扩展性不够，我们可以通过“```”扩展markdown的语法，但是书写起来非常不方便，而且格式也很混乱。 同时markdown方言太多，导致多种markdown编辑器编辑出的文档彼此居然不兼容。也许因为markdown的语法过于简单，因此用起来反而非常麻烦，相信很多让人都遇到过一个表格调整了半天显示还有问题的情况。这些问题都是因为markdown不具备xml的规范性导致的。</p><p class="mydoc_p"> <strong class="mydoc_strong">html：</strong>本身就没有扩展性，同时也没有markdown方便，更不适合书写文档。包含了xml和markdown的全部缺点。</p><p class="mydoc_p"> <strong class="mydoc_strong">jsx：</strong>对，你没看错，就是react提供的附属品——jsx。我们希望能够像写markdown一样方便，又希望像写xml一样规范并且有扩展性，而jsx不就是这样的一个标记语言吗？同时配合es6的<strong class="mydoc_strong">模板字符串</strong>，可以完美地解决了转义问题。 使用jsx，并且实现像markdown和xml那样包装html，能够使我们使用可扩展的标记语言书写文档，这就是<strong class="mydoc_strong">my-doc-jsx</strong>。</p><div class="mydoc_h1">
                 <a class="mydoc_h1_a">
                     <h1 class="mydoc_h1_h1">my-doc-jsx</h1>
                 </a>
                 <div class="mydoc_h1_content">
-                    <p class="mydoc_p"> <span>my-doc-jsx（以下简称docjsx）</span>是一个使用jsx书写文档的工具，并支持多种形式的文档转换。docjsx主要特点有：</p><ul class="mydoc_li"><li> 0.使用jsx语法编写文档</li></ul><ul class="mydoc_li"><li> 1.较好的语义化文档编写格式</li></ul><ul class="mydoc_li"><li> 2.支持将docjsx文档转换为html、markdown格式</li></ul><ul class="mydoc_li"><li> 3.可以浏览器、nodejs、cli等多种平台上转换文档</li></ul><ul class="mydoc_li"><li> 4.支持自定义插件，可以扩展标签</li></ul>
+                    
                 </div>
-            </div><div class="mydoc_h1">
+            </div><p class="mydoc_p"> <span class="mydoc_span">my-doc-jsx（以下简称docjsx）</span>是一个使用jsx书写文档的工具，并支持多种形式的文档转换。docjsx主要特点有：</p><ul class="mydoc_li"><li> 0.使用jsx语法编写文档</li></ul><ul class="mydoc_li"><li> 1.较好的语义化文档编写格式</li></ul><ul class="mydoc_li"><li> 2.支持将docjsx文档转换为html、markdown格式</li></ul><ul class="mydoc_li"><li> 3.可以浏览器、nodejs、cli等多种平台上转换文档</li></ul><ul class="mydoc_li"><li> 4.支持自定义插件，可以扩展标签</li></ul><div class="mydoc_h1">
                 <a class="mydoc_h1_a">
                     <h1 class="mydoc_h1_h1">如何用docjsx书写文档</h1>
                 </a>
                 <div class="mydoc_h1_content">
-                    <p class="mydoc_p"> docjsx有着接近html的标签系统，每个段落都需要用标签标记起来，因此他不像markdown那样随意，格式上更加清晰整齐；同时他有着markdown一样的书写格式，他不像html那样层层嵌套，docjsx要求每个段落必须是并列关系，不能嵌套。</p><div class="mydoc_h2">
+                    
+                </div>
+            </div><p class="mydoc_p"> docjsx有着接近html的标签系统，每个段落都需要用标签标记起来，因此他不像markdown那样随意，格式上更加清晰整齐；同时他有着markdown一样的书写格式，他不像html那样层层嵌套，docjsx要求每个段落必须是并列关系，不能嵌套。</p>
+                    </div>
+                </div><div class="mydoc_h2">
                     <a class="mydoc_h2_a">
                         <h2 class="mydoc_h2_h2">根标签</h2>
                     </a>
-                    <div class="mydoc_h1_content">
+                    <div class="mydoc_h2_content">
                         <p class="mydoc_p"> 每一个docjsx必须使用doc标签定义。因为根标签的写法是固定的，所以docjsx可以省略根标签，不过省略了根标签就不符合jsx的书写规范，所以请酌情考虑。</p><figure class='mydoc_code'>
                     <pre class="mydoc_code_pre cm-s-eclipse"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>doc</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span>一级标题<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
@@ -51,7 +374,7 @@
                     <a class="mydoc_h2_a">
                         <h2 class="mydoc_h2_h2">块级标签</h2>
                     </a>
-                    <div class="mydoc_h1_content">
+                    <div class="mydoc_h2_content">
                         <p class="mydoc_p"> 定义段落的标签我们称之为块级标签，参考html中的块级标签，块级标签不能嵌套，系统提供的块级标签有：</p><div class="mydoc_h3">
                 <a class="mydoc_h3_a">
                     <h3 class="mydoc_h3_h3">h1到h3</h3>
@@ -164,7 +487,7 @@ test();`
                     <a class="mydoc_h2_a">
                         <h2 class="mydoc_h2_h2">行内标签</h2>
                     </a>
-                    <div class="mydoc_h1_content">
+                    <div class="mydoc_h2_content">
                         <p class="mydoc_p"> 定义段落中的词语的标签我们称之为行内标签，参考html中的行内标签，块级标签可以嵌套内标标签，但是行内标签不能嵌套块级标签，系统提供的块级标签有：</p><div class="mydoc_h3">
                 <a class="mydoc_h3_a">
                     <h3 class="mydoc_h3_h3">a</h3>
@@ -190,32 +513,32 @@ test();`
                 <div class="mydoc_h3_content">
                     <p class="mydoc_p"> 用于定义粗体</p><figure class='mydoc_code'>
                     <pre class="mydoc_code_pre cm-s-eclipse"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>strong</span><span class="token punctuation">></span></span>加粗<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>strong</span><span class="token punctuation">></span></span>显示<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></pre>
-                </figure>
-                </div>
-            </div>
-                    </div>
-                </div>
-                </div>
-            </div><div class="mydoc_h1">
+                </figure><div class="mydoc_h1">
                 <a class="mydoc_h1_a">
                     <h1 class="mydoc_h1_h1">格式转换</h1>
                 </a>
                 <div class="mydoc_h1_content">
-                    <p class="mydoc_p"> docjsx支持将jsx格式书写的文档转为html或者markdown格式，而且可以运行浏览器、nodejs、命令行等多种平台上面。</p><div class="mydoc_h2">
+                    
+                </div>
+            </div><p class="mydoc_p"> 编写好的jsx格式的博客无法直接展示，需要将它们转为其他格式后才能展示出来。docjsx支持将jsx格式书写的文档转为html或者markdown格式，而且可以运行浏览器、nodejs、命令行等多种平台上面。</p>
+                </div>
+            </div>
+                    </div>
+                </div><div class="mydoc_h2">
                     <a class="mydoc_h2_a">
                         <h2 class="mydoc_h2_h2">浏览器环境和nodejs环境转换</h2>
                     </a>
-                    <div class="mydoc_h1_content">
+                    <div class="mydoc_h2_content">
                         <p class="mydoc_p"> 在浏览标或者nodejs环境下，都可以使用docjsx将jsx文件转为html页面或者md文件中。</p><p class="mydoc_p"> 首先引入docjsx文件，如果是nodejs环境，执行：</p><figure class='mydoc_code'>
                     <pre class="mydoc_code_pre cm-s-eclipse">npm install my<span class="token operator">-</span>doc<span class="token operator">-</span>jsx</pre>
-                </figure><p class="mydoc_p"> 在浏览器中，使用script标签和link引入dist目录中的myDocJsx.css和myDocJsx.js文件。</p><figure class='mydoc_code'>
+                </figure><p class="mydoc_p"> 在浏览器中，使用script标签和link引入dist目录中的myDocJsx.js文件。</p><figure class='mydoc_code'>
                     <pre class="mydoc_code_pre cm-s-eclipse"><span class="token keyword">var</span> htmlDoc <span class="token operator">=</span> myDocJsx<span class="token punctuation">.</span><span class="token function">convert</span><span class="token punctuation">(</span>jsxDoc<span class="token punctuation">)</span></pre>
                 </figure><p class="mydoc_p"> 这样就将jsx文档转为html文档。</p><div class="mydoc_h3">
                 <a class="mydoc_h3_a">
                     <h3 class="mydoc_h3_h3">使用插件</h3>
                 </a>
                 <div class="mydoc_h3_content">
-                    <p class="mydoc_p"> 如果需要使用插件，则需要将插件的js文件和css文件导入，使用<span>usePlugin</span>函数将插件注册到docjsx中：</p><figure class='mydoc_code'>
+                    <p class="mydoc_p"> 如果需要使用插件，则需要将插件的js文件，使用<span class="mydoc_span">usePlugin</span>函数将插件注册到docjsx中：</p><figure class='mydoc_code'>
                     <pre class="mydoc_code_pre cm-s-eclipse"><span class="token keyword">const</span> myDocJsx <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"my-jsx-doc"</span><span class="token punctuation">)</span>
 <span class="token keyword">const</span> myDocJsxPluginAPI <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"my-jsx-doc-plugin-api"</span><span class="token punctuation">)</span>
 
@@ -267,7 +590,7 @@ myDocJsx<span class="token punctuation">.</span><span class="token function">use
                     <a class="mydoc_h2_a">
                         <h2 class="mydoc_h2_h2">cli命令行</h2>
                     </a>
-                    <div class="mydoc_h1_content">
+                    <div class="mydoc_h2_content">
                         <p class="mydoc_p"> docjsx提供了一套用于文档转换的命令行，与nodejs、浏览器环境不同，cli是直接对文件的格式做转换，而不是字符串转换。首先全局安装my-doc-jsx：</p><figure class='mydoc_code'>
                     <pre class="mydoc_code_pre cm-s-eclipse">npm install my<span class="token operator">-</span>doc<span class="token operator">-</span>jsx <span class="token operator">-</span>g</pre>
                 </figure><p class="mydoc_p"> docjsx具体语法是:</p><figure class='mydoc_code'>
@@ -293,34 +616,32 @@ myDocJsx<span class="token punctuation">.</span><span class="token function">use
                     <h4 class="mydoc_h4_h4">options</h4>
                 </a>
                 <div class="mydoc_h4_content">
-                    <table class="mydoc_table"><tr class="mydoc_tr"><th class="mydoc_th">option名</th><th class="mydoc_th">说明</th></tr><tr class="mydoc_tr"><td class="mydoc_td">-w, --watch</td><td class="mydoc_td">增加一个监听文件变化的监听器，每当文件保存一次，都会执行一次转换</td></tr><tr class="mydoc_tr"><td class="mydoc_td">-p, --plugin &lt;pluginName&gt;</td><td class="mydoc_td">增加插件，pluginName是插件的npm包名，多个插件用“,”分隔。要求插件在试用前必须用先按照其npm包</td></tr></table>
+                    <table class="mydoc_table"><tr class="mydoc_tr"><th class="mydoc_th">option名</th><th class="mydoc_th">说明</th></tr><tr class="mydoc_tr"><td class="mydoc_td">-w, --watch</td><td class="mydoc_td">增加一个监听文件变化的监听器，每当文件保存一次，都会执行一次转换</td></tr><tr class="mydoc_tr"><td class="mydoc_td">-p, --plugin &lt;pluginName&gt;</td><td class="mydoc_td">增加插件，pluginName是插件的npm包名，多个插件用“,”分隔。要求插件在试用前必须用先按照其npm包</td></tr></table><div class="mydoc_h1">
+                <a class="mydoc_h1_a">
+                    <h1 class="mydoc_h1_h1">开发</h1>
+                </a>
+                <div class="mydoc_h1_content">
+                    
+                </div>
+            </div>
                 </div>
             </div>
                 </div>
             </div>
                     </div>
-                </div>
-                </div>
-            </div><div class="mydoc_h1">
-                <a class="mydoc_h1_a">
-                    <h1 class="mydoc_h1_h1">开发</h1>
-                </a>
-                <div class="mydoc_h1_content">
-                    <div class="mydoc_h2">
+                </div><div class="mydoc_h2">
                     <a class="mydoc_h2_a">
                         <h2 class="mydoc_h2_h2">插件开放</h2>
                     </a>
-                    <div class="mydoc_h1_content">
+                    <div class="mydoc_h2_content">
                         <p class="mydoc_p"> 插件的api暂未稳定，暂时不对外开放。</p>
                     </div>
                 </div><div class="mydoc_h2">
                     <a class="mydoc_h2_a">
                         <h2 class="mydoc_h2_h2">系统插件</h2>
                     </a>
-                    <div class="mydoc_h1_content">
+                    <div class="mydoc_h2_content">
                         <ul class="mydoc_li"><li> <a class="mydoc_a" href="https://github.com/laden666666/my-doc-jsx-plugin-template">my-doc-jsx-plugin-template</a>：严格来说my-doc-jsx-plugin-template不是一个插件，他是一个插件开放模板。</li></ul><ul class="mydoc_li"><li> <a class="mydoc_a" href="https://github.com/laden666666/my-doc-jsx-plugin-api">my-doc-jsx-plugin-api</a>：一个my-doc-jsx插件，用于书写api文档使用。my-doc-jsx-plugin-api可以基于注释及部分代码，生成对应语言的api文档。目前仅支持javascript和typescript两种语言。</li></ul>
                     </div>
                 </div>
-                </div>
-            </div>
-                </article>
+</article>

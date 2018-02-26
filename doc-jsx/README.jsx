@@ -159,14 +159,14 @@ test();`
     <code>{
         `npm install my-doc-jsx`
     }</code>
-    <p>在浏览器中，使用script标签和link引入dist目录中的myDocJsx.css和myDocJsx.js文件。</p>
+    <p>在浏览器中，使用script标签和link引入dist目录中的myDocJsx.js文件。</p>
     <code lang="javascript">{
         `var htmlDoc = myDocJsx.convert(jsxDoc)`
     }</code>
     <p>这样就将jsx文档转为html文档。</p>
 
     <h3>使用插件</h3>
-    <p>如果需要使用插件，则需要将插件的js文件和css文件导入，使用<span>usePlugin</span>函数将插件注册到docjsx中：</p>
+    <p>如果需要使用插件，则需要将插件的js文件，使用<span>usePlugin</span>函数将插件注册到docjsx中：</p>
     <code lang="javascript">{
 `const myDocJsx = require("my-jsx-doc")
 const myDocJsxPluginAPI = require("my-jsx-doc-plugin-api")

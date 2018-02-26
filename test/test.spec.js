@@ -40,7 +40,7 @@ describe('myDocJsx基本功能测试', function() {
             }
 
             render(render){
-                var str = `<div>${render.renderChildInlineNodes(this.childPseudoNodes)}</div>`;
+                var str = `<div>${render.renderInlineNodes(this.childPseudoNodes)}</div>`;
                 return str;
             }
         }

@@ -11,6 +11,6 @@ export class Doc extends BlockNode<MarkdownRender>{
     }
 
     render(render: MarkdownRender){
-        return `${render.renderChildBlockNodes(this.childNodes)}`
+        return `${render.renderBlockNodes(this.childNodes)}`
     }
 }

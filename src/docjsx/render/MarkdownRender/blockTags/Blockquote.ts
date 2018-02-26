@@ -11,7 +11,7 @@ export class Blockquote extends BlockNode<MarkdownRender>{
     }
 
     render(render: MarkdownRender){
-        var str = `> ${render.renderChildInlineNodes(this.childPseudoNodes)}
+        var str = `> ${render.renderInlineNodes(this.childPseudoNodes)}
 `;
         return str;
     }

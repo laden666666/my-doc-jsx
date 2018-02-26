@@ -3,6 +3,7 @@
  */
 import {BlockNode} from '../../../core/BlockNode'
 import {HTMLRender} from '../'
+const style = require('./Li.css')
 
 export class Li extends BlockNode<HTMLRender>{
     constructor(node){
@@ -11,7 +12,8 @@ export class Li extends BlockNode<HTMLRender>{
     }
 
     render(render: HTMLRender){
-        var str = `<ul class="mydoc_li"><li> ${render.renderChildInlineNodes(this.childPseudoNodes)}</li></ul>`;
+        render.setStyle('li', style)
+        var str = `<ul class="mydoc_li"><li> ${render.renderInlineNodes(this.childPseudoNodes)}</li></ul>`;
         return str;
     }
 }

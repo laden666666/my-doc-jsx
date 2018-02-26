@@ -29,7 +29,7 @@ export class MarkdownRender extends BaseRender{
     constructor(){
         super()
         
-        Object.entries({
+        let blockNodeMap = {
             p: P,
             h1: H1,
             h2: H2,
@@ -42,24 +42,27 @@ export class MarkdownRender extends BaseRender{
             code: Code,
             li: Li,
             img: Img,
-        }).map(keyValue=>{
-            this.registerBlockNode(keyValue[0], keyValue[1])
-        })
-        Object.entries({
+        }
+        for(let key in blockNodeMap){
+            this.registerBlockNode(key, blockNodeMap[key])
+        }
+        
+        let inlineNodeMap = {
             strong: Strong,
             string: String,
             span: Span,
             a: A,
-        }).map(keyValue=>{
-            this.registerInlineNode(keyValue[0], keyValue[1])
-        })
+        }
+        for(let key in inlineNodeMap){
+            this.registerInlineNode(key, inlineNodeMap[key])
+        }
     }
 
     $renderTree(tree: Tree): string{
-        return this.renderChildBlockNodes([tree.root]);
+        return this.renderBlockNodes([tree.root]);
     }
 
-    renderChildBlockNodes(blockNodeList: Node[]): string{
+    renderBlockNodes(blockNodeList: Node[]): string{
         return blockNodeList.map(node=> {
             if(node instanceof BlockNode){
                 return node.render(this)
@@ -70,7 +73,7 @@ export class MarkdownRender extends BaseRender{
         }).join('')
     }
 
-    renderChildInlineNodes(inlineNodeList: PseudoNode[]): string{
+    renderInlineNodes(inlineNodeList: PseudoNode[]): string{
         return inlineNodeList.map(pseudoNode=> {
             const inlineNode = new (this.getInlineNode(pseudoNode.tagName) || InlineNode)(pseudoNode)
             return inlineNode.render(this)

@@ -3,8 +3,10 @@
  */
 import {InlineNode} from '../../../core/InlineNode'
 import {HTMLRender} from '../'
+const style = require('./Span.css')
 export class Span extends InlineNode<HTMLRender>{
     render(render: HTMLRender){
-        return `<span class="mydoc_span">${render.renderChildInlineNodes(this.childPseudoNodes)}</span>`;
+        render.setStyle('span', style)
+        return `<span class="mydoc_span">${render.renderInlineNodes(this.childPseudoNodes)}</span>`;
     }
 }

@@ -3,6 +3,7 @@
  */
 import {BlockNode} from '../../../core/BlockNode'
 import {HTMLRender} from '../'
+const style = require('./Blockquote.css')
 
 export class Blockquote extends BlockNode<HTMLRender>{
     constructor(node){
@@ -11,7 +12,8 @@ export class Blockquote extends BlockNode<HTMLRender>{
     }
 
     render(render: HTMLRender){
-        var str = `<blockquote class="mydoc_blockquote">${render.renderChildInlineNodes(this.childPseudoNodes)}</blockquote>`;
+        render.setStyle('blockquote', style)
+        var str = `<blockquote class="mydoc_blockquote">${render.renderInlineNodes(this.childPseudoNodes)}</blockquote>`;
         return str;
     }
 }

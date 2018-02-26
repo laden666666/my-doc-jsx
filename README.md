@@ -172,7 +172,7 @@ test();
 
 
 # 格式转换
-docjsx支持将jsx格式书写的文档转为html或者markdown格式，而且可以运行浏览器、nodejs、命令行等多种平台上面。
+编写好的jsx格式的博客无法直接展示，需要将它们转为其他格式后才能展示出来。docjsx支持将jsx格式书写的文档转为html或者markdown格式，而且可以运行浏览器、nodejs、命令行等多种平台上面。
 
 ## 浏览器环境和nodejs环境转换
 在浏览标或者nodejs环境下，都可以使用docjsx将jsx文件转为html页面或者md文件中。
@@ -182,7 +182,7 @@ docjsx支持将jsx格式书写的文档转为html或者markdown格式，而且�
 ```javascript
 npm install my-doc-jsx
 ```
-在浏览器中，使用script标签和link引入dist目录中的myDocJsx.css和myDocJsx.js文件。
+在浏览器中，使用script标签和link引入dist目录中的myDocJsx.js文件。
 
 ```javascript
 var htmlDoc = myDocJsx.convert(jsxDoc)
@@ -190,7 +190,7 @@ var htmlDoc = myDocJsx.convert(jsxDoc)
 这样就将jsx文档转为html文档。
 
 ### 使用插件
-如果需要使用插件，则需要将插件的js文件和css文件导入，使用usePlugin函数将插件注册到docjsx中：
+如果需要使用插件，则需要将插件的js文件，使用usePlugin函数将插件注册到docjsx中：
 
 ```javascript
 const myDocJsx = require("my-jsx-doc")

@@ -31,8 +31,6 @@ export declare abstract class BaseRender {
         [name: string]: InlineNodeClass<any>;
     };
     abstract $renderTree(tree: Tree): any;
-    abstract renderChildBlockNodes(blockNodeList: Node[]): any;
-    abstract renderChildInlineNodes(inlineNodeList: PseudoNode[]): any;
     registerBlockNode(nodeName: any, fn: BlockNodeClass<this>): void;
     registerInlineNode(nodeName: any, fn: InlineNodeClass<this>): void;
     getBlockNode(nodeName: any): BlockNodeClass<this>;

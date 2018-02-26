@@ -3,6 +3,7 @@
  */
 import {BlockNode} from '../../../core/BlockNode'
 import {HTMLRender} from '../'
+const style = require('./H3.css')
 
 export class H3 extends BlockNode<HTMLRender>{
     constructor(node){
@@ -11,13 +12,14 @@ export class H3 extends BlockNode<HTMLRender>{
     }
 
     render(render: HTMLRender) {
+        render.setStyle('h3', style)
         var str =
             `<div class="mydoc_h3">
                 <a class="mydoc_h3_a">
-                    <h3 class="mydoc_h3_h3">${render.renderChildInlineNodes(this.childPseudoNodes)}</h3>
+                    <h3 class="mydoc_h3_h3">${render.renderInlineNodes(this.childPseudoNodes)}</h3>
                 </a>
                 <div class="mydoc_h3_content">
-                    ${render.renderChildBlockNodes(this.childNodes)}
+                    ${render.renderBlockNodes(this.childNodes)}
                 </div>
             </div>`;
         return str;

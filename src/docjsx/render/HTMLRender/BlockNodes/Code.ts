@@ -3,6 +3,7 @@
  */
 import {BlockNode} from '../../../core/BlockNode'
 import {HTMLRender} from '../'
+const style = require('./Code.css')
 
 var Prism = require('prismjs');
 
@@ -40,6 +41,7 @@ export class Code extends BlockNode<HTMLRender>{
     }
 
     render(render: HTMLRender){
+        render.setStyle('code', style)
         var lang = this.props.lang || 'javascript';
         var code = mirror((this.childPseudoNodes[0] ? this.childPseudoNodes[0].getText() : '').trim(), lang)
         return `<figure class='mydoc_code'>

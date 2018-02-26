@@ -3,6 +3,7 @@
  */
 import {BlockNode} from '../../../core/BlockNode'
 import {HTMLRender} from '../'
+const style = require('./P.css')
 
 export class P extends BlockNode<HTMLRender>{
     constructor(node){
@@ -11,7 +12,8 @@ export class P extends BlockNode<HTMLRender>{
     }
 
     render(render: HTMLRender) {
-        var str = `<p class="mydoc_p"> ${render.renderChildInlineNodes(this.childPseudoNodes)}</p>`;
+        render.setStyle('p', style)
+        var str = `<p class="mydoc_p"> ${render.renderInlineNodes(this.childPseudoNodes)}</p>`;
         return str;
     }
 }

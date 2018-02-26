@@ -6,9 +6,12 @@ import { Tree } from '../../core/Tree';
 import { Node } from '../../core/Node';
 import { PseudoNode } from '../../core/PseudoNode';
 export declare class HTMLRender extends BaseRender {
+    private styleMap;
     constructor();
     $renderTree(tree: Tree): string;
-    renderChildBlockNodes(blockNodeList: Node[]): string;
-    renderChildInlineNodes(inlineNodeList: PseudoNode[]): string;
+    setStyle(tagName: string, styleText: string): void;
+    renderStyle(): string;
+    renderBlockNodes(blockNodeList: Node[]): string;
+    renderInlineNodes(inlineNodeList: PseudoNode[]): string;
 }
 export default HTMLRender;

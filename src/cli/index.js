@@ -15,9 +15,7 @@ var options = {
         },
         handleStr: function(str){
             //将样式加入到文档中
-            return fsExtra.readFile(path.join(__dirname, '../../dist/myDocJsx.css')).then(function (cssStr) {
-                return '<!doctype html><head><meta charset="utf-8"><style>' + cssStr + '</style></head>' + str
-            })
+            return '<!doctype html><head><meta charset="utf-8"></head>' + str
         },
         extname: 'html'
     },
@@ -64,7 +62,10 @@ module.exports = function (file, output, format, option) {
     //转换函数
     function converter() {
         var formatOption = options[format]
-        return fsExtra.readFile(file).then(function (jsxStr) {
+        return Promise.resolve()
+        .then(function(){
+            return fsExtra.readFile(file)
+        }).then(function (jsxStr) {
             var outputStr = myDocJsx.convert(jsxStr.toString(), formatOption.option)
             return formatOption.handleStr(outputStr)
         }).then(function(outputStr){
@@ -77,6 +78,8 @@ module.exports = function (file, output, format, option) {
                 _output = path.join(output, outFileName)
             }
             return fsExtra.outputFile(_output, outputStr)
+        }).catch(function(err){
+            console.error(err)
         })
     }
 

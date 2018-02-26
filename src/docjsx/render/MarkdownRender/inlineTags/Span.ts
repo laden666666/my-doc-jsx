@@ -7,6 +7,6 @@ import {MarkdownRender} from '../'
 export class Span extends InlineNode<MarkdownRender>{
 
     render(render: MarkdownRender){
-        return `${render.renderChildInlineNodes(this.childPseudoNodes)}`;
+        return `${render.renderInlineNodes(this.childPseudoNodes)}`;
     }
 }

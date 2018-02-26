@@ -6,7 +6,7 @@ import { PseudoNode } from '../../../core/PseudoNode';
 import { MarkdownRender } from '../';
 export declare class Table extends BlockNode<MarkdownRender> {
     constructor(node: any);
-    isTh(tr: any): any;
+    isTh(tr: PseudoNode): boolean;
     tableTdRender(tds: PseudoNode[], render: MarkdownRender): string;
     tableThRender(ths: PseudoNode[], render: MarkdownRender): string;
     tableTrRender(trs: PseudoNode[], render: MarkdownRender): string;

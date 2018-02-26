@@ -3,9 +3,9 @@ var webpack = require('webpack')
 var projectRoot = path.resolve(__dirname, '../')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-function resolve(dir) {
-    return path.join(__dirname, '..', dir)
-}
+var autoprefixer = require('autoprefixer')({
+    browsers: ['last 2 version', 'iOS >=8', 'IE >=9']
+})
 
 module.exports = {
     entry: {
@@ -53,20 +53,34 @@ module.exports = {
             }]
         }, {
             test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-                use: ["css-loader"]
-            })
+            use: [
+                'to-string-loader',
+                'css-loader',
+                {
+                    loader: 'postcss-loader',
+                      options: {
+                        plugins: function () {
+                            return [ autoprefixer ]
+                        }
+                    }
+                },
+            ]
+        }, 
+        {
+            test: /\.scss$/,
+            use: [
+                'to-string-loader',
+                'css-loader',
+                'sass-loader',
+                {
+                    loader: 'postcss-loader',
+                      options: {
+                        plugins: function () {
+                            return [ autoprefixer ]
+                        }
+                    }
+                },
+            ]
         }]
     },
-    plugins:[
-        new webpack.LoaderOptionsPlugin({
-            // test: /\.xxx$/, // may apply this only for some modules
-            options: {
-                postcss: [ require('autoprefixer')({
-                    browsers: ['last 2 versions']
-                })],
-            }
-        }),
-        new ExtractTextPlugin('[name].css'),
-    ]
 }
