@@ -1,6 +1,6 @@
 {
   "name": "my-doc-jsx",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "一个基于jsx的文档书写、文档转换工具。使我们能够基于jsx风格书写文档，并将文档渲染为html格式输出。后续会增加md格式输出，甚至是docx格式输出。",
   "main": "dist/myDocJsx.js",
   "types": "dist/src/index.d.ts",

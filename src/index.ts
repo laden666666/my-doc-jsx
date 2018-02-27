@@ -3,6 +3,8 @@ import {InlineNode} from './docjsx/core/InlineNode';
 import {BlockNode} from './docjsx/core/BlockNode';
 import {BasePlugin} from './docjsx/core/BasePlugin';
 import {BaseRender} from './docjsx/core/BaseRenderTools';
+import {Node} from './docjsx/core/Node';
+import {PseudoNode} from './docjsx/core/PseudoNode';
 import HTMLRender from './docjsx/render/HTMLRender';
 import MarkdownRender from './docjsx/render/MarkdownRender';
 import {reactVDomTree2Tree} from './docjsx/core/ReactVDomTree2Tree';
@@ -80,7 +82,7 @@ function convert(jsxStr: string, option={format: 'HTML'}) {
     }).bind(this)({tags:{}, React}, vm)
 }
 
-var exportModule = {
+export {
     InlineNode,
     BlockNode,
     BaseRender,
@@ -91,5 +93,15 @@ var exportModule = {
     HTMLRender,
     MarkdownRender,
 }
-module.exports = exportModule
-export default exportModule
+
+export default {
+    InlineNode,
+    BlockNode,
+    BaseRender,
+    BasePlugin,
+    convert,
+    usePlugin,
+    util,
+    HTMLRender,
+    MarkdownRender,
+}

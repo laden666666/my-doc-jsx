@@ -1,4 +1,4 @@
-import myDocJsx from '../src/index'
+import * as myDocJsx from '../src/index'
 var assert = require('chai').assert;
 
 describe('myDocJsx基本功能测试', function() {
