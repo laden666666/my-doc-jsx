@@ -1,4 +1,4 @@
-import transform from './docjsx/core/transform';
+import jsxStr2Tree from './docjsx/core/jsxStr2Tree';
 import {InlineNode} from './docjsx/core/InlineNode';
 import {BlockNode} from './docjsx/core/BlockNode';
 import {BasePlugin} from './docjsx/core/BasePlugin';
@@ -7,7 +7,6 @@ import {Node} from './docjsx/core/Node';
 import {PseudoNode} from './docjsx/core/PseudoNode';
 import HTMLRender from './docjsx/render/HTMLRender';
 import MarkdownRender from './docjsx/render/MarkdownRender';
-import {reactVDomTree2Tree} from './docjsx/core/ReactVDomTree2Tree';
 import * as util from './docjsx/util';
 
 declare function require(name: string): any
@@ -32,54 +31,36 @@ function usePlugin(plugin) {
  * @returns {convertedDoc}  转换好的指定格式的文档
  */
 function convert(jsxStr: string, option={format: 'HTML'}) {
-    //使用IIFE，达到沙箱效果
-    return (function(sandbox, vm){
-        var script = "";
-        for(var tagName in sandbox.tags){
-            sandbox[tagName] = sandbox.tags[tagName];
-        }
 
-        script += "'use strict'; return " + transform(jsxStr, option);
-        script = "(function(){" + script + "})()";
+    if(option.format == 'HTML'){
+        var render: BaseRender = new HTMLRender();
+        pluginList.forEach(plugin=>{
+            if(plugin.format && plugin.format['HTML']){
+                render.$usePlugin(plugin.format['HTML'])
+            }
+        })
+        return render.$renderTree(jsxStr2Tree(jsxStr, render, option));
+    } else if(option.format == 'MARKDOWN'){
+        var render: BaseRender = new MarkdownRender();
+        pluginList.forEach(plugin=>{
+            if(plugin.format && plugin.format['MARKDOWN']){
+                render.$usePlugin(plugin.format['MARKDOWN'])
+            }
+        })
+        return render.$renderTree(jsxStr2Tree(jsxStr, render, option));
+    } else  {
+        throw new Error(`The format ${option.format} does not exist`)
+    }
+}
 
-        if(vm){
-            //如果存在vm，表示在node环境。使用vm执行
-            var ctx = vm.createContext(sandbox);
-            var vd = vm.runInContext(script, ctx);
-        } else {
-            //如果不存在vm，表示在浏览器环境，直接在window上执行
-            var keys = Object.keys(sandbox)
-            var backup = {}
-            keys.forEach(key=>{
-                backup[key] = window[key]
-                window[key] = sandbox[key]
-            })
-            var vd = eval(script)
-            keys.forEach(key=>{
-                window[key] = backup[key]
-            })
-        }
-
-        if(option.format == 'HTML'){
-            var render: BaseRender = new HTMLRender();
-            pluginList.forEach(plugin=>{
-                if(plugin.format && plugin.format['HTML']){
-                    render.$usePlugin(plugin.format['HTML'])
-                }
-            })
-            return render.$renderTree(reactVDomTree2Tree(vd, render));
-        } else if(option.format == 'MARKDOWN'){
-            var render: BaseRender = new MarkdownRender();
-            pluginList.forEach(plugin=>{
-                if(plugin.format && plugin.format['MARKDOWN']){
-                    render.$usePlugin(plugin.format['MARKDOWN'])
-                }
-            })
-            return render.$renderTree(reactVDomTree2Tree(vd, render));
-        } else  {
-            throw new Error(`The format ${option.format} does not exist`)
-        }
-    }).bind(this)({tags:{}, React}, vm)
+/**
+ * 转换函数，将jsx字符串转换为指定的文档格式输出
+ * @param jsxStr            jsx字符串
+ * @param option            转换的配置。主要配置有：format，转换的格式配置，支持“HTML”和“MARKDOWN”两种
+ * @returns {convertedDoc}  转换好的指定格式的文档
+ */
+function jsxStr2Nodes(jsxStr: string, render: BaseRender, option: any): Node[] {
+    return jsxStr2Tree(jsxStr, render, option).root.childNodes
 }
 
 export {
@@ -92,6 +73,7 @@ export {
     util,
     HTMLRender,
     MarkdownRender,
+    jsxStr2Nodes,
 }
 
 export default {
@@ -104,4 +86,5 @@ export default {
     util,
     HTMLRender,
     MarkdownRender,
+    jsxStr2Nodes,
 }

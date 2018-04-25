@@ -32,7 +32,6 @@ describe('myDocJsx基本功能测试', function() {
     });
 
     it('插件测试', function() {
-
         class TestAPI extends myDocJsx.BlockNode{
             constructor(...arg){
                 super(...arg)
@@ -64,5 +63,46 @@ describe('myDocJsx基本功能测试', function() {
         myDocJsx.usePlugin(new TestPlugin)
         htmlStr = myDocJsx.convert(jsxStr)
         assert.equal(htmlStr.indexOf('<div>xxxx</div>') > -1, true)
+    });
+
+    it('jsxStr2Nodes测试', function() {
+        class TestAPI extends myDocJsx.BlockNode{
+            constructor(...arg){
+                super(...arg)
+                this.priority = 0;
+            }
+
+            render(render){
+                var str = `<div class="test">${render.renderInlineNodes(this.childPseudoNodes)}</div>`;
+                return str;
+            }
+        }
+        class JsxStr2Nodes extends myDocJsx.BlockNode{
+            constructor(...arg){
+                super(...arg)
+                this.priority = 0;
+            }
+
+            render(render){
+                var str = `<div>${render.renderBlockNodes(myDocJsx.jsxStr2Nodes('<test>xxxx</test>', render, {}))}</div>`;
+                return str;
+            }
+        }
+        class TestPlugin extends myDocJsx.BasePlugin{
+            constructor(){
+                super()
+                this.registerBlockNode('HTML', 'test' ,TestAPI)
+                this.registerBlockNode('HTML', 'jsxStr2Nodes' ,JsxStr2Nodes)
+            }
+        }
+
+        var jsxStr =
+            `<doc>
+                <jsxStr2Nodes>xxxx</jsxStr2Nodes>
+            </doc>`
+
+        myDocJsx.usePlugin(new TestPlugin)
+        var htmlStr = myDocJsx.convert(jsxStr)
+        assert.equal(htmlStr.indexOf('<div><div class="test">xxxx</div></div>') > -1, true)
     });
 });
