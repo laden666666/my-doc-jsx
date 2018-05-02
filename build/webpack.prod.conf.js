@@ -5,11 +5,11 @@ var baseWebpackConfig = require('./webpack.base.conf')
 
 var webpackConfig = merge(baseWebpackConfig, {
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false
-            }
-        }),
+        // new webpack.optimize.UglifyJsPlugin({
+        //     compress: {
+        //         warnings: false
+        //     }
+        // }),
     ]
 })
 

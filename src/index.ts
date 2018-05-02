@@ -31,7 +31,6 @@ function usePlugin(plugin) {
  * @returns {convertedDoc}  转换好的指定格式的文档
  */
 function convert(jsxStr: string, option={format: 'HTML'}) {
-
     if(option.format == 'HTML'){
         var render: BaseRender = new HTMLRender();
         pluginList.forEach(plugin=>{
@@ -54,10 +53,11 @@ function convert(jsxStr: string, option={format: 'HTML'}) {
 }
 
 /**
- * 转换函数，将jsx字符串转换为指定的文档格式输出
- * @param jsxStr            jsx字符串
- * @param option            转换的配置。主要配置有：format，转换的格式配置，支持“HTML”和“MARKDOWN”两种
- * @returns {convertedDoc}  转换好的指定格式的文档
+ * 将jsx字符串转为Node数组，为标签复用标签提供可能。这是一个对控件开发者开发的函数
+ * @param {string} jsxStr               jsx字符串
+ * @param {BaseRender} render           当前正在使用的render对象
+ * @param {*} option                    配置
+ * @returns {Node[]} 
  */
 function jsxStr2Nodes(jsxStr: string, render: BaseRender, option: any): Node[] {
     return jsxStr2Tree(jsxStr, render, option).root.childNodes

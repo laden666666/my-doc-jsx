@@ -2,6 +2,9 @@ import {Node} from './Node'
 
 export class PseudoNode{
 
+    //用于标记类
+    static $$NodeClassID = 'PseudoNode'
+
     /**
      * 父节点
      * @type {Node}

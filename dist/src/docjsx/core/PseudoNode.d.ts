@@ -1,5 +1,6 @@
 import { Node } from './Node';
 export declare class PseudoNode {
+    static $$NodeClassID: string;
     /**
      * 父节点
      * @type {Node}

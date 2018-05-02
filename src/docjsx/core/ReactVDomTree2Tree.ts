@@ -11,17 +11,18 @@ import { PseudoNode } from './PseudoNode';
 
 //增加节点，这里增加的是快级元素生成的节点，不允许增加行内元素节点
 function appendBlockChildren(tree: Tree, node: BlockNode<any>){
-    if(tree.currentNode instanceof BlockNode){
-        if(tree.currentNode.priority > node.priority){
+    if(tree.currentNode && tree.currentNode.constructor['$$NodeClassID'] === BlockNode.$$NodeClassID){
+        let blockNode: BlockNode<any> = tree.currentNode as BlockNode<any>
+        if(blockNode.priority > node.priority){
             tree.currentNode.appendChild(node);
             node.parentNode = tree.currentNode
             tree.currentNode = node;
             node.tree = tree;
-        } else if(tree.currentNode.priority == node.priority){
+        } else if(blockNode.priority == node.priority){
             tree.currentNode.parentNode.appendChild(node);
             tree.currentNode = node;
             node.tree = tree;
-        } else if(tree.currentNode.priority < node.priority){
+        } else if(blockNode.priority < node.priority){
             tree.currentNode = tree.currentNode.parentNode;
             appendBlockChildren(tree, node);
         }
@@ -40,7 +41,7 @@ function appendChildren(node: BlockNode<any>, parentNode: PseudoNode | Node){
     }
 
     children.forEach(vdom=>{
-        var subNode = new PseudoNode(vdom, node, parentNode instanceof PseudoNode ? parentNode : null)
+        var subNode = new PseudoNode(vdom, node, parentNode && parentNode.constructor['$$NodeClassID'] === PseudoNode.$$NodeClassID ? parentNode as PseudoNode : null)
         
         parentNode.childPseudoNodes.push(subNode)
         appendChildren(node, subNode)

@@ -6,6 +6,10 @@ import {BaseRender} from './BaseRenderTools';
  * 基础标签，所有标签都是继承该标签的。这是一个抽象类
  */
 export class BlockNode<T extends BaseRender> extends Node{
+
+    //用于标记类
+    static $$NodeClassID = 'BlockNode'
+
     /**
      * 块级标签优先级
      */

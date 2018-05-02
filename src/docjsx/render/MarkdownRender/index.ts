@@ -64,8 +64,8 @@ export class MarkdownRender extends BaseRender{
 
     renderBlockNodes(blockNodeList: Node[]): string{
         return blockNodeList.map(node=> {
-            if(node instanceof BlockNode){
-                return node.render(this)
+            if(node && node.constructor['$$NodeClassID'] === BlockNode.$$NodeClassID){
+                return (node as BlockNode<any>).render(this)
             } else {
                 return '';
             }
