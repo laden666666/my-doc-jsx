@@ -1,7 +1,7 @@
 {
   "name": "my-doc-jsx",
-  "version": "0.2.2",
-  "description": "一个基于jsx的文档书写、文档转换工具。使我们能够基于jsx风格书写文档，并将文档渲染为html格式输出。后续会增加md格式输出，甚至是docx格式输出。",
+  "version": "0.3.0",
+  "description": "A jsx-based document writing and document conversion tool. Enables us to write documents based on jsx style and render the document as html or markdown format output.",
   "main": "dist/myDocJsx.js",
   "types": "dist/src/index.d.ts",
   "scripts": {
@@ -84,6 +84,7 @@
     "webpack-dev-middleware": "^2.0.6",
     "webpack-dev-server": "^2.11.1",
     "webpack-hot-middleware": "^2.21.0",
-    "webpack-merge": "^4.1.2"
+    "webpack-merge": "^4.1.2",
+    "webpack-parallel-uglify-plugin": "^1.1.0"
   }
 }

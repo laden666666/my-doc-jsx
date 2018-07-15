@@ -63,7 +63,13 @@ function jsxStr2Nodes(jsxStr: string, render: BaseRender, option: any): Node[] {
     return jsxStr2Tree(jsxStr, render, option).root.childNodes
 }
 
+//当前版本
+//通过DefinePlugin对去package.json的版本
+declare const PLUGIN_VERSION: string;
+const version = PLUGIN_VERSION
+
 export {
+    version,
     InlineNode,
     BlockNode,
     BaseRender,
@@ -77,6 +83,7 @@ export {
 }
 
 export default {
+    version,
     InlineNode,
     BlockNode,
     BaseRender,

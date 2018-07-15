@@ -2,6 +2,7 @@ var path = require('path')
 var webpack = require('webpack')
 var projectRoot = path.resolve(__dirname, '../')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var _package = require('../package.json')
 
 var autoprefixer = require('autoprefixer')({
     browsers: ['last 2 version', 'iOS >=8', 'IE >=9']
@@ -83,4 +84,9 @@ module.exports = {
             ]
         }]
     },
+    plugins: [
+        new webpack.DefinePlugin({
+            PLUGIN_VERSION: '"v' + _package.version + '"'
+        }),
+    ]
 }

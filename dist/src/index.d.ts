@@ -28,8 +28,10 @@ declare function convert(jsxStr: string, option?: {
  * @returns {Node[]}
  */
 declare function jsxStr2Nodes(jsxStr: string, render: BaseRender, option: any): Node[];
-export { InlineNode, BlockNode, BaseRender, BasePlugin, convert, usePlugin, util, HTMLRender, MarkdownRender, jsxStr2Nodes };
+declare const version: string;
+export { version, InlineNode, BlockNode, BaseRender, BasePlugin, convert, usePlugin, util, HTMLRender, MarkdownRender, jsxStr2Nodes };
 declare const _default: {
+    version: string;
     InlineNode: typeof InlineNode;
     BlockNode: typeof BlockNode;
     BaseRender: typeof BaseRender;
