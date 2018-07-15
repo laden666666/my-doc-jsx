@@ -10,9 +10,9 @@ export class Nav extends BlockNode<MarkdownRender>{
         this.priority = 10;
     }
 
-    render(render: MarkdownRender){
+    async render(render: MarkdownRender){
         var str = `[TOC]
-${render.renderBlockNodes(this.childNodes)}`;
+${await render.renderBlockNodes(this.childNodes)}`;
         return str;
     }
 }

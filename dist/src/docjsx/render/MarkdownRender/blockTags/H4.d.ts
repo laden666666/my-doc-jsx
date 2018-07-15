@@ -5,5 +5,5 @@ import { BlockNode } from '../../../core/BlockNode';
 import { MarkdownRender } from '../';
 export declare class H4 extends BlockNode<MarkdownRender> {
     constructor(node: any);
-    render(render: MarkdownRender): string;
+    render(render: MarkdownRender): Promise<string>;
 }

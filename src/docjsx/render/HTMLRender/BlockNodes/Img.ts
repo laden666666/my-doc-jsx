@@ -11,7 +11,7 @@ export class Img extends BlockNode<HTMLRender>{
         this.priority = 0;
     }
 
-    render(render: HTMLRender) {
+    async render(render: HTMLRender) {
         render.setStyle('img', style)
         var str = `<img class="mydoc_img" ${this.props.height ? `height="${this.props.height}"` : ''} ${this.props.width ? `width="${this.props.width}"` : ''} src="${this.props.src}"/>`;
         return str;

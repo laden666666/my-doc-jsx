@@ -5,5 +5,5 @@ import { BlockNode } from '../../../core/BlockNode';
 import { MarkdownRender } from '../';
 export declare class Nav extends BlockNode<MarkdownRender> {
     constructor(node: any);
-    render(render: MarkdownRender): string;
+    render(render: MarkdownRender): Promise<string>;
 }

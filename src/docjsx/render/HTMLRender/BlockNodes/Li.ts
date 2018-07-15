@@ -11,9 +11,9 @@ export class Li extends BlockNode<HTMLRender>{
         this.priority = 0;
     }
 
-    render(render: HTMLRender){
+    async render(render: HTMLRender){
         render.setStyle('li', style)
-        var str = `<ul class="mydoc_li"><li> ${render.renderInlineNodes(this.childPseudoNodes)}</li></ul>`;
+        var str = `<ul class="mydoc_li"><li> ${await render.renderInlineNodes(this.childPseudoNodes)}</li></ul>`;
         return str;
     }
 }

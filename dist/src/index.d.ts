@@ -19,7 +19,7 @@ declare function usePlugin(plugin: any): void;
  */
 declare function convert(jsxStr: string, option?: {
     format: string;
-}): any;
+}): Promise<string>;
 /**
  * 将jsx字符串转为Node数组，为标签复用标签提供可能。这是一个对控件开发者开发的函数
  * @param {string} jsxStr               jsx字符串

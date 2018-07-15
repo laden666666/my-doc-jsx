@@ -10,8 +10,8 @@ export class Li extends BlockNode<MarkdownRender>{
         this.priority = 0;
     }
 
-    render(render: MarkdownRender){
-        var str = `*   ${render.renderInlineNodes(this.childPseudoNodes)}
+    async render(render: MarkdownRender){
+        var str = `*   ${await render.renderInlineNodes(this.childPseudoNodes)}
 `;
         return str;
     }

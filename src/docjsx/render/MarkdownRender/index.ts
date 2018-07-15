@@ -58,26 +58,26 @@ export class MarkdownRender extends BaseRender{
         }
     }
 
-    $renderTree(tree: Tree): string{
+    $renderTree(tree: Tree): Promise<string>{
         return this.renderBlockNodes([tree.root]);
     }
 
-    renderBlockNodes(blockNodeList: Node[]): string{
-        return blockNodeList.map(node=> {
+    renderBlockNodes(blockNodeList: Node[]): Promise<string>{
+        return Promise.all(blockNodeList.map(node=> {
             if(node && node.constructor['$$NodeClassID'] === BlockNode.$$NodeClassID){
                 return (node as BlockNode<any>).render(this)
             } else {
                 return '';
             }
             
-        }).join('')
+        })).then(strings => strings.join(''))
     }
 
-    renderInlineNodes(inlineNodeList: PseudoNode[]): string{
-        return inlineNodeList.map(pseudoNode=> {
+    renderInlineNodes(inlineNodeList: PseudoNode[]): Promise<string>{
+        return Promise.all(inlineNodeList.map(pseudoNode=> {
             const inlineNode = new (this.getInlineNode(pseudoNode.tagName) || InlineNode)(pseudoNode)
             return inlineNode.render(this)
-        }).join('')
+        })).then(strings => strings.join(''))
     }
 }
 

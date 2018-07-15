@@ -5,8 +5,8 @@ import {InlineNode} from '../../../core/InlineNode'
 import {HTMLRender} from '../'
 const style = require('./A.css')
 export class A extends InlineNode<HTMLRender>{
-    render(render: HTMLRender){
+    async render(render: HTMLRender){
         render.setStyle('a', style)
-        return `<a class="mydoc_a" ${ this.props.href ? 'href="' + this.props.href + '"' : '' }>${render.renderInlineNodes(this.childPseudoNodes)}</a>`;
+        return `<a class="mydoc_a" ${ this.props.href ? 'href="' + this.props.href + '"' : '' }>${await render.renderInlineNodes(this.childPseudoNodes)}</a>`;
     }
 }

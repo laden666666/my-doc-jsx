@@ -30,7 +30,7 @@ export abstract class BaseRender{
     $blockNodeMap: {[name: string]: BlockNodeClass<any>} = {}
     $inlineNodeMap: {[name: string]: InlineNodeClass<any>} = {}
 
-    abstract $renderTree(tree: Tree): any
+    abstract $renderTree(tree: Tree): Promise<any>
     
     registerBlockNode(nodeName, fn: BlockNodeClass<this>){
         this.$blockNodeMap[nodeName] = fn;

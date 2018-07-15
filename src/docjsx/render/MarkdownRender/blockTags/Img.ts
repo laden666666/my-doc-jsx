@@ -10,7 +10,7 @@ export class Img extends BlockNode<MarkdownRender>{
         this.priority = 0;
     }
 
-    render(){
+    async render(){
         return `![Alt](${this.props.src})
 `;
     }

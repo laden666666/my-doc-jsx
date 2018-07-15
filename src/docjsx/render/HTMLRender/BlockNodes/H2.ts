@@ -11,15 +11,15 @@ export class H2 extends BlockNode<HTMLRender>{
         this.priority = 3.99;
     }
 
-    render(render: HTMLRender){
+    async render(render: HTMLRender){
         render.setStyle('h2', style)
         var str =
             `<div class="mydoc_h2">
                     <a class="mydoc_h2_a">
-                        <h2 class="mydoc_h2_h2">${render.renderInlineNodes(this.childPseudoNodes)}</h2>
+                        <h2 class="mydoc_h2_h2">${await render.renderInlineNodes(this.childPseudoNodes)}</h2>
                     </a>
                     <div class="mydoc_h2_content">
-                        ${render.renderBlockNodes(this.childNodes)}
+                        ${await render.renderBlockNodes(this.childNodes)}
                     </div>
                 </div>`;
         return str;

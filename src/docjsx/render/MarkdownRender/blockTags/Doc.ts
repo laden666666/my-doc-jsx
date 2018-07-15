@@ -10,7 +10,7 @@ export class Doc extends BlockNode<MarkdownRender>{
         this.priority = Infinity;
     }
 
-    render(render: MarkdownRender){
-        return `${render.renderBlockNodes(this.childNodes)}`
+    async render(render: MarkdownRender){
+        return `${await render.renderBlockNodes(this.childNodes)}`
     }
 }

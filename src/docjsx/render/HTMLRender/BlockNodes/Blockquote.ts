@@ -11,9 +11,9 @@ export class Blockquote extends BlockNode<HTMLRender>{
         this.priority = 0;
     }
 
-    render(render: HTMLRender){
+    async render(render: HTMLRender){
         render.setStyle('blockquote', style)
-        var str = `<blockquote class="mydoc_blockquote">${render.renderInlineNodes(this.childPseudoNodes)}</blockquote>`;
+        var str = `<blockquote class="mydoc_blockquote">${await render.renderInlineNodes(this.childPseudoNodes)}</blockquote>`;
         return str;
     }
 }

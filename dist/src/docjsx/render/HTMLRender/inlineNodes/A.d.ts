@@ -4,5 +4,5 @@
 import { InlineNode } from '../../../core/InlineNode';
 import { HTMLRender } from '../';
 export declare class A extends InlineNode<HTMLRender> {
-    render(render: HTMLRender): string;
+    render(render: HTMLRender): Promise<string>;
 }

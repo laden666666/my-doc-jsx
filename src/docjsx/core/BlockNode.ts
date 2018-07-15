@@ -23,10 +23,10 @@ export class BlockNode<T extends BaseRender> extends Node{
 
     /**
      * 渲染函数，这个是需要继承的虚函数
-     * @returns {string}                渲染后的字符串
+     * @returns {Promise<string>}                渲染后的字符串
      */
-    render(renderTools: T){
+    render(renderTools: T) : Promise<string>{
         console.warn("不支持渲染此块标签：" + this.tagName);
-        return "";
+        return Promise.resolve("");
     }
 }

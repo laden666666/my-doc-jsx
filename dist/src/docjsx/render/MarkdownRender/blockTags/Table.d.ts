@@ -7,8 +7,8 @@ import { MarkdownRender } from '../';
 export declare class Table extends BlockNode<MarkdownRender> {
     constructor(node: any);
     isTh(tr: PseudoNode): boolean;
-    tableTdRender(tds: PseudoNode[], render: MarkdownRender): string;
-    tableThRender(ths: PseudoNode[], render: MarkdownRender): string;
-    tableTrRender(trs: PseudoNode[], render: MarkdownRender): string;
-    render(render: MarkdownRender): string;
+    tableTdRender(tds: PseudoNode[], render: MarkdownRender): Promise<string>;
+    tableThRender(ths: PseudoNode[], render: MarkdownRender): Promise<string>;
+    tableTrRender(trs: PseudoNode[], render: MarkdownRender): Promise<string>;
+    render(render: MarkdownRender): Promise<string>;
 }

@@ -10,13 +10,13 @@ export class Nav extends BlockNode<HTMLRender>{
         super(node)
         this.priority = 10;
     }
-    render(render: HTMLRender){
+    async render(render: HTMLRender){
         render.setStyle('nav', style)
         var str = `<div class='mydoc_nav'>
                 <aside class='mydoc_nav_nav'>
                 </aside>
                 <div class='mydoc_nav_content'>
-                    ${render.renderBlockNodes(this.childNodes)}
+                    ${await render.renderBlockNodes(this.childNodes)}
                 </div>
             </div>`;
         return str;

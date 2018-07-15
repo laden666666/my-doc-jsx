@@ -30,7 +30,7 @@ function usePlugin(plugin) {
  * @param option            转换的配置。主要配置有：format，转换的格式配置，支持“HTML”和“MARKDOWN”两种
  * @returns {convertedDoc}  转换好的指定格式的文档
  */
-function convert(jsxStr: string, option={format: 'HTML'}) {
+function convert(jsxStr: string, option={format: 'HTML'}): Promise<string> {
     if(option.format == 'HTML'){
         var render: BaseRender = new HTMLRender();
         pluginList.forEach(plugin=>{

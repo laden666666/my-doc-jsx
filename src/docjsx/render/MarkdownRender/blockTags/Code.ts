@@ -11,7 +11,7 @@ export class Code extends BlockNode<MarkdownRender>{
         this.priority = 0;
     }
 
-    render(render: MarkdownRender){
+    async render(render: MarkdownRender){
         var lang = this.props.lang || 'javascript';
         var code = this.childPseudoNodes[0] ? this.childPseudoNodes[0].getText() : ''
         return `\`\`\`${lang}

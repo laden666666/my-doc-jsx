@@ -207,7 +207,7 @@ var htmlDoc = myDocJsx.convert(jsxDoc)`
             <th>说明</th>
         </tr>
         <tr>
-            <td>string</td>
+            <td>${`Promise<String>`}</td>
             <td>转换好的指定格式的文档</td>
         </tr>
     </table>

@@ -66,8 +66,9 @@ module.exports = function (file, output, format, option) {
         .then(function(){
             return fsExtra.readFile(file)
         }).then(function (jsxStr) {
-            var outputStr = myDocJsx.convert(jsxStr.toString(), formatOption.option)
-            return formatOption.handleStr(outputStr)
+            return myDocJsx.convert(jsxStr.toString(), formatOption.option).then(function(outputStr){
+                return formatOption.handleStr(outputStr)
+            })
         }).then(function(outputStr){
             var outFileName = path.basename(file, path.extname(file)) + '.' + formatOption.extname;
             //获取要输出的路径

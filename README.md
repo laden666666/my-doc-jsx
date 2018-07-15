@@ -214,7 +214,7 @@ var htmlDoc = myDocJsx.convert(jsxDoc)
 #### 返回值
 |参数类型|说明|
 |----|----|
-|string|转换好的指定格式的文档|
+|$Promise&lt;String&gt;|转换好的指定格式的文档|
 
 ### myDocJsx.usePlugin函数
 使用usePlugin函数注册插件。

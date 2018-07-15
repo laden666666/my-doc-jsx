@@ -5,7 +5,7 @@ import {InlineNode} from '../../../core/InlineNode'
 import {MarkdownRender} from '../'
 
 export class A extends InlineNode<MarkdownRender>{
-    render(render: MarkdownRender){
-        return `[${render.renderInlineNodes(this.childPseudoNodes)}](${this.content.props.href || '' } "") `
+    async render(render: MarkdownRender){
+        return `[${await render.renderInlineNodes(this.childPseudoNodes)}](${this.content.props.href || '' } "") `
     }
 }

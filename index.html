@@ -88,10 +88,11 @@
 <script>
     function renderDoc() {
         var text = document.querySelector("#docEdit").value;
-        var script = myDocJsx.convert(text, {
+        myDocJsx.convert(text, {
             format: 'HTML'
+        }).then(function(script){
+            document.querySelector('#doc').innerHTML = script;
         });
-        document.querySelector('#doc').innerHTML = script;
     }
 
     document.addEventListener("DOMContentLoaded", function () {

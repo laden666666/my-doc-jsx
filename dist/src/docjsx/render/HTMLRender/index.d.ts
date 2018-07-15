@@ -8,10 +8,10 @@ import { PseudoNode } from '../../core/PseudoNode';
 export declare class HTMLRender extends BaseRender {
     private styleMap;
     constructor();
-    $renderTree(tree: Tree): string;
+    $renderTree(tree: Tree): Promise<string>;
     setStyle(tagName: string, styleText: string): void;
     renderStyle(): string;
-    renderBlockNodes(blockNodeList: Node[]): string;
-    renderInlineNodes(inlineNodeList: PseudoNode[]): string;
+    renderBlockNodes(blockNodeList: Node[]): Promise<string>;
+    renderInlineNodes(inlineNodeList: PseudoNode[]): Promise<string>;
 }
 export default HTMLRender;

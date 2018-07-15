@@ -11,9 +11,9 @@ export class P extends BlockNode<HTMLRender>{
         this.priority = 0;
     }
 
-    render(render: HTMLRender) {
+    async render(render: HTMLRender) {
         render.setStyle('p', style)
-        var str = `<p class="mydoc_p"> ${render.renderInlineNodes(this.childPseudoNodes)}</p>`;
+        var str = `<p class="mydoc_p"> ${await render.renderInlineNodes(this.childPseudoNodes)}</p>`;
         return str;
     }
 }

@@ -40,7 +40,7 @@ export class Code extends BlockNode<HTMLRender>{
         this.priority = 0;
     }
 
-    render(render: HTMLRender){
+    async render(render: HTMLRender){
         render.setStyle('code', style)
         var lang = this.props.lang || 'javascript';
         var code = mirror((this.childPseudoNodes[0] ? this.childPseudoNodes[0].getText() : '').trim(), lang)

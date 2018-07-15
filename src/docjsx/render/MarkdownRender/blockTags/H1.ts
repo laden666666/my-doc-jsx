@@ -10,10 +10,10 @@ export class H1 extends BlockNode<MarkdownRender>{
         this.priority = 4;
     }
 
-    render(render: MarkdownRender){
+    async render(render: MarkdownRender){
         var str =
-            `# ${render.renderInlineNodes(this.childPseudoNodes)}
-${render.renderBlockNodes(this.childNodes)}
+            `# ${await render.renderInlineNodes(this.childPseudoNodes)}
+${await render.renderBlockNodes(this.childNodes)}
 `;
         return str;
     }

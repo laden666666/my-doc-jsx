@@ -8,7 +8,7 @@ import {MarkdownRender} from '../'
 
 export class String extends InlineNode<MarkdownRender>{
 
-    render(render: MarkdownRender){
+    async render(render: MarkdownRender){
         return util.escapeHTML(this.content);
     }
 }

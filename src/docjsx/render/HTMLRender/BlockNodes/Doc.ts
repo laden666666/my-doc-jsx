@@ -11,8 +11,8 @@ export class Doc extends BlockNode<HTMLRender>{
         this.priority = Infinity;
     }
 
-    render(render: HTMLRender){
-        const subText = render.renderBlockNodes(this.childNodes)
+    async render(render: HTMLRender){
+        const subText = await await render.renderBlockNodes(this.childNodes)
         render.setStyle('doc', style)
         return `${render.renderStyle()}
 <article class='mydoc'>

@@ -6,7 +6,7 @@ import * as util from '../../../util'
 import {InlineNode} from '../../../core/InlineNode'
 import {HTMLRender} from '../'
 export class String extends InlineNode<HTMLRender>{
-    render(render: HTMLRender){
+    async render(render: HTMLRender){
         return util.escapeHTML(this.content);
     }
 }

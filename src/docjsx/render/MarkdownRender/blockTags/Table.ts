@@ -18,25 +18,25 @@ export class Table extends BlockNode<MarkdownRender>{
         }, true)
     }
 
-    tableTdRender(tds:PseudoNode[], render: MarkdownRender){
-        return `|${tds.map(td=>{
+    async tableTdRender(tds:PseudoNode[], render: MarkdownRender): Promise<string>{
+        return `|${await Promise.all(tds.map(async td=>{
             if(td.tagName == 'td'){
-                return `${render.renderInlineNodes(td.childPseudoNodes)}`
+                return `${await render.renderInlineNodes(td.childPseudoNodes)}`
             }
-        }).join("|")}|`
+        })).then(strings=> strings.join("|"))}|`
     }
 
-    tableThRender(ths: PseudoNode[], render: MarkdownRender){
-        return `|${ths.map(th => {
+    async tableThRender(ths: PseudoNode[], render: MarkdownRender): Promise<string>{
+        return `|${await Promise.all(ths.map(async th => {
             if(th.tagName == 'th'){
-                return `${render.renderInlineNodes(th.childPseudoNodes)}`
+                return `${await render.renderInlineNodes(th.childPseudoNodes)}`
             }
-        }).join("|")}|
+        })).then(strings=> strings.join("|"))}|
 |${ths.map(th => '----').join("|")}|`
     }
 
-tableTrRender(trs: PseudoNode[], render: MarkdownRender){
-        return trs.map(tr => {
+    async tableTrRender(trs: PseudoNode[], render: MarkdownRender): Promise<string>{
+        return Promise.all(trs.map(tr => {
             if(tr.tagName == 'tr'){
                 if(this.isTh(tr)){
                     return this.tableThRender(tr.childPseudoNodes, render)
@@ -46,12 +46,12 @@ tableTrRender(trs: PseudoNode[], render: MarkdownRender){
             } else {
                 return ''
             }
-        }).join("\n")
+        })).then(strings => strings.join("\n"))
     }
 
-    render(render: MarkdownRender){
+    async render(render: MarkdownRender){
         var str = `${
-            this.tableTrRender(this.childPseudoNodes, render)
+            await this.tableTrRender(this.childPseudoNodes, render)
             }`;
         return str;
     }

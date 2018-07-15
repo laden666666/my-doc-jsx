@@ -5,5 +5,5 @@ import { BlockNode } from '../../../core/BlockNode';
 import { HTMLRender } from '../';
 export declare class Blockquote extends BlockNode<HTMLRender> {
     constructor(node: any);
-    render(render: HTMLRender): string;
+    render(render: HTMLRender): Promise<string>;
 }
