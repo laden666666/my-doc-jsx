@@ -24,6 +24,7 @@ import { Strong } from './inlineTags/Strong';
 import { A } from './inlineTags/A';
 import { Span } from './inlineTags/Span';
 import { String } from './inlineTags/String';
+import { Code as InLineCode } from './inlineTags/Code';
 
 export class MarkdownRender extends BaseRender{
     constructor(){
@@ -52,6 +53,7 @@ export class MarkdownRender extends BaseRender{
             string: String,
             span: Span,
             a: A,
+            code: InLineCode,
         }
         for(let key in inlineNodeMap){
             this.registerInlineNode(key, inlineNodeMap[key])

@@ -24,6 +24,7 @@ import {Strong} from './inlineNodes/Strong';
 import {A} from './inlineNodes/A';
 import {Span} from './inlineNodes/Span';
 import {String} from './inlineNodes/String';
+import {Code as InlineCode} from './inlineNodes/Code';
 
 export class HTMLRender extends BaseRender{
     private styleMap: {[tagName: string]: string} = {}
@@ -54,6 +55,7 @@ export class HTMLRender extends BaseRender{
             string: String,
             span: Span,
             a: A,
+            code: InlineCode,
         }
         for(let key in inlineNodeMap){
             this.registerInlineNode(key, inlineNodeMap[key])
