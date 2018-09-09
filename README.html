@@ -1,4 +1,27 @@
-<!doctype html><head><meta charset="utf-8"></head><style>.mydoc_h1{
+<!doctype html><head><meta charset="utf-8"></head><style>.mydoc_api_title{
+    margin: 35px 0 0.8em;
+}
+.mydoc_api_title_a{
+    font-size: 1.5em;
+    text-decoration: none;
+    color: #2c3e50;
+    text-align: center;
+}
+.mydoc_api_title_a::before{
+    content: '';
+    display: block;
+    margin-top: -40px;
+    height: 40px;
+    visibility: hidden;
+}
+.mydoc_api_title_h2{
+    margin: 5px 0 8px;
+    font-size: 22px;
+    padding-bottom: 1em;
+}
+.mydoc_api_title_content{
+
+}.mydoc_h1{
     margin: 0 0 1em;
 }
 .mydoc_h1_a{
@@ -46,6 +69,12 @@
 }.mydoc_strong{
     font-weight: 600;
     color: #2c3e50;
+}.mydoc_api_npm-info{
+    line-height: 1.6em;
+    margin: 1.2em 0 -1.2em;
+    padding-bottom: 1.2em;
+    position: relative;
+    z-index: 1;
 }.mydoc_span{
     padding: 2px 4px;
     font-size: 90%;
@@ -320,16 +349,23 @@ pre[class*="language-"] {
     overflow: hidden;
 }</style>
 <article class='mydoc'>
-    <div class="mydoc_h1">
+    <div class="mydoc_api_title">
+                    <a class="mydoc_api_title_a">
+                        <h2 class="mydoc_api_title_h2">my-doc-jsx——一个基于jsx的文档书写、文档转换工具</h2>
+                    </a>
+                    <div class="mydoc_api_title_content">
+                        
+                    </div>
+                </div><div class="mydoc_h1">
                 <a class="mydoc_h1_a">
-                    <h1 class="mydoc_h1_h1">my-doc-jsx——一个基于jsx的文档书写、文档转换工具</h1>
+                    <h1 class="mydoc_h1_h1">现状</h1>
                 </a>
                 <div class="mydoc_h1_content">
                     
                 </div>
             </div><div class="mydoc_h2">
                     <a class="mydoc_h2_a">
-                        <h2 class="mydoc_h2_h2">富文本、office写文档的时代过去了</h2>
+                        <h2 class="mydoc_h2_h2">用富文本、office写文档的时代过去了</h2>
                     </a>
                     <div class="mydoc_h2_content">
                         <p class="mydoc_p"> 早期，大家都是使用富文本和office写博客，后来大家都改用了markdown，这是因为markdown是一个简单的标记语言。</p><p class="mydoc_p"> 使用标记语言，可以让我们的文档（博客）的内容和样式分离，甚至让计算机读懂我们文档的结构，使其将我们的文档任意转换格式。同时使用可扩展的标记语言，能够使用我们自定义的方言，去书写一些格式非常复杂但是具有结构性的内容。 </p><p class="mydoc_p"> 因此，在这个时代已经没有人在希望用富文本或者office去写文档，我们要标记语言。</p>
@@ -346,7 +382,11 @@ pre[class*="language-"] {
                 <div class="mydoc_h1_content">
                     
                 </div>
-            </div><p class="mydoc_p"> <span class="mydoc_span">my-doc-jsx（以下简称docjsx）</span>是一个使用jsx书写文档的工具，并支持多种形式的文档转换。docjsx主要特点有：</p><ul class="mydoc_li"><li> 0.使用jsx语法编写文档</li></ul><ul class="mydoc_li"><li> 1.较好的语义化文档编写格式</li></ul><ul class="mydoc_li"><li> 2.支持将docjsx文档转换为html、markdown格式</li></ul><ul class="mydoc_li"><li> 3.可以浏览器、nodejs、cli等多种平台上转换文档</li></ul><ul class="mydoc_li"><li> 4.支持自定义插件，可以扩展标签</li></ul><div class="mydoc_h1">
+            </div><p class="mydoc_api_npm-info" align="center">
+                <a href="https://www.npmjs.com/package/my-doc-jsx"><img src="https://img.shields.io/npm/v/my-doc-jsx.svg" alt="Version"></a>
+                <a href="https://www.npmjs.com/package/my-doc-jsx"><img src="https://img.shields.io/npm/dm/my-doc-jsx.svg" alt="Downloads"></a>
+                <a href="https://www.npmjs.com/package/my-doc-jsx"><img src="https://img.shields.io/npm/l/my-doc-jsx.svg" alt="License"></a>
+            </p><p class="mydoc_p"> <span class="mydoc_span">my-doc-jsx（以下简称docjsx）</span>是一个使用jsx书写文档的工具，并支持多种形式的文档转换。docjsx主要特点有：</p><ul class="mydoc_li"><li> 0.使用jsx语法编写文档</li></ul><ul class="mydoc_li"><li> 1.较好的语义化文档编写格式</li></ul><ul class="mydoc_li"><li> 2.支持将docjsx文档转换为html、markdown格式</li></ul><ul class="mydoc_li"><li> 3.可以浏览器、nodejs、cli等多种平台上转换文档</li></ul><ul class="mydoc_li"><li> 4.支持自定义插件，可以扩展标签</li></ul><div class="mydoc_h1">
                 <a class="mydoc_h1_a">
                     <h1 class="mydoc_h1_h1">如何用docjsx书写文档</h1>
                 </a>
@@ -513,6 +553,15 @@ test();`
                 <div class="mydoc_h3_content">
                     <p class="mydoc_p"> 用于定义粗体</p><figure class='mydoc_code'>
                     <pre class="mydoc_code_pre cm-s-eclipse"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>strong</span><span class="token punctuation">></span></span>加粗<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>strong</span><span class="token punctuation">></span></span>显示<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></pre>
+                </figure>
+                </div>
+            </div><div class="mydoc_h3">
+                <a class="mydoc_h3_a">
+                    <h3 class="mydoc_h3_h3">code</h3>
+                </a>
+                <div class="mydoc_h3_content">
+                    <p class="mydoc_p"> 定义代码展示，被标记的词语会高亮显示。</p><figure class='mydoc_code'>
+                    <pre class="mydoc_code_pre cm-s-eclipse"><span class="token operator">&lt;</span>p<span class="token operator">></span><span class="token operator">&lt;</span>code<span class="token operator">></span>加粗<span class="token operator">&lt;</span><span class="token operator">/</span>code<span class="token operator">></span>显示<span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span></pre>
                 </figure><div class="mydoc_h1">
                 <a class="mydoc_h1_a">
                     <h1 class="mydoc_h1_h1">格式转换</h1>
@@ -533,7 +582,15 @@ test();`
                     <pre class="mydoc_code_pre cm-s-eclipse">npm install my<span class="token operator">-</span>doc<span class="token operator">-</span>jsx</pre>
                 </figure><p class="mydoc_p"> 在浏览器中，使用script标签和link引入dist目录中的myDocJsx.js文件。</p><figure class='mydoc_code'>
                     <pre class="mydoc_code_pre cm-s-eclipse"><span class="token keyword">var</span> htmlDoc <span class="token operator">=</span> myDocJsx<span class="token punctuation">.</span><span class="token function">convert</span><span class="token punctuation">(</span>jsxDoc<span class="token punctuation">)</span></pre>
-                </figure><p class="mydoc_p"> 这样就将jsx文档转为html文档。</p><div class="mydoc_h3">
+                </figure><p class="mydoc_p"> 这样就将jsx文档转为html文档。</p><p class="mydoc_p"> 目前仅支持chrome浏览器，未来会扩充浏览器的兼容性。</p><table cellspacing="1" style="margin: 0 auto;font-size: 14px;background-color: #f9f9f9;color: #036;padding: 3px;border-radius: 4px;border: 1px solid rgba(220, 220, 220, .5);">
+    <colgroup width="100" span="1" align="center"></colgroup>
+    <tr style="height: 30px;">
+        <th align="center">Chrome</td>
+    </tr>
+    <tr style="color: #000;line-height: 28px;font-weight: bold;">
+        <td align="center" style="background-color: #60d848">√</td>
+    </tr>
+</table><div class="mydoc_h3">
                 <a class="mydoc_h3_a">
                     <h3 class="mydoc_h3_h3">使用插件</h3>
                 </a>

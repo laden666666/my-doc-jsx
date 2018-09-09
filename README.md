@@ -1,5 +1,5 @@
-# my-doc-jsx——一个基于jsx的文档书写、文档转换工具
-## 富文本、office写文档的时代过去了
+<h2 align="center">my-doc-jsx——一个基于jsx的文档书写、文档转换工具</h2># 现状
+## 用富文本、office写文档的时代过去了
 早期，大家都是使用富文本和office写博客，后来大家都改用了markdown，这是因为markdown是一个简单的标记语言。
 
 使用标记语言，可以让我们的文档（博客）的内容和样式分离，甚至让计算机读懂我们文档的结构，使其将我们的文档任意转换格式。同时使用可扩展的标记语言，能够使用我们自定义的方言，去书写一些格式非常复杂但是具有结构性的内容。 
@@ -21,7 +21,11 @@
 
 
 # my-doc-jsx
-my-doc-jsx（以下简称docjsx）是一个使用jsx书写文档的工具，并支持多种形式的文档转换。docjsx主要特点有：
+<p class="mydoc_api_npm-info" align="center">
+            <a href="https://www.npmjs.com/package/my-doc-jsx"><img src="https://img.shields.io/npm/v/my-doc-jsx.svg" alt="Version"></a>
+            <a href="https://www.npmjs.com/package/my-doc-jsx"><img src="https://img.shields.io/npm/dm/my-doc-jsx.svg" alt="Downloads"></a>
+            <a href="https://www.npmjs.com/package/my-doc-jsx"><img src="https://img.shields.io/npm/l/my-doc-jsx.svg" alt="License"></a>
+        </p>my-doc-jsx（以下简称docjsx）是一个使用jsx书写文档的工具，并支持多种形式的文档转换。docjsx主要特点有：
 
 *   0.使用jsx语法编写文档
 *   1.较好的语义化文档编写格式
@@ -169,6 +173,13 @@ test();
 <p><strong>加粗</strong>显示</p>
 ```
 
+### code
+定义代码展示，被标记的词语会高亮显示。
+
+```javascript
+<p><code>加粗</code>显示</p>
+```
+
 
 
 # 格式转换
@@ -189,7 +200,17 @@ var htmlDoc = myDocJsx.convert(jsxDoc)
 ```
 这样就将jsx文档转为html文档。
 
-### 使用插件
+目前仅支持chrome浏览器，未来会扩充浏览器的兼容性。
+
+<table cellspacing="1" style="margin: 0 auto;font-size: 14px;background-color: #f9f9f9;color: #036;padding: 3px;border-radius: 4px;border: 1px solid rgba(220, 220, 220, .5);">
+    <colgroup width="100" span="1" align="center"></colgroup>
+    <tr style="height: 30px;">
+        <th align="center">Chrome</td>
+    </tr>
+    <tr style="color: #000;line-height: 28px;font-weight: bold;">
+        <td align="center" style="background-color: #60d848">√</td>
+    </tr>
+</table>### 使用插件
 如果需要使用插件，则需要将插件的js文件，使用usePlugin函数将插件注册到docjsx中：
 
 ```javascript

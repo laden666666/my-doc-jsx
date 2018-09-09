@@ -50,11 +50,13 @@ module.exports = function (file, output, format, option) {
                 return
             }
 
+            pluginName = 'my-doc-jsx-plugin-' + pluginName
+
             var Plugin = require(pluginName)
             if(Plugin)
                 myDocJsx.usePlugin(new Plugin)
         } catch (e){
-            console.warn('not find plugin ' + pluginName)
+            console.error('not find plugin ' + pluginName)
         }
 
     })

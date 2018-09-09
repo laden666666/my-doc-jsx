@@ -1,7 +1,8 @@
 <doc>
-    <h1>my-doc-jsx——一个基于jsx的文档书写、文档转换工具</h1>
+    <title>my-doc-jsx——一个基于jsx的文档书写、文档转换工具</title>
 
-    <h2>富文本、office写文档的时代过去了</h2>
+    <h1>现状</h1>
+    <h2>用富文本、office写文档的时代过去了</h2>
     <p>早期，大家都是使用富文本和office写博客，后来大家都改用了markdown，这是因为markdown是一个简单的标记语言。</p>
     <p>使用标记语言，可以让我们的文档（博客）的内容和样式分离，甚至让计算机读懂我们文档的结构，使其将我们的文档任意转换格式。同时使用可扩展的标记语言，能够使用我们自定义的方言，去书写一些格式非常复杂但是具有结构性的内容。 </p>
     <p>因此，在这个时代已经没有人在希望用富文本或者office去写文档，我们要标记语言。</p>
@@ -24,6 +25,9 @@
     </p>
 
     <h1>my-doc-jsx</h1>
+
+    <npm-info version downloads license name="my-doc-jsx"></npm-info>
+
     <p><span>my-doc-jsx（以下简称docjsx）</span>是一个使用jsx书写文档的工具，并支持多种形式的文档转换。docjsx主要特点有：</p>
     <li>0.使用jsx语法编写文档</li>
     <li>1.较好的语义化文档编写格式</li>
@@ -150,6 +154,11 @@ test();`
     <p>用于定义粗体</p>
     <code lang="html">{`<p><strong>加粗</strong>显示</p>`}</code>
 
+
+    <h3>code</h3>
+    <p>定义代码展示，被标记的词语会高亮显示。</p>
+    <code>{`<p><code>加粗</code>显示</p>`}</code>
+
     <h1>格式转换</h1>
     <p>编写好的jsx格式的博客无法直接展示，需要将它们转为其他格式后才能展示出来。docjsx支持将jsx格式书写的文档转为html或者markdown格式，而且可以运行浏览器、nodejs、命令行等多种平台上面。</p>
 
@@ -164,6 +173,9 @@ test();`
         `var htmlDoc = myDocJsx.convert(jsxDoc)`
     }</code>
     <p>这样就将jsx文档转为html文档。</p>
+    
+    <p>目前仅支持chrome浏览器，未来会扩充浏览器的兼容性。</p>
+    <browser-list Chrome/>
 
     <h3>使用插件</h3>
     <p>如果需要使用插件，则需要将插件的js文件，使用<span>usePlugin</span>函数将插件注册到docjsx中：</p>
