@@ -1,6 +1,6 @@
 {
   "name": "my-doc-jsx",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A jsx-based document writing and document conversion tool. Enables us to write documents based on jsx style and render the document as html or markdown format output.",
   "main": "dist/myDocJsx.js",
   "types": "dist/src/index.d.ts",
