@@ -7,6 +7,6 @@ import {MarkdownRender} from '../'
 export class Strong extends InlineNode<MarkdownRender>{
 
     async render(render: MarkdownRender){
-        return ` **${await render.renderInlineNodes(this.childPseudoNodes)}** `;
+        return `**${await render.renderInlineNodes(this.childPseudoNodes)}**`;
     }
 }

@@ -30,8 +30,8 @@ var languages = {
     typescript: Prism.languages.typescript,
 }
 
-function mirror(code, lang) {
-    return Prism.highlight(code, languages[lang])
+function mirror(code, lang='') {
+    return Prism.highlight(code, languages[lang.toString()])
 };
 
 export class Code extends BlockNode<HTMLRender>{

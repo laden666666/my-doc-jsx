@@ -11,7 +11,8 @@ export class P extends BlockNode<MarkdownRender>{
     }
 
     async render(render: MarkdownRender){
-        var str = `${await render.renderInlineNodes(this.childPseudoNodes)}
+        var str = `
+${await render.renderInlineNodes(this.childPseudoNodes)}
 
 `;
         return str;
