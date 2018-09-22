@@ -8,11 +8,7 @@
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "doc": "docjsx c -p api md ./doc-jsx/README.jsx ./",
-    "mypublish": "git push origin develop && git checkout 
-
-    ---------------------
-    
-    本文来自 木_凌 的CSDN 博客 ，全文地址请点击：https://blog.csdn.net/u014540717/article/details/54314126?utm_source=copy  master && git merge develop && git push origin master && git branch develop && nrm use npm && npm publish && nrm use taobao",
+    "mypublish": "git push origin develop && git checkout master && git merge develop && git push origin master && git branch develop && nrm use npm && npm publish && nrm use taobao",
     "test": "cross-env BABEL_ENV=test karma start"
   },
   "bin": {
