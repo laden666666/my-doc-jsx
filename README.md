@@ -1,9 +1,4 @@
 <h1 align="center">my-doc-jsx——一个基于jsx的文档书写、文档转换工具</h1>
-<p class="mydoc_api_npm-info" align="center">
-            <a href="https://www.npmjs.com/package/my-doc-jsx"><img src="https://img.shields.io/npm/v/my-doc-jsx.svg" alt="Version"></a>
-            <a href="https://www.npmjs.com/package/my-doc-jsx"><img src="https://img.shields.io/npm/dm/my-doc-jsx.svg" alt="Downloads"></a>
-            <a href="https://www.npmjs.com/package/my-doc-jsx"><img src="https://img.shields.io/npm/l/my-doc-jsx.svg" alt="License"></a>
-        </p>
 
 # 现状
 
