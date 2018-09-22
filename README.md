@@ -1,5 +1,12 @@
 <h1 align="center">my-doc-jsx——一个基于jsx的文档书写、文档转换工具</h1>
+<p class="mydoc_api_npm-info" align="center">
+            <a href="https://www.npmjs.com/package/my-doc-jsx"><img src="https://img.shields.io/npm/v/my-doc-jsx.svg" alt="Version"></a>
+            <a href="https://www.npmjs.com/package/my-doc-jsx"><img src="https://img.shields.io/npm/dm/my-doc-jsx.svg" alt="Downloads"></a>
+            <a href="https://www.npmjs.com/package/my-doc-jsx"><img src="https://img.shields.io/npm/l/my-doc-jsx.svg" alt="License"></a>
+        </p>
+
 # 现状
+
 ## 用富文本、office写文档的时代过去了
 
 早期，大家都是使用富文本和office写博客，后来大家都改用了markdown，这是因为markdown是一个简单的标记语言。
@@ -9,6 +16,7 @@
 
 
 因此，在这个时代已经没有人在希望用富文本或者office去写文档，我们要标记语言。
+
 
 
 ## markdown、xml？还是其他标记语言
@@ -29,6 +37,7 @@
 
 
 
+
 # my-doc-jsx
 <p class="mydoc_api_npm-info" align="center">
             <a href="https://www.npmjs.com/package/my-doc-jsx"><img src="https://img.shields.io/npm/v/my-doc-jsx.svg" alt="Version"></a>
@@ -44,9 +53,11 @@ my-doc-jsx（以下简称docjsx）是一个使用jsx书写文档的工具，并�
 *   3.可以浏览器、nodejs、cli等多种平台上转换文档
 *   4.支持自定义插件，可以扩展标签
 
+
 # 如何用docjsx书写文档
 
 docjsx有着接近html的标签系统，每个段落都需要用标签标记起来，因此他不像markdown那样随意，格式上更加清晰整齐；同时他有着markdown一样的书写格式，他不像html那样层层嵌套，docjsx要求每个段落必须是并列关系，不能嵌套。
+
 
 ## 根标签
 
@@ -66,9 +77,11 @@ docjsx有着接近html的标签系统，每个段落都需要用标签标记起�
 <h2>二级标签</h2>
 ```
 
+
 ## 块级标签
 
 定义段落的标签我们称之为块级标签，参考html中的块级标签，块级标签不能嵌套，系统提供的块级标签有：
+
 
 ### h1到h3
 
@@ -81,6 +94,7 @@ docjsx有着接近html的标签系统，每个段落都需要用标签标记起�
 <h4>这是一个四级标题</h4>
 ```
 
+
 ### nav
 
 定义菜单
@@ -88,6 +102,7 @@ docjsx有着接近html的标签系统，每个段落都需要用标签标记起�
 ```html
 <nav/>
 ```
+
 
 ### p
 
@@ -97,6 +112,7 @@ docjsx有着接近html的标签系统，每个段落都需要用标签标记起�
 <p>这是一段话</p>
 ```
 
+
 ### img
 
 定义图片，使用src属性定义
@@ -104,6 +120,7 @@ docjsx有着接近html的标签系统，每个段落都需要用标签标记起�
 ```html
 <img src="url" />
 ```
+
 
 ### blockquote
 
@@ -114,6 +131,7 @@ docjsx有着接近html的标签系统，每个段落都需要用标签标记起�
 here is a long quotation here is a long quotation here is a long quotation
 here is a long quotation here is a long quotation here is a long quotation.</blockquote>
 ```
+
 
 ### code
 
@@ -137,6 +155,7 @@ function test(){
 test();
 ```
 
+
 ### li
 
 定义列表。
@@ -147,6 +166,7 @@ test();
 <li>2.test3</li>
 <li>3.test4</li>
 ```
+
 
 ### table
 
@@ -173,9 +193,11 @@ test();
 ```
 
 
+
 ## 行内标签
 
 定义段落中的词语的标签我们称之为行内标签，参考html中的行内标签，块级标签可以嵌套内标标签，但是行内标签不能嵌套块级标签，系统提供的块级标签有：
+
 
 ### a
 
@@ -185,6 +207,7 @@ test();
 <p>点击可跳转<a href="http://www.baidu.com">百度</a></p>
 ```
 
+
 ### span
 
 用于定义词语的标记，被标记的词语会高亮显示。
@@ -193,6 +216,7 @@ test();
 <p>高亮显示<span>docjsx</span></p>
 ```
 
+
 ### strong
 
 用于定义粗体
@@ -200,6 +224,7 @@ test();
 ```html
 <p><strong>加粗</strong>显示</p>
 ```
+
 
 ### code
 
@@ -211,9 +236,11 @@ test();
 
 
 
+
 # 格式转换
 
 编写好的jsx格式的博客无法直接展示，需要将它们转为其他格式后才能展示出来。docjsx支持将jsx格式书写的文档转为html或者markdown格式，而且可以运行浏览器、nodejs、命令行等多种平台上面。
+
 
 ## 浏览器环境和nodejs环境转换
 
@@ -249,6 +276,7 @@ var htmlDoc = myDocJsx.convert(jsxDoc)
     </table>
 </center>
 
+
 ### 使用插件
 
 如果需要使用插件，则需要将插件的js文件，使用usePlugin函数将插件注册到docjsx中：
@@ -264,28 +292,34 @@ myDocJsx.usePlugin(myDocJsxPluginAPI)
 var htmlDoc = myDocJsx.convert(jsxDoc)
 ```
 
+
 ### myDocJsx.convert函数
 
 转换函数，将jsx字符串转换为指定的文档格式输出。
+
 
 #### 参数列表
 |参数名|参数类型|说明|
 |----|----|----|
 |jsxStr|string|jsx字符串|
 |option|Object|转换的配置。主要配置有：format，转换的格式配置，支持“HTML”和“MARKDOWN”两种|
+
 #### 返回值
 |参数类型|说明|
 |----|----|
 |$Promise&lt;String&gt;|转换好的指定格式的文档|
 
+
 ### myDocJsx.usePlugin函数
 
 使用usePlugin函数注册插件。
+
 
 #### 参数列表
 |参数名|参数类型|说明|
 |----|----|----|
 |plugin|Plugin|注册的插件|
+
 
 
 ## cli命令行
@@ -301,6 +335,7 @@ docjsx具体语法是:
 ```javascript
 docjsx [options] [command]
 ```
+
 ### convert命令
 
 将jsx格式的文档转化为指定的格式。
@@ -314,12 +349,14 @@ convert|c [options] <format> <file> <output>
 ```javascript
 docjsx c html ./doc-jsx/README.jsx ./
 ```
+
 #### 参数列表
 |参数名|说明|
 |----|----|
 |format|转化的格式，支持html和md两种格式|
 |file|需要转换的文件|
 |output|转换成功后文件保存的目录|
+
 #### options
 |option名|说明|
 |----|----|
@@ -328,10 +365,13 @@ docjsx c html ./doc-jsx/README.jsx ./
 
 
 
+
 # 开发
+
 ## 插件开放
 
 插件的api暂未稳定，暂时不对外开放。
+
 
 
 ## 系统插件

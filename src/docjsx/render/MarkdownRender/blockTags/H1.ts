@@ -12,7 +12,8 @@ export class H1 extends BlockNode<MarkdownRender>{
 
     async render(render: MarkdownRender){
         var str =
-            `# ${await render.renderInlineNodes(this.childPseudoNodes)}
+            `
+# ${await render.renderInlineNodes(this.childPseudoNodes)}
 ${await render.renderBlockNodes(this.childNodes)}
 `;
         return str;

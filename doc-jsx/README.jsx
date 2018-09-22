@@ -1,5 +1,7 @@
 <doc>
     <title>my-doc-jsx——一个基于jsx的文档书写、文档转换工具</title>
+    
+    <npm-info version downloads license name="my-doc-jsx"></npm-info>
 
     <h1>现状</h1>
     <h2>用富文本、office写文档的时代过去了</h2>
