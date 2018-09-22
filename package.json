@@ -1,6 +1,6 @@
 {
   "name": "my-doc-jsx",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A jsx-based document writing and document conversion tool. Enables us to write documents based on jsx style and render the document as html or markdown format output.",
   "main": "dist/myDocJsx.js",
   "types": "dist/src/index.d.ts",
@@ -8,6 +8,7 @@
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "doc": "docjsx c -p api md ./doc-jsx/README.jsx ./",
+    "mypublish": "git push origin develop && git branch master && git merge develop && git push origin master && git branch develop && nrm use npm && npm publish && nrm use taobao",
     "test": "cross-env BABEL_ENV=test karma start"
   },
   "bin": {
