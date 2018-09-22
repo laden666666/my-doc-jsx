@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
-    "doc": "docjsx c -p api html ./doc-jsx/README.jsx ./ && docjsx c -p api md ./doc-jsx/README.jsx ./",
+    "doc": "docjsx c -p api md ./doc-jsx/README.jsx ./",
     "test": "cross-env BABEL_ENV=test karma start"
   },
   "bin": {
