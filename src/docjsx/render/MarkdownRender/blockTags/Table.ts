@@ -52,7 +52,8 @@ export class Table extends BlockNode<MarkdownRender>{
     async render(render: MarkdownRender){
         var str = `${
             await this.tableTrRender(this.childPseudoNodes, render)
-            }`;
+            }
+`;
         return str;
     }
 }
